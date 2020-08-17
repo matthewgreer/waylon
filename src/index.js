@@ -52,7 +52,8 @@ function startApp() {
     navigator.mediaDevices
       .getUserMedia(constraints)
       .then((stream) => {
-        source = audioCtxt.createMediaStreamSource(stream);
+        let source = audioCtxt.createMediaStreamSource(stream);
+        source.connect(analyser);
         analyser.connect(audioCtxt.destination);
       })
       .catch((err) => console.log("Encountered getUserMedia error: " + err));
