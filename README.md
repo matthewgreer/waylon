@@ -1,4 +1,4 @@
-# Waylon
+# :whale2: WAYLON :whale2:
 
 ## A JavaScript long-term work-in-progress
 
@@ -6,7 +6,7 @@
 
 This app will utilize the WebAudio API to allow users to interact via their microphone. By analyzing the relative pitch (frequency) of audio input, Waylon the Whale will swim up or down as the user varies their vocal pitch.  This is intended as the first step in the development of a uniquely interactive (and hilariously embarrassing) scrolling game.
 
-<img src="https://www.curvingspace.com/wp-content/uploads/2017/06/image_04c63b66.jpg" alt="Dory speaks whale in Finding Nemo" height="100" width="auto">
+<img src="https://www.curvingspace.com/wp-content/uploads/2017/06/image_04c63b66.jpg" alt="Dory speaks whale in Finding Nemo" height="auto" width="600">
 
 > "I can speak whale."
 
@@ -58,7 +58,7 @@ This app will utilize the WebAudio API to allow users to interact via their micr
 
 ### Wireframes
 
-
+![Wireframe for WAYLON Project--Step One](wireframe-waylon.png)
 
 ### Timeline: Primary Step
 * __Day One:__
