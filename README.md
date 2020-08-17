@@ -48,7 +48,7 @@ This app will utilize the WebAudio API to allow users to interact via their micr
     * Through game's theme, encourage exaggerated dynamic use of vocal pitch (frequency) from user (think Dory imitating "whale" language)
 * Server-side computation will likely be heavy
   * To meet this challenge, I'll:
-    * Narrow range of sampled frequencies as much as possible
+    * Narrow range of sampled frequencies (65Hz to 3kHz or narrower)
     * Experiment with low sample rates, since this audio data will not be output
     * Limit iteration where possible
     * Investigate techniques utilized by other programmers for optimizing performance
@@ -59,6 +59,35 @@ This app will utilize the WebAudio API to allow users to interact via their micr
 ### Wireframes
 
 ![Wireframe for WAYLON Project--Step One](wireframe-waylon.png)
+
+### Potential File Structure
+* /dist 
+  * ...
+* /src
+  * app.js
+  * /assets
+    * waylon.svg
+    * bubble.svg
+    * humpback.mp3
+  * /scripts
+    * analyzer.js
+    * bubble.js
+    * util.js
+    * waylon.js
+  * /scss
+    * ...
+* .gitignore
+* index.html
+* node_modules
+* package.json
+* package.lock.json
+* postcss.config.js
+* README.md
+* webpack.common.js
+* webpack.dev.js
+* webpack.prod.js
+
+
 
 ### Timeline: Primary Step
 * __Day One:__
@@ -120,7 +149,8 @@ This app will utilize the WebAudio API to allow users to interact via their micr
   * Submarines
   * Pollution
   * Mobile enemies (orcas, sharks)
-* Distance covered (score) with High Score persistence
+* Distance covered (score)
+  * High Score persistence
 * Hit points or Lives with badges or meter animation
   * Healing items (krill, schools of tiny fish)
 * Need to breathe
