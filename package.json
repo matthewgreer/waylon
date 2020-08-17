@@ -1,0 +1,47 @@
+{
+  "name": "waylon",
+  "version": "1.0.0",
+  "description": "A JavaScript long-term work-in-progress developing a unique scroller game",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "webpack:watch": "webpack --watch --config webpack.dev.js",
+    "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserslist": [
+        "last 1 version",
+        "> 1%",
+        "maintained node versions",
+        "not dead"
+    ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewgreer/waylon.git"
+  },
+  "author": "Matthew Greer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewgreer/waylon/issues"
+  },
+  "homepage": "https://github.com/matthewgreer/waylon#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
+    "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.10.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.1"
+  }
+}
