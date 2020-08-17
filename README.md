@@ -8,7 +8,10 @@ This app will utilize the WebAudio API to allow users to interact via their micr
 
 <img src="https://www.curvingspace.com/wp-content/uploads/2017/06/image_04c63b66.jpg" alt="Dory speaks whale in Finding Nemo" height="auto" width="600">
 
-> "I can speak whale."
+> "Maybe he only speaks whale."<br>
+> "Are you sure you speak whale?"
+##### FINDING NEMO 
+###### &copy; Walt Disney Pictures
 
 ### Primary Development Step MVPs
 * Collection and analysis of user audio input
