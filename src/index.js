@@ -80,8 +80,8 @@ function startApp() {
     if (arr.length === 0) return null;
     let maxVal = arr[0];
     let maxIdx = 0;
-    // exclude highest 156 frequency indices
-    for (let i = 1; i < arr.length - 100; i++) {
+    // exclude highest 1000 frequency indices
+    for (let i = 1; i < arr.length - 1000; i++) {
       if (arr[i] > maxVal) {
         maxIdx = i;
         maxVal = arr[i];
@@ -91,12 +91,29 @@ function startApp() {
   }
 
   const display = document.getElementById("freq");
+  const waylon = document.getElementById("waylon");
+  let currentPitch = 10;
+  let currentPosition = 10;
+
+  const moveWaylon = (newPitch) => {
+    if (newPitch > currentPitch) {
+      currentPosition += 10;
+    } else if (newPitch < currentPitch) {
+      currentPosition -= 10;
+    }
+    if (currentPosition > 500) currentPosition = 500;
+    if (currentPosition < -20) currentPosition = -20;
+    currentPitch = newPitch;
+    return waylon.style.bottom = currentPosition + "px";
+  }
 
   const outputTopFreq = () => {
     if (audioCtxt && audioCtxt.state !== "closed") {
       // start analysing data from audioArray
       analyser.getByteFrequencyData(audioArray);
-      display.textContent = indexOfGreatestFrequency(audioArray);
+      let nextPitch = indexOfGreatestFrequency(audioArray);
+      moveWaylon(nextPitch);
+      display.textContent = nextPitch;
     } else {
       display.textContent = "No audioCtxt";
     }
