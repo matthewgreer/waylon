@@ -50,15 +50,14 @@ function startApp() {
   // create AudioContext. Apparently Safari crashes without << window. >>
   const audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
 
-  // create Analyser node
-  const analyser = audioCtxt.createAnalyser({
-    fftSize: 255,
-    minDecibels: -5,
-    maxDecibels: -1,
-    smoothingTimeConstant: 0.95
-  });
-    // configure buffer array
+  // create & configure Analyser node
+  const analyser = audioCtxt.createAnalyser();
+  analyser.fftSize = 2048;
+  analyser.minDecibels = -50;
+  analyser.smoothingTimeConstant = .5;
+    // create buffer array of length 1/2 fftSize
   let audioArray = new Uint8Array(analyser.frequencyBinCount);
+  
 
   // get audio stream from user microphone
   if (navigator.mediaDevices.getUserMedia) {
@@ -81,7 +80,8 @@ function startApp() {
     if (arr.length === 0) return null;
     let maxVal = arr[0];
     let maxIdx = 0;
-    for (let i = 1; i < arr.length; i++) {
+    // exclude highest 156 frequency indices
+    for (let i = 1; i < arr.length - 100; i++) {
       if (arr[i] > maxVal) {
         maxIdx = i;
         maxVal = arr[i];
