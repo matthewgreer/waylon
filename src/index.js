@@ -19,26 +19,26 @@ const stopApp = () => {
 function startApp() {
   document.removeEventListener("click", startApp);
 
-  // need to manage browsers that don't correctly implement mediaDevices & getUserMedia
-  if (navigator.mediaDevices === undefined) {
-    navigator.mediaDevices = {};
-  }
-  if (navigator.mediaDevices.getUserMedia === undefined) {
-    navigator.mediaDevices.getUserMedia = (constraints) => {
-      const getUserMedia =
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia;
-      if (!getUserMedia) {
-        return Promise.reject(
-          new Error("This browser cannot support this game.")
-        );
-      }
-      return new Promise((resolve, reject) => {
-        getUserMedia.call(navigator, constraints, resolve, reject);
-      });
-    };
-  }
+  // to manage browsers that don't correctly implement mediaDevices & getUserMedia
+  // if (navigator.mediaDevices === undefined) {
+  //   navigator.mediaDevices = {};
+  // }
+  // if (navigator.mediaDevices.getUserMedia === undefined) {
+  //   navigator.mediaDevices.getUserMedia = (constraints) => {
+  //     const getUserMedia =
+  //       navigator.webkitGetUserMedia ||
+  //       navigator.mozGetUserMedia ||
+  //       navigator.msGetUserMedia;
+  //     if (!getUserMedia) {
+  //       return Promise.reject(
+  //         new Error("This browser cannot support this game.")
+  //       );
+  //     }
+  //     return new Promise((resolve, reject) => {
+  //       getUserMedia.call(navigator, constraints, resolve, reject);
+  //     });
+  //   };
+  // }
 
   // create AudioContext. Apparently Safari crashes without << window. >>
   const audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
@@ -68,7 +68,7 @@ function startApp() {
   let audioArray = new Uint8Array(bufferLength);
 
   // get frequency data from audioArray
-  analyser.getByteFrequencyData(audioArray);
+  // analyser.getByteFrequencyData(audioArray);
 
   // to get index with greatest value
   function indexOfGreatestFrequency(arr) {
@@ -78,7 +78,7 @@ function startApp() {
     for (let i = 1; i < arr.length; i++) {
       if (arr[i] > maxVal) {
         maxIdx = i;
-        max = arr[i];
+        maxVal = arr[i];
       }
     }
     return maxIdx;
@@ -88,6 +88,7 @@ function startApp() {
 
   const outputTopFreq = () => {
     if (audioCtxt && audioCtxt.state !== "closed") {
+      analyser.getByteFrequencyData(audioArray);
       display.textContent = indexOfGreatestFrequency(audioArray);
     } else {
       display.textContent = "No audioCtxt";
