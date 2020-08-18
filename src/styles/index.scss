@@ -1,3 +1,13 @@
+h1, h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  color: darkblue
+}
+
+h3 {
+  padding-left: 10px;
+}
+
 button {
   height: 50px;
   width: 100px;
@@ -7,9 +17,21 @@ button {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-h3 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 60px;
-  color: darkblue;
-  padding-left: 10px;
+main {
+  display: block;
+  position: relative;
+  height: 70%;
+  border: 5px solid darkcyan;
+  background-image: linear-gradient(cyan, darkblue);
+}
+
+.game-container {
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+#waylon {
+  position: absolute;
+  left: 50px;
 }
