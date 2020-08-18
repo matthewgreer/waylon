@@ -22,7 +22,9 @@ const stopApp = () => {
 function startApp() {
   document.removeEventListener("click", startApp);
 
-  // to manage browsers that don't correctly implement mediaDevices & getUserMedia
+  // ==========================================================================
+  // manage browsers that don't correctly implement mediaDevices & getUserMedia
+  // ==========================================================================
   // if (navigator.mediaDevices === undefined) {
   //   navigator.mediaDevices = {};
   // }
@@ -42,12 +44,21 @@ function startApp() {
   //     });
   //   };
   // }
+    // ==========================================================================
+
 
   // create AudioContext. Apparently Safari crashes without << window. >>
   const audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
 
   // create Analyser node
-  const analyser = audioCtxt.createAnalyser();
+  const analyser = audioCtxt.createAnalyser({
+    fftSize: 255,
+    minDecibels: -5,
+    maxDecibels: -1,
+    smoothingTimeConstant: 0.95
+  });
+    // configure buffer array
+  let audioArray = new Uint8Array(analyser.frequencyBinCount);
 
   // get audio stream from user microphone
   if (navigator.mediaDevices.getUserMedia) {
@@ -64,15 +75,6 @@ function startApp() {
   } else {
     console.log("This browser doesn't support getUserMedia!");
   }
-
-  // configure Analyser
-  analyser.fftSize = 2048;
-  const bufferLength = analyser.frequencyBinCount;
-  analyser.smoothingTimeConstant = 0.8;
-  let audioArray = new Uint8Array(bufferLength);
-
-  // get frequency data from audioArray
-  // analyser.getByteFrequencyData(audioArray);
 
   // to get index with greatest value
   function indexOfGreatestFrequency(arr) {
@@ -92,6 +94,7 @@ function startApp() {
 
   const outputTopFreq = () => {
     if (audioCtxt && audioCtxt.state !== "closed") {
+      // start analysing data from audioArray
       analyser.getByteFrequencyData(audioArray);
       display.textContent = indexOfGreatestFrequency(audioArray);
     } else {
