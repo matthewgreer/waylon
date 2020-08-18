@@ -6,15 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
   return document.addEventListener("click", startApp);
 });
 
-// const startButton = document.getElementById("start-button");
-// const stopButton = document.getElementById("stop-button");
-
+// 
+const stopButton = document.getElementById("stop-button");
+stopButton.onclick(
+  stopApp()
+  .then(document.addEventListener("click", startApp))
+);
 const stopApp = () => {
   window.cancelAnimationFrame;
-  audioCtxt.close().then(document.addEventListener("click", startApp));
+  audioCtxt.close();
+
 };
 
-// stopButton.onclick(stopApp);
 
 function startApp() {
   document.removeEventListener("click", startApp);
@@ -52,9 +55,11 @@ function startApp() {
     navigator.mediaDevices
       .getUserMedia(constraints)
       .then((stream) => {
-        let source = audioCtxt.createMediaStreamSource(stream);
+        let source = new AudioNode;
+        source = audioCtxt.createMediaStreamSource(stream);
         source.connect(analyser);
-        analyser.connect(audioCtxt.destination);
+        // audioCtxt.destination results in speaker output
+        // analyser.connect(audioCtxt.destination);
       })
       .catch((err) => console.log("Encountered getUserMedia error: " + err));
   } else {
