@@ -1,3 +1,5 @@
+@import "./reset.scss";
+
 // colors:
 $waylonBlue: #32669E;
 $waylonEye: #5073D6;
@@ -15,13 +17,13 @@ body {
   align-items: center;
   position: relative;
   height: 100vh;
-  background-image: linear-gradient($waylonGray, $bgGray);
+  background-image: linear-gradient($bgGray, #222222);
   box-sizing: border-box;
 }
 
 header {
-  background-color: orange;
-}
+  background-image: linear-gradient(#8699f6,#9ad3f3);
+  width: 80%;}
 
 h1, h3 {
   font-family: Arial, Helvetica, sans-serif;
@@ -50,7 +52,7 @@ main {
   position: relative;
   width: 80%;
   flex-grow: 9;
-  border: 5px solid $waylonBlue;
+  // border: 5px solid $waylonBlue;
   background-image: linear-gradient($shallowBlue, $deepBlue);
 }
 
@@ -146,12 +148,13 @@ main {
 footer {
   width: 80%;
   height: 10vh;
-  background-color:red;
-  border-right-width: 5px;
-  border-left-width: 5px;
-  border-bottom-width: 5px;
-  border-style: solid;
-  border-color: $waylonBlue;
+  background-color: $deepBlue;
+  margin-bottom: 10px;
+  // border-right-width: 5px;
+  // border-left-width: 5px;
+  // border-bottom-width: 5px;
+  // border-style: solid;
+  // border-color: $waylonBlue;
 }
 
 .profile-link-list {
@@ -161,8 +164,15 @@ footer {
 }
 
 .profile-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
   list-style: none;
   text-decoration: none;
+  background-color: $bgGray;
+  width: 20%;
+  border-radius: 20px;
 }
 
 .profile-list-item {
