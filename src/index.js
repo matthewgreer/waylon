@@ -6,21 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
   return document.addEventListener("click", startApp);
 });
 
-// 
-const stopButton = document.getElementById("stop-button");
-stopButton.onclick(
-  stopApp()
-  .then(document.addEventListener("click", startApp))
-);
-const stopApp = () => {
-  window.cancelAnimationFrame;
-  audioCtxt.close();
-
-};
-
 
 function startApp() {
   document.removeEventListener("click", startApp);
+
+
+  document.getElementById("stop-button").onclick = () => {
+    window.cancelAnimationFrame;
+    audioCtxt.close();
+    stream.getTracks().forEach(function (track) {
+      track.stop();
+    });
+    document.addEventListener("click", startApp);
+  };
 
   // ==========================================================================
   // manage browsers that don't correctly implement mediaDevices & getUserMedia
@@ -80,8 +78,8 @@ function startApp() {
     if (arr.length === 0) return null;
     let maxVal = arr[0];
     let maxIdx = 0;
-    // exclude highest 1000 frequency indices
-    for (let i = 1; i < arr.length - 1000; i++) {
+    // exclude highest 500 frequency indices
+    for (let i = 1; i < arr.length; i++) {
       if (arr[i] > maxVal) {
         maxIdx = i;
         maxVal = arr[i];
@@ -97,9 +95,9 @@ function startApp() {
 
   const moveWaylon = (newPitch) => {
     if (newPitch > currentPitch) {
-      currentPosition += 10;
+      currentPosition += 20;
     } else if (newPitch < currentPitch) {
-      currentPosition -= 10;
+      currentPosition -= 20;
     }
     if (currentPosition > 500) currentPosition = 500;
     if (currentPosition < -20) currentPosition = -20;

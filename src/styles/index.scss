@@ -1,10 +1,13 @@
 h1, h3 {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 60px;
-  color: darkblue
+  font-size: 40px;
+  color: darkblue;
+  text-align: center; 
 }
 
 h3 {
+  font-size: 20px;
+  font-weight: 700;
   padding-left: 10px;
 }
 
@@ -35,4 +38,7 @@ main {
   position: absolute;
   left: 150px;
   width: 300px;
+  transition-property: bottom;
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
 }
