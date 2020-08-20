@@ -1,5 +1,4 @@
 import './styles/index.scss';
-// import './scripts/analyser'
 
 document.addEventListener("DOMContentLoaded", () => {
   // get user input to allow mediaDevices call for microphone access
@@ -20,28 +19,32 @@ function startApp() {
     document.addEventListener("click", startApp);
   };
 
+  document.getElementById("start-button").onclick = () => {
+    document.startApp();
+  };
+
   // ==========================================================================
   // manage browsers that don't correctly implement mediaDevices & getUserMedia
   // ==========================================================================
-  // if (navigator.mediaDevices === undefined) {
-  //   navigator.mediaDevices = {};
-  // }
-  // if (navigator.mediaDevices.getUserMedia === undefined) {
-  //   navigator.mediaDevices.getUserMedia = (constraints) => {
-  //     const getUserMedia =
-  //       navigator.webkitGetUserMedia ||
-  //       navigator.mozGetUserMedia ||
-  //       navigator.msGetUserMedia;
-  //     if (!getUserMedia) {
-  //       return Promise.reject(
-  //         new Error("This browser cannot support this game.")
-  //       );
-  //     }
-  //     return new Promise((resolve, reject) => {
-  //       getUserMedia.call(navigator, constraints, resolve, reject);
-  //     });
-  //   };
-  // }
+  if (navigator.mediaDevices === undefined) {
+    navigator.mediaDevices = {};
+  }
+  if (navigator.mediaDevices.getUserMedia === undefined) {
+    navigator.mediaDevices.getUserMedia = (constraints) => {
+      const getUserMedia =
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
+      if (!getUserMedia) {
+        return Promise.reject(
+          new Error("This browser cannot support this game.")
+        );
+      }
+      return new Promise((resolve, reject) => {
+        getUserMedia.call(navigator, constraints, resolve, reject);
+      });
+    };
+  }
     // ==========================================================================
 
 

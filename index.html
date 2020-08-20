@@ -10,18 +10,13 @@
 
   <body>
     <header>
-      <span>
-        <button id="start-button">Start</button>
-      </span>
-      <span>
-        <h1>WAYLON</h1>
-      </span>
-      <!-- display numeric representation of relative pitch -->
+      <button id="start-button">Start</button>
+      <h1>WAYLON</h1>
+      <button id="stop-button">Stop</button>
+      <!-- display numeric representation of relative pitch for testing -->
       <!--   this will be changed to a visualization or deleted later -->
-      <span>
-        <h3 id="freq"></h3>
-        <button id="stop-button">Stop</button>
-      </span>
+      <h3 id="freq"></h3>
+
     </header>
     <main>
       <div class="game-container">
@@ -31,12 +26,23 @@
     <aside id="modal">
       <span id="close">x</span>
       <span class="modal-content">
-        <p>As they began their 5,000 mile seasonal migration from tropical calving waters to their polar feeding zone...</p>
-        <p>Boom!</p>
-        <p>...PetroChem, Inc.'s seismic blasting stunned and disoriented a pod of humpback whales.</p>
-        <p>By the time their ears recovered...</p>
-        <p>...poor baby WAYLON's Momma was nowhere to be seen.</p>
-        <p>Use your whale-song to guide baby Waylon over the long, dangerous journey to the safety of Momma's shadow."</p>
+        <p class="story">As they began their 5,000 mile seasonal migration from tropical calving waters to their polar feeding zone...</p>
+        <p class="boom emphasis">Boom!</p>
+        <p class="story">...<span class="emphasis">PetroChem, Inc.'s seismic blasting</span> stunned and disoriented a pod of humpback whales.
+          By the time their ears had recovered poor baby <span class="emphasis">WAYLON</span>'s Momma was nowhere to be seen.</p><br />
+        <p><span class="emphasis">Speak Whale to guide baby WAYLON along the dangerous journey to the safety of Momma's shadow.</span></p><br />
+        <p class="instructions-heading emphasis">Instructions:</p>
+        <ul>
+          <li class="instructions-text">If asked, please allow the game to access your microphone during play.</li>
+          <li class="instructions-text"><span class="emphasis">Use your voice</span> to control WAYLON's movement.</li>
+          <li class="instructions-text">If you've seen the movie about the missing clownfish, you may already have some idea how to <span class="emphasis">speak Whale</span>. If not, here are the basics:</li>
+          <li class="instructions-text"><span class="emphasis">Rising pitches</span> (low to high on a musical scale) tell WAYLON to <span class="emphasis">swim upwards.</span></li>
+          <li class="instructions-text"><span class="emphasis">Descending pitches</span> (high to low on a musical scale) tell WAYLON to <span class="emphasis">dive downwards.</span></li>
+          <li class="instructions-text"><span class="emphasis">NOTE: WAYLON</span> responds to pitch, <span class="emphasis">not volume.</span>Yelling at baby whales is counterproductive and mean.</li>
+        </ul>
+
+
+
       </span>
     </aside>
     <footer>
