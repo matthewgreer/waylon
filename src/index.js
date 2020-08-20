@@ -90,19 +90,19 @@ function startApp() {
 
   const display = document.getElementById("freq");
   const waylon = document.getElementById("waylon");
-  let currentPitch = 10;
-  let currentPosition = 10;
+  let currentPitch = 0;
+  let currentPosition = 0;
 
   const moveWaylon = (newPitch) => {
     if (newPitch > currentPitch) {
-      currentPosition += 20;
+      currentPosition -= 3;
     } else if (newPitch < currentPitch) {
-      currentPosition -= 20;
+      currentPosition += 3;
     }
-    if (currentPosition > 500) currentPosition = 500;
-    if (currentPosition < -20) currentPosition = -20;
+    if (currentPosition < 0) currentPosition = 0;
+    if (currentPosition > 81) currentPosition = 81;
     currentPitch = newPitch;
-    return waylon.style.bottom = currentPosition + "px";
+    return waylon.style.top = currentPosition + "%";
   }
 
   const outputTopFreq = () => {
