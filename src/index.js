@@ -1,26 +1,37 @@
 import './styles/index.scss';
 
 document.addEventListener("DOMContentLoaded", () => {
+
   // get user input to allow mediaDevices call for microphone access
   return document.addEventListener("click", startApp);
 });
 
-
 function startApp() {
   document.removeEventListener("click", startApp);
+  
+  // hide modal and begin -- eventually have '?' button to re-open
+  const modal = document.getElementById("modal");
+  
+  function closeModal() {
+    modal.style.display = "none";
+  };
+  closeModal();
 
-
+// note: presently the stop button successfully closes the audio context
+//  and stops microphone input
+//  however, the app doesn't seem able to reestablish
   document.getElementById("stop-button").onclick = () => {
     window.cancelAnimationFrame;
     audioCtxt.close();
-    stream.getTracks().forEach(function (track) {
-      track.stop();
-    });
-    document.addEventListener("click", startApp);
+    // stream.getTracks().forEach(function (track) {
+    //   track.stop();
+    // audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
+    // });
+    // document.addEventListener("click", startApp);
   };
 
   document.getElementById("start-button").onclick = () => {
-    document.startApp();
+    return document.startApp();
   };
 
   // ==========================================================================
@@ -49,7 +60,7 @@ function startApp() {
 
 
   // create AudioContext. Apparently Safari crashes without << window. >>
-  const audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
+  let audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
 
   // create & configure Analyser node
   const analyser = audioCtxt.createAnalyser();
