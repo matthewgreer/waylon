@@ -8,6 +8,16 @@
   // $waylonHeight: 10%;
   // max-width: calc($waylonHeight * 2);
   // max-height: calc($woylonWidth / 2);
-  transition-property: top;
+  transition-property: top, transform;
   transition-duration: 0.2s;
+}
+
+#thar-she-blows {
+  position: absolute;
+  left: 30%;
+  height: 10%;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-out;
 }

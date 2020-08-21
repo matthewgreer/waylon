@@ -87,19 +87,36 @@ function startApp() {
 
   const display = document.getElementById("freq");
   const waylon = document.getElementById("waylon");
+  const blow = document.getElementById("thar-she-blows")
   let currentPitch = 0;
   let currentPosition = 0;
+  let currentRotation = 0;
 
   const moveWaylon = (newPitch) => {
     if (newPitch > currentPitch) {
       currentPosition -= 3;
+      currentRotation -= 5;
     } else if (newPitch < currentPitch) {
       currentPosition += 3;
+      currentRotation += 5;
     }
-    if (currentPosition < 0) currentPosition = 0;
-    if (currentPosition > 81) currentPosition = 81;
+    if (currentPosition < 1) {
+      currentPosition = 0;
+      currentRotation = 0;
+      blow.style.opacity = 0.8;
+    } else {
+      blow.style.opacity = 0;
+    };
+    if (currentPosition > 80) { 
+      currentPosition = 80;
+      currentRotation = 0;
+    };
+    if (currentRotation > 45) currentRotation = 45;
+    if (currentRotation < -35) currentRotation = -35;
     currentPitch = newPitch;
-    return waylon.style.top = currentPosition + "%";
+
+    waylon.style.top = currentPosition + "%";
+    waylon.style.transform = `rotate(${currentRotation}deg)`;
   }
 
   const outputTopFreq = () => {
