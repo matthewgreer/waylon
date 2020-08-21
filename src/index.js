@@ -17,23 +17,6 @@ function startApp() {
   };
   closeModal();
 
-// note: presently the stop button successfully closes the audio context
-//  and stops microphone input
-//  however, the app doesn't seem able to reestablish
-  document.getElementById("stop-button").onclick = () => {
-    window.cancelAnimationFrame;
-    audioCtxt.close();
-    // stream.getTracks().forEach(function (track) {
-    //   track.stop();
-    // audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
-    // });
-    // document.addEventListener("click", startApp);
-  };
-
-  document.getElementById("start-button").onclick = () => {
-    return document.startApp();
-  };
-
   // ==========================================================================
   // manage browsers that don't correctly implement mediaDevices & getUserMedia
   // ==========================================================================
@@ -128,12 +111,33 @@ function startApp() {
       display.textContent = nextPitch;
     } else {
       display.textContent = "No audioCtxt";
+      return null;
     }
     window.requestAnimationFrame(outputTopFreq);
   };
 
   outputTopFreq();
+
+  // note: presently the stop button successfully closes the audio context
+  //  and stops microphone input
+  //  however, the app doesn't seem able to restart by clicking start button
+
+  document.getElementById("stop-button").onclick = () => {
+    window.cancelAnimationFrame;
+    audioCtxt.close();
+    // stream.getTracks().forEach(function (track) {
+    //   track.stop();
+    // audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
+    // });
+    // document.addEventListener("click", startApp);
+    // try returning null?
+    return null;
+  };
+
 };
 
+document.getElementById("start-button").onclick = () => {
+  startApp;
+};
 
 
