@@ -101,7 +101,7 @@ function startApp() {
       currentRotation += 5;
     }
     if (currentPosition < 1) {
-      currentPosition = 0;
+      currentPosition = 1;
       currentRotation = 0;
       blow.style.opacity = 0.8;
     } else {
@@ -111,8 +111,8 @@ function startApp() {
       currentPosition = 80;
       currentRotation = 0;
     };
-    if (currentRotation > 45) currentRotation = 45;
-    if (currentRotation < -35) currentRotation = -35;
+    if (currentRotation > 35) currentRotation = 35;
+    if (currentRotation < -25) currentRotation = -25;
     currentPitch = newPitch;
 
     waylon.style.top = currentPosition + "%";
