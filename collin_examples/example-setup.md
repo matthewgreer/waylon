@@ -173,8 +173,8 @@
     },
     ```
 
-12. create `index.scss` in `/src/styles`
+12. create `index.scss` in `./src/styles`
 
-13. create `index.js` in `/src` directory and import style `/src/styles/index.scss`
+13. create `index.js` in `/src` directory and import style `./src/styles/index.scss`
 
 14. create `index.html` and import `dist/main.css` and `dist/main.js` appropriately
