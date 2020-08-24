@@ -102,7 +102,7 @@ function startApp() {
       currentRotation += 5;
     }
     if (currentPosition < 1) {
-      currentPosition = 1;
+      currentPosition = 0;
       currentRotation = 0;
       blow.style.opacity = 0.8;
     } else {
