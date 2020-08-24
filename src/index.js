@@ -1,8 +1,9 @@
 import './styles/index.scss';
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  // get user input to allow mediaDevices call for microphone access
+  // upon loading, user is presented with story/instructions modal(s)
+  //   which they can click through to play. User input is required
+  //   to initiate request for microphone access
   return document.addEventListener("click", startApp);
 });
 
@@ -39,7 +40,7 @@ function startApp() {
       });
     };
   }
-    // ==========================================================================
+  // ==========================================================================
 
 
   // create AudioContext. Apparently Safari crashes without << window. >>
@@ -125,9 +126,10 @@ function startApp() {
       analyser.getByteFrequencyData(audioArray);
       let nextPitch = indexOfGreatestFrequency(audioArray);
       moveWaylon(nextPitch);
-      display.textContent = nextPitch;
+      // uncomment below to display numeric output in top right corner
+      // display.textContent = nextPitch;
     } else {
-      display.textContent = "No audioCtxt";
+      // display.textContent = "No audioCtxt";
       return null;
     }
     window.requestAnimationFrame(outputTopFreq);
@@ -135,26 +137,16 @@ function startApp() {
 
   outputTopFreq();
 
-  // note: presently the stop button successfully closes the audio context
-  //  and stops microphone input
-  //  however, the app doesn't seem able to restart by clicking start button
 
   document.getElementById("stop-button").onclick = () => {
     window.cancelAnimationFrame;
     audioCtxt.close();
-    // stream.getTracks().forEach(function (track) {
-    //   track.stop();
-    // audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
-    // });
-    // document.addEventListener("click", startApp);
-    // try returning null?
-    return null;
   };
 
-};
-
-document.getElementById("start-button").onclick = () => {
-  startApp;
+  document.getElementById("start-button").onclick = () => {
+    startApp();
+  };
+  
 };
 
 
