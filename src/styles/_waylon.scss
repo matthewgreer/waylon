@@ -1,13 +1,7 @@
 #waylon {
   position: absolute;
   left: 15%;
-  width: 20%;
-  // height: 10%;
-  // try to find a way to keep waylon proportionate to both w & h
-  // $waylonWidth: 20%;
-  // $waylonHeight: 10%;
-  // max-width: calc($waylonHeight * 2);
-  // max-height: calc($woylonWidth / 2);
+  width: 20vmin;
   transition-property: top, transform;
   transition-duration: 0.3s;
 }
