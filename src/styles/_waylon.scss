@@ -1,7 +1,7 @@
 #waylon {
   position: absolute;
   left: 15%;
-  width: 20vw;
+  width: 20%;
   height: auto;
   transition-property: top, transform;
   transition-duration: 0.3s;
@@ -9,7 +9,7 @@
 
 #thar-she-blows {
   position: absolute;
-  left: calc(15% + 15vw);
+  left: 25%;
   height: 10%;
   opacity: 0;
   transition-property: opacity;

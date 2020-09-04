@@ -13,74 +13,81 @@
   </head>
 
   <body>
+    <div class="maintain-aspect-ratio">
 
-    <span class="wrapper">
-    <svg width="1200" height="1000" class="aspect-ratio-svg"></svg>
-    <div class="positioner">
-    <div class="aspect-ratio">
-      <div class="board-container">
+      <header>
+        <button id="start-button">Start</button>
+        <img src="./src/images/waylon_blows.png" 
+          id="thar-she-blows" 
+          alt="Waylon exhales mist. Oh, look! A rainbow!"
+        />
+        <img src="./src/images/waylon-title.svg"
+          class="waylon-logo" 
+          alt="Waylon game logo"
+        />
+        <button id="stop-button">Stop</button>
+      </header>
 
-    <header>
-      <button id="start-button">Start</button>
-      <img src="./src/images/waylon_blows.png" id="thar-she-blows" alt="Waylon exhales mist. Oh, look! A rainbow!">
-      <img src="./src/images/waylon-title.svg" class="waylon-logo" alt="Waylon game logo">
-      <button id="stop-button">Stop</button>
-      <!-- display numeric representation of relative pitch for testing -->
-      <!--   this will be changed to a visualization or deleted later -->
-      <h3 id="freq"></h3>
+      <main>
+          <img src="./src/images/waylon_v3.svg" 
+            alt="Waylon, the lost baby humpback whale" 
+            id="waylon"
+          />
+      </main>
 
-    </header>
-    <main>
-      <!-- <div class="game-container"> -->
-        <img src="./src/images/waylon_v3.svg" alt="Waylon, the lost baby humpback whale" id="waylon">
-      <!-- </div> -->
-    </main>
-    <aside id="modal">
-      <!-- eventually, modal will be separated into click-through panels -->
-      <!--  with cute animation to support the storytelling -->
-      <!-- <span id="close">x</span> -->
-      <div class="modal-content">
-        <p class="story">As they began their 5,000 mile seasonal migration from tropical calving waters to their polar feeding zone...</p>
-        <p class="story boom emphasis">Boom!</p>
-        <p class="story">...<span class="emphasis">PetroChem, Inc.'s seismic blasting</span> stunned and disoriented a pod of humpback whales.
-          By the time their ears had recovered poor baby <span class="emphasis">WAYLON</span>'s Momma was nowhere to be seen.</p><br />
-        <p class="story"><span class="emphasis">Speak Whale to guide baby WAYLON along the dangerous journey to the safety of Momma's shadow.</span></p><br />
-        <p class="instructions-heading emphasis">Instructions:</p>
-        <ul class="instructions-list">
-          <li class="instructions-text">If asked, please <span class="emphasis">allow the game to access your microphone</span> during play.</li>
-          <li class="instructions-text"><span class="emphasis">Use your voice</span> to control WAYLON's movement.</li>
-          <li class="instructions-text">If you've seen the movie about the missing clownfish, you may already have some idea how to <span class="emphasis">speak Whale</span>. If not, here are the basics:</li>
-          <li class="instructions-text"><span class="emphasis">Rising pitches</span> (low to high on a musical scale) tell WAYLON to <span class="emphasis">swim upwards.</span></li>
-          <li class="instructions-text"><span class="emphasis">Descending pitches</span> (high to low on a musical scale) tell WAYLON to <span class="emphasis">dive downwards.</span></li>
-          <li class="instructions-text"><span class="emphasis">NOTE: WAYLON</span> responds to <span class="emphasis">pitch, not volume</span>. Yelling at baby whales is unkind and counterproductive.</li>
+      <aside id="modal">
+        <!-- eventually, modal will be separated into click-through panels -->
+        <!--  with cute animation to support the storytelling -->
+        <!-- <span id="close">x</span> -->
+        <div class="modal-content">
+          <p class="story">As they began their 5,000 mile seasonal migration from tropical calving waters to their polar feeding zone...</p>
+          <p class="story boom emphasis">Boom!</p>
+          <p class="story">...<span class="emphasis">PetroChem, Inc.'s seismic blasting</span> stunned and disoriented a pod of humpback whales.
+            By the time their ears had recovered poor baby <span class="emphasis">WAYLON</span>'s Momma was nowhere to be seen.</p><br />
+          <p class="story"><span class="emphasis">Speak Whale to guide baby WAYLON along the dangerous journey to the safety of Momma's shadow.</span></p><br />
+          <p class="instructions-heading emphasis">Instructions:</p>
+          <ul class="instructions-list">
+            <li class="instructions-text">If asked, please <span class="emphasis">allow the game to access your microphone</span> during play.</li>
+            <li class="instructions-text"><span class="emphasis">Use your voice</span> to control WAYLON's movement.</li>
+            <li class="instructions-text">If you've seen the movie about the missing clownfish, you may already have some idea how to <span class="emphasis">speak Whale</span>. If not, here are the basics:</li>
+            <li class="instructions-text"><span class="emphasis">Rising pitches</span> (low to high on a musical scale) tell WAYLON to <span class="emphasis">swim upwards.</span></li>
+            <li class="instructions-text"><span class="emphasis">Descending pitches</span> (high to low on a musical scale) tell WAYLON to <span class="emphasis">dive downwards.</span></li>
+            <li class="instructions-text"><span class="emphasis">NOTE: WAYLON</span> responds to <span class="emphasis">pitch, not volume</span>. Yelling at baby whales is unkind and counterproductive.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <footer>
+        <ul class="profile-link-list">
+          <a class="profile-link" href="https://matthewgreer.github.io/">
+            <li class="profile-list-item">
+              <img src="./src/images/portfolio-logo.png"
+                class="profile-link-image"
+                alt="Profile Logo - a laptop and smartphone"
+              />
+            </li>
+          </a>
+          <a class="profile-link" href="https://github.com/matthewgreer/waylon">
+            <li class="profile-list-item">
+              <img src="./src/images/Octocat.png"
+                class="profile-link-image"
+                alt="GitHub Octocat Logo" 
+              />
+            </li>
+          </a>
+          <a class="profile-link" href="https://www.linkedin.com/in/matthew-greer-dev/">
+            <li class="profile-list-item">
+              <img src="./src/images/linkedin-logo.png" 
+                class="profile-link-image"
+                alt="LinkedIn Logo" 
+              />
+            </li>
+          </a>
         </ul>
-      </div>
-    </aside>
-    <footer>
-      <ul class="profile-link-list">
-        <a class="profile-link" href="">
-          <li class="profile-list-item">
-            <img alt="Profile Logo - a laptop and smartphone" src="./src/images/portfolio-logo.png" class="profile-link-image">
-          </li>
-        </a>
-        <a class="profile-link" href="https://github.com/matthewgreer/waylon">
-          <li class="profile-list-item">
-            <img alt="GitHub Octocat Logo" src="./src/images/Octocat.png" class="profile-link-image">
-          </li>
-        </a>
-        <a class="profile-link" href="https://www.linkedin.com/in/matthew-greer-dev/">
-          <li class="profile-list-item">
-            <img alt="LinkedIn Logo" src="./src/images/linkedin-logo.png" class="profile-link-image">
-          </li>
-        </a>
-      </ul>
-    </footer>
-    <script src="./dist/main.js"></script>
-    
-    </div>
-    </div>
-    </div>
-    </span>
+      </footer>
 
+    </div><!-- maintain-aspect-ratio -->
+      
   </body>
+  <script src="./dist/main.js"></script>
 </html>
