@@ -36,15 +36,6 @@ header {
   width: auto;
 }
 
-h1 {
-  display: inline;
-  font-family: Arial, Helvetica, sans-serif;
-  color: darkblue;
-  text-align: center; 
-  font-weight: 700;
-  font-size: 40px;
-}
-
 button {
   height: 50%;
   width: 10%;
@@ -53,7 +44,7 @@ button {
   font-size: 3.2vmin;
   font-family: Arial, Helvetica, sans-serif;
   outline: none;
-  border-radius: 45%;
+  border-radius: 50%;
 }
 
 button:hover {
@@ -93,7 +84,7 @@ footer {
   width: 20%;
   border-top: 2px solid #ffffff;
   border-bottom: 2px solid #000000;
-  border-radius: 45%;
+  border-radius: 50%;
   opacity: .7;
 }
 
