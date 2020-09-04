@@ -1,7 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   height: 100vh;
@@ -9,15 +9,39 @@ body {
   box-sizing: border-box;
   padding-top: 10px;
   padding-bottom: 5vh;
+  border: solid 5px black;
+}
+
+.aspect-ratio {
+  top: 10px;
+  position: relative;
+  width: 80%;
+  padding-top: 66.67%;
+  border: solid 5px purple;
+}
+
+.board-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: solid 5px green;
 }
 
 header {
   background-image: linear-gradient(#8699f6,#9ad3f3);
-  width: 80%;
+  width: 100%;
   height: 10%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border: solid 5px black;
+}
+
+.waylon-logo {
+  height: 100%;
+  width: auto;
 }
 
 h1, h3 {
@@ -56,24 +80,27 @@ button:hover {
 }
 
 main {
+  border: solid 5px yellow;
   display: block;
   position: relative;
-  width: 80%;
+  // width: 80%;
   height: 80%;
   background-image: linear-gradient($shallowBlue, $deepBlue);
-}
-
-.game-container {
-  height: 100%;
+  // height: 100%;
   width: 100%;
-  position: relative;
   overflow: hidden;
 }
 
+.game-container {
+  position: relative;
+  border: solid 5px orange;
+}
+
 footer {
-  width: 80%;
+  width: 100%;
   height: 10%;
   background-color: $deepBlue;
+  border: solid 5px red;
 }
 
 .profile-link-list {

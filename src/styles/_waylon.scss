@@ -1,14 +1,15 @@
 #waylon {
   position: absolute;
   left: 15%;
-  width: 20vmin;
+  width: 20vw;
+  height: auto;
   transition-property: top, transform;
   transition-duration: 0.3s;
 }
 
 #thar-she-blows {
   position: absolute;
-  left: 30%;
+  left: calc(15% + 15vw);
   height: 10%;
   opacity: 0;
   transition-property: opacity;
