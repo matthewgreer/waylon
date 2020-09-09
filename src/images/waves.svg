@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 2400 40" style="enable-background:new 0 0 2400 40;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{fill:url(#Ocean_2_);}
+	.st2{fill:url(#Sky_2_);}
+</style>
+<g id="Guides" class="st0">
+</g>
+<g id="Ocean">
+	<linearGradient id="Ocean_2_" gradientUnits="userSpaceOnUse" x1="1200" y1="4.834" x2="1200" y2="40">
+		<stop  offset="0" style="stop-color:#5FFFFF"/>
+		<stop  offset="1" style="stop-color:#5AFFFF"/>
+	</linearGradient>
+	<path id="Ocean_1_" class="st1" d="M2250,5.5c-75,0.86-75,0.86-150,0s-75-0.86-150,0s-75,0.86-150,0s-75-0.86-150,0s-75,0.86-150,0
+		s-74.94-0.85-150,0c-75,0.85-75,0.85-149.03-0.01c-76.54-0.89-76.87-0.85-150.97,0c-75,0.86-75,0.86-150,0s-75-0.86-150,0
+		s-75,0.86-150,0s-75-0.86-150,0s-75,0.86-150,0s-75-0.86-150,0s-75.24,0.86-150,0V40h2400V5.49C2325.14,4.61,2324.67,4.64,2250,5.5
+		z"/>
+</g>
+<g id="Sky">
+	<linearGradient id="Sky_2_" gradientUnits="userSpaceOnUse" x1="1200" y1="35.2521" x2="1200" y2="0">
+		<stop  offset="0" style="stop-color:#9AD7F3"/>
+		<stop  offset="1" style="stop-color:#9AD3F3"/>
+	</linearGradient>
+	<path id="Sky_1_" class="st2" d="M150,20c75-20,75-20,150,0s75,20,150,0s75-20,150,0s75,20,150,0s75-20,150,0s75,20,149.98-0.17
+		C1124.91-0.33,1125,0,1201,20c74.13,19.51-76-19.75-1,0.25c74.76,19.94,75,20,150,0s75-20,150,0s75,20,150,0s75-20,150,0
+		s75,20,150,0s75-20,150,0s75,20,150,0c74.67-19.91,75.14-20.5,150-0.27V0H0v20C74.76,39.94,75,40,150,20z"/>
+</g>
+</svg>

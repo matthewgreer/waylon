@@ -23,6 +23,7 @@ body {
 }
 
 header {
+  position: relative;
   background-image: linear-gradient(#8699f6,#9ad3f3);
   width: 100%;
   height: 10%;
@@ -52,11 +53,28 @@ button:hover {
   background-color: $shallowBlue;
 }
 
+.waves-container {
+  position: relative;
+  width: 100%;
+  height: 4%;
+  overflow: hidden;
+}
+
+#waves {
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  // width: ;
+  height: 100%;
+  left: 0;
+  bottom: 0px;
+}
+
 main {
   display: block;
   position: relative;
   width: 100%;
-  height: 80%;
+  height: 76%;
   background-image: linear-gradient($shallowBlue, $deepBlue);
   overflow: hidden;
 }
