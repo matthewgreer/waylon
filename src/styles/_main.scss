@@ -11,15 +11,15 @@ body {
   padding-bottom: 5vh;
 }
 
-.maintain-aspect-ratio { /* aspect ratio 6w:5h | 6/5 = 1.2 */
+.maintain-aspect-ratio { 
   position: absolute;
   width: 100vw; 
-  max-width: 120vh; /* (1100 * 1.2 = 120) */
+  max-width: 120vh; 
   max-height: 99vh;
-  height: 82.5vw; /* (99 / 1.2 = 82.5) */
+  height: 82.5vw;
   margin: auto;
-  top:0;bottom:0; /* vertical center */
-  left:0;right:0; /* horizontal center */
+  top:0;bottom:0;
+  left:0;right:0;
 }
 
 header {
