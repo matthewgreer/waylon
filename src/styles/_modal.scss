@@ -1,6 +1,5 @@
-#modal {
+aside {
   position: fixed;
-  display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
@@ -11,6 +10,14 @@
   height: 100%;
   overflow: hidden;
   background-color: rgba(0,0,80,0.5); 
+}
+
+#modal-shown {
+  display: flex;
+}
+
+#modal-hidden {
+  display: none;
 }
 
 .modal-content {

@@ -4,20 +4,43 @@ document.addEventListener("DOMContentLoaded", () => {
   // upon loading, user is presented with story/instructions modal(s)
   //   which they can click through to play. User input is required
   //   to initiate request for microphone access
-  return document.addEventListener("click", startApp);
+  return document.addEventListener("click", closeModal);
 });
 
-function startApp() {
-  document.removeEventListener("click", startApp);
-  
-  // hide modal and begin -- eventually have '?' button to re-open
-  const modal = document.getElementById("modal");
-  
-  function closeModal() {
-    modal.style.display = "none";
-  };
-  closeModal();
+const modal = document.getElementById("modal-shown");
+const stopButton = document.getElementById("stop-button");
+const startButton = document.getElementById("start-button");
+let audioCtxt
 
+// hide modal and begin -- eventually have '?' button to re-open
+function closeModal() {
+  modal.id = "modal-hidden";
+  audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
+  return startApp(audioCtxt);
+};
+
+function showModal(){
+  modal.id = "modal-shown";
+  return document.addEventListener("click", closeModal);
+};
+
+function stopApp(audioContext){
+  if (audioContext === undefined) {
+    return showModal()
+  } else if (audioContext.state === 'running') {
+    audioContext.close().then(
+      showModal());
+  };
+  window.cancelAnimationFrame;
+};
+
+stopButton.onclick = stopApp(audioCtxt);
+startButton.onclick = showModal();
+
+function startApp(audioCtxt) {
+
+  document.removeEventListener("click", closeModal);
+  
   // ==========================================================================
   // manage browsers that don't correctly implement mediaDevices & getUserMedia
   // ==========================================================================
@@ -44,17 +67,17 @@ function startApp() {
 
 
   // create AudioContext. Apparently Safari crashes without << window. >>
-  let audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
+  // let audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
 
   // create & configure Analyser node
   const analyser = audioCtxt.createAnalyser();
   analyser.fftSize = 2048;
   analyser.minDecibels = -50;
   analyser.smoothingTimeConstant = .5;
-    // create buffer array of length 1/2 fftSize
+
+  // create buffer array of length 1/2 fftSize
   let audioArray = new Uint8Array(analyser.frequencyBinCount);
   
-
   // get audio stream from user microphone
   if (navigator.mediaDevices.getUserMedia) {
     const constraints = { audio: true };
@@ -86,7 +109,7 @@ function startApp() {
     return maxIdx;
   }
 
-  const display = document.getElementById("freq");
+  // const display = document.getElementById("freq");
   const waylon = document.getElementById("waylon");
   const blow = document.getElementById("thar-she-blows")
   let currentPitch = 0;
@@ -136,16 +159,6 @@ function startApp() {
   };
 
   outputTopFreq();
-
-
-  document.getElementById("stop-button").onclick = () => {
-    window.cancelAnimationFrame;
-    audioCtxt.close();
-  };
-
-  document.getElementById("start-button").onclick = () => {
-    startApp();
-  };
   
 };
 
