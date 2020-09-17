@@ -12,7 +12,7 @@ const Util = {
 
   // Determine speed (the length of the vector [x, y])
   speed(vector) {
-    return Util.distance([0, 0], vector)
+    return Util.distance([0, 0], vector);
   },
 
   // Scale the speed of a vector [x, y] by a magnitude
