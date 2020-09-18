@@ -29,7 +29,7 @@ WhiteShark.prototype.draw = (ctx) => {
   const x = this.position[0];
   const y = this.position[1];
   
-  // Shark is x:862, y:371 at scale: 1
+  // Shark is x:862, y:371 at scale 1:1
 
 
   // This bit is vestigial code, leftover from experimentation
