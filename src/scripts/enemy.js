@@ -1,4 +1,4 @@
-const Util = require("./util");
+// const Util = require("./util");
 
 function Enemy(options) {
   this.position = options.position;

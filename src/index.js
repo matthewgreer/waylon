@@ -1,4 +1,5 @@
 import './styles/index.scss';
+const Enemy = require("./scripts/enemy");
 
 document.addEventListener("DOMContentLoaded", () => {
   // upon loading, user is presented with story/instructions modal(s)

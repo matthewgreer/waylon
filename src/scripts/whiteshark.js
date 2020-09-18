@@ -1,14 +1,51 @@
-const drawShark = (x, y, scale) => {
-  const ctx = document.getElementById("canvas").getContext("2d");
+const Enemy = require("./enemy");
+const Util = require("./util");
 
-  // Shark is x:862, y:371 at scale:1
+function WhiteShark(options) {
+  options = options || {};
 
-  // Clear by redrawing the ocean
-  const oceanGradient = ctx.createLinearGradient(0, 0, 0, 1080);
-  oceanGradient.addColorStop(0, "#5AFFFF");
-  oceanGradient.addColorStop(1, "#000050");
-  ctx.fillStyle = oceanGradient;
-  ctx.fillRect(0, 0, 1920, 1080);
+  // these attributes are assigned at creation by options.game
+    // this.game
+    // this.position assigned randomly by .randomDepth()
+    // this.sizeScale assigned randomly by .randomScale()
+    // this.velocity assigned randomly by .randomVelocity()
+  
+  this.hSize = options.sizeScale * 862;
+  this.vSize = options.sizeScale * 371;
+  this.box = [
+    this.position[0],
+    this.position[0] + hSize,
+    this.position[1],
+    this.position[1] + vSize,
+  ];
+
+  Enemy.call(this, options);
+}
+
+Util.inherits(WhiteShark, Enemy)
+
+WhiteShark.prototype.draw = (ctx) => {
+  
+  const x = this.position[0];
+  const y = this.position[1];
+  
+  // Shark is x:862, y:371 at scale: 1
+
+
+  // This bit is vestigial code, leftover from experimentation
+              // const ctx = document.getElementById("canvas").getContext("2d");
+
+              // Clear by redrawing the ocean, now handled by this.game.draw
+              // const oceanGradient = ctx.createLinearGradient(0, 0, 0, 1080);
+              // oceanGradient.addColorStop(0, "#5AFFFF");
+              // oceanGradient.addColorStop(1, "#000050");
+              // ctx.fillStyle = oceanGradient;
+              // ctx.fillRect(0, 0, 1920, 1080);
+
+              
+  // Below follows the instructions for drawing the various parts of
+  //   a WhiteShark instance, in layered order from furthest to nearest on
+  //   the surface of the canvas.
 
   // Shark - Right Pelvic Fin
   ctx.fillStyle = "#97A5AD";
@@ -4033,42 +4070,47 @@ const drawShark = (x, y, scale) => {
   ctx.stroke();
 };
 
-// document.addEventListener(
-//   "DOMContentLoaded",
-//   () => {
-//     let x = 1920;
-//     let i = 0;
-//     let y = Math.floor(Math.random() * 650);
-//     let prevY = 0;
-//     let reps = 8;
-//     let speed = Math.floor(Math.random() * 5) + 3;
-//     let scale = Math.random();
 
-//     let tick = setInterval(() => {
-//       drawShark(x, y, scale);
+// This code is vestigial, leftover from experimentation
+// It is left here in case I need to reference it
+              // document.addEventListener(
+              //   "DOMContentLoaded",
+              //   () => {
+              //     let x = 1920;
+              //     let i = 0;
+              //     let y = Math.floor(Math.random() * 650);
+              //     let prevY = 0;
+              //     let reps = 8;
+              //     let speed = Math.floor(Math.random() * 5) + 3;
+              //     let scale = Math.random();
 
-//       const stop = () => {
-//         clearInterval(tick);
-//       };
+              //     let tick = setInterval(() => {
+              //       drawShark(x, y, scale);
 
-//       if (i >= reps) {
-//         stop();
-//       }
+              //       const stop = () => {
+              //         clearInterval(tick);
+              //       };
 
-//       if (x <= -862) {
-//         x = 1920;
-//         i = i + 1;
-//         speed = Math.floor(Math.random() * 5) + 3;
-//         scale = Math.random();
-//         if (prevY < 300) {
-//           y = prevY + Math.floor(Math.random() * 350);
-//         } else {
-//           y = Math.floor(Math.random() * 400);
-//         }
-//       }
+              //       if (i >= reps) {
+              //         stop();
+              //       }
 
-//       x = x - speed;
-//     });
-//   },
-//   200
-// );
+              //       if (x <= -862) {
+              //         x = 1920;
+              //         i = i + 1;
+              //         speed = Math.floor(Math.random() * 5) + 3;
+              //         scale = Math.random();
+              //         if (prevY < 300) {
+              //           y = prevY + Math.floor(Math.random() * 350);
+              //         } else {
+              //           y = Math.floor(Math.random() * 400);
+              //         }
+              //       }
+
+              //       x = x - speed;
+              //     });
+              //   },
+              //   200
+              // );
+
+module.exports = WhiteShark;
