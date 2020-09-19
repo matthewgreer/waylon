@@ -1,3 +1,5 @@
+// Waylon model is x:466, y:233 at 1:1 scale
+
 function Waylon(options) {
   this.ctx = options.ctx;
 }
@@ -7,7 +9,6 @@ function Waylon(options) {
 // const drawWaylon = (x, y, scale) => {
 //   const ctx = document.getElementById("canvas").getContext("2d");
 
-//   // Waylon is x:466, y:233 at 1:1 scale
 
 //   // Clear by redrawing the ocean
 //   const oceanGradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);

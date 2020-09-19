@@ -1,6 +1,8 @@
 const Enemy = require("./enemy");
 const Util = require("./util");
 
+// WhiteShark model is x:862, y:371 at scale 1:1
+
 function WhiteShark(options) {
   options = options || {};
 
@@ -29,9 +31,7 @@ WhiteShark.prototype.draw = (ctx) => {
   const x = this.position[0];
   const y = this.position[1];
   
-  // Shark is x:862, y:371 at scale 1:1
-
-
+  
   // This bit is vestigial code, leftover from experimentation
               // const ctx = document.getElementById("canvas").getContext("2d");
 
