@@ -3,6 +3,7 @@ const Enemy = require("./enemy");
 const Waylon = require("./waylon");
 const WhiteShark = require("./whiteshark");
 
+
 /*
 NOTES: 
   ctx created in index.js
@@ -20,7 +21,9 @@ function Game() {
   this.dimensions = [1200, 1000]
   this.enemies = [];
   this.waylon;
-  // this.bubbles = [];
+  this.spray;
+  this.waves;
+  this.bubbles = [];
 
   // this.startGame
 }
