@@ -5,14 +5,6 @@ function FreqAnalyzer(ctx) {
   this.audioArray;
 };
 
-
-
-// // THIS FILE IS JUST COPY/PASTED FROM ORIGINAL CSS GAME LOGIC
-// // I PLAN TO:
-// //  turn it into a class to create an object instance of FreqAnalyzer
-// //  make its sole function to collect mic input and output top freq
-
-
 FreqAnalyzer.prototype.getMediaDevices = function getMediaDevices() {
   if (navigator.mediaDevices === undefined) {
     navigator.mediaDevices = {};
@@ -75,7 +67,6 @@ FreqAnalyzer.prototype.indexOfGreatestFrequency = function indexOfGreatestFreque
   if (arr.length === 0) return null;
   let maxVal = arr[0];
   let maxIdx = 0;
-  // exclude highest 500 frequency indices
   for (let i = 1; i < arr.length; i++) {
     if (arr[i] > maxVal) {
       maxIdx = i;
