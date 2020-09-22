@@ -1,525 +1,337 @@
-function tharSheBlows(ctx) {
-  this.ctx = ctx;
-
+function tharSheBlows(options) {
+  this.ctx = options.ctx;
+  this.sizeScale = options.sizeScale;
+  this.position = options.position;
+  this.breathOpacity = 0.7;
+  this.rainbowOpacity = 0.3;
 }
 
-tharSheBlows.prototype.draw = function draw(ctx, scale) {
-  const breathOpacity = 0.6;
-  const rainbowOpacity = 0.1;
-
-  // tharsheblows/breath
-
+tharSheBlows.prototype.draw = function draw() {
+  
+  const ctx = this.ctx;
+  const x = this.position[0];
+  let y = this.position[1];
+  const sizeScale = this.sizeScale;
+  const inverseScale = 1 - sizeScale;
+  
+  y += 100 * inverseScale;
   ctx.beginPath();
-  ctx.moveTo(x + 326 * scale, 104 - scale * 93);
+  ctx.moveTo(x + 312 * sizeScale, y + -100 * sizeScale);
   ctx.bezierCurveTo(
-    x + 318 * scale,
-    104 - scale * 100,
-    x + 306 * scale,
-    104 - scale * 101,
-    x + 297 * scale,
-    104 - scale * 95
+    x + 320 * sizeScale,
+    y + -100 * sizeScale,
+    x + 327 * sizeScale,
+    y + -95 * sizeScale,
+    x + 328 * sizeScale,
+    y + -89 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 297 * scale,
-    104 - scale * 94,
-    x + 296 * scale,
-    104 - scale * 94,
-    x + 295 * scale,
-    104 - scale * 94
-  );
-  ctx.bezierCurveTo(
-    x + 294 * scale,
-    104 - scale * 93,
-    x + 293 * scale,
-    104 - scale * 94,
-    x + 292 * scale,
-    104 - scale * 94
-  );
-  ctx.bezierCurveTo(
-    x + 285 * scale,
-    104 - scale * 97,
-    x + 276 * scale,
-    104 - scale * 97,
-    x + 268 * scale,
-    104 - scale * 94
-  );
-  ctx.bezierCurveTo(
-    x + 264 * scale,
-    104 - scale * 93,
-    x + 260 * scale,
-    104 - scale * 90,
-    x + 261 * scale,
-    104 - scale * 86
-  );
-  ctx.bezierCurveTo(
-    x + 258 * scale,
-    104 - scale * 86,
-    x + 255 * scale,
-    104 - scale * 87,
-    x + 251 * scale,
-    104 - scale * 87
-  );
-  ctx.bezierCurveTo(
-    x + 248 * scale,
-    104 - scale * 87,
-    x + 244 * scale,
-    104 - scale * 87,
-    x + 241 * scale,
-    104 - scale * 85
-  );
-  ctx.bezierCurveTo(
-    x + 238 * scale,
-    104 - scale * 84,
-    x + 236 * scale,
-    104 - scale * 80,
-    x + 237 * scale,
-    104 - scale * 77
-  );
-  ctx.bezierCurveTo(
-    x + 232 * scale,
-    104 - scale * 74,
-    x + 226 * scale,
-    104 - scale * 71,
-    x + 221 * scale,
-    104 - scale * 68
-  );
-  ctx.bezierCurveTo(
-    x + 217 * scale,
-    104 - scale * 67,
-    x + 213 * scale,
-    104 - scale * 65,
-    x + 210 * scale,
-    104 - scale * 61
-  );
-  ctx.bezierCurveTo(
-    x + 208 * scale,
-    104 - scale * 58,
-    x + 207 * scale,
-    104 - scale * 53,
-    x + 209 * scale,
-    104 - scale * 50
-  );
-  ctx.bezierCurveTo(
-    x + 211 * scale,
-    104 - scale * 47,
-    x + 214 * scale,
-    104 - scale * 46,
-    x + 217 * scale,
-    104 - scale * 45
-  );
-  ctx.bezierCurveTo(
-    x + 226 * scale,
-    104 - scale * 42,
-    x + 235 * scale,
-    104 - scale * 39,
-    x + 244 * scale,
-    104 - scale * 36
-  );
-  ctx.bezierCurveTo(
-    x + 241 * scale,
-    104 - scale * 33,
-    x + 242 * scale,
-    104 - scale * 28,
-    x + 244 * scale,
-    104 - scale * 25
-  );
-  ctx.bezierCurveTo(
-    x + 247 * scale,
-    104 - scale * 21,
-    x + 250 * scale,
-    104 - scale * 19,
-    x + 254 * scale,
-    104 - scale * 17
-  );
-  ctx.bezierCurveTo(
-    x + 260 * scale,
-    104 - scale * 15,
-    x + 266 * scale,
-    104 - scale * 13,
-    x + 273 * scale,
-    104 - scale * 13
-  );
-  ctx.bezierCurveTo(
-    x + 274 * scale,
-    104 - scale * 9,
-    x + 278 * scale,
-    104 - scale * 7,
-    x + 282 * scale,
-    104 - scale * 8
-  );
-  ctx.bezierCurveTo(
-    x + 286 * scale,
-    104 - scale * 8,
-    x + 290 * scale,
-    104 - scale * 10,
-    x + 293 * scale,
-    104 - scale * 12
-  );
-  ctx.bezierCurveTo(
-    x + 297 * scale,
-    104 - scale * 13,
-    x + 301 * scale,
-    104 - scale * 14,
-    x + 305 * scale,
-    104 - scale * 12
-  );
-
-  // anchor point at blowhole  y = 104
-  ctx.bezierCurveTo(
-    x + 308 * scale,
-    104 - scale * 11,
-    x + 313 * scale,
-    104 - scale * 5,
-    x + 311 * scale,
-    104 - scale * 0
+    x + 343 * sizeScale,
+    y + -97 * sizeScale,
+    x + 361 * sizeScale,
+    y + -98 * sizeScale,
+    x + 376 * sizeScale,
+    y + -92 * sizeScale
   );
 
   ctx.bezierCurveTo(
-    x + 310 * scale,
-    104 - scale * -4,
-    x + 328 * scale,
-    104 - scale * -3,
-    x + 328 * scale,
-    104 - scale * 1
+    x + 383 * sizeScale,
+    y + -89 * sizeScale,
+    x + 390 * sizeScale,
+    y + -82 * sizeScale,
+    x + 387 * sizeScale,
+    y + -76 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 328 * scale,
-    104 - scale * 6,
-    x + 334 * scale,
-    104 - scale * 5,
-    x + 333 * scale,
-    104 - scale * 10
+    x + 395 * sizeScale,
+    y + -78 * sizeScale,
+    x + 409 * sizeScale,
+    y + -87 * sizeScale,
+    x + 413 * sizeScale,
+    y + -80 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 339 * scale,
-    104 - scale * 4,
-    x + 349 * scale,
-    104 - scale * 3,
-    x + 358 * scale,
-    104 - scale * 6
+    x + 417 * sizeScale,
+    y + -73 * sizeScale,
+    x + 404 * sizeScale,
+    y + -75 * sizeScale,
+    x + 422 * sizeScale,
+    y + -75 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 362 * scale,
-    104 - scale * 8,
-    x + 367 * scale,
-    104 - scale * 13,
-    x + 365 * scale,
-    104 - scale * 17
+    x + 438 * sizeScale,
+    y + -75 * sizeScale,
+    x + 431 * sizeScale,
+    y + -59 * sizeScale,
+    x + 429 * sizeScale,
+    y + -47 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 370 * scale,
-    104 - scale * 18,
-    x + 375 * scale,
-    104 - scale * 17,
-    x + 381 * scale,
-    104 - scale * 17
+    x + 436 * sizeScale,
+    y + -43 * sizeScale,
+    x + 431 * sizeScale,
+    y + -35 * sizeScale,
+    x + 434 * sizeScale,
+    y + -27 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 386 * scale,
-    104 - scale * 16,
-    x + 392 * scale,
-    104 - scale * 16,
-    x + 396 * scale,
-    104 - scale * 19
+    x + 437 * sizeScale,
+    y + -20 * sizeScale,
+    x + 437 * sizeScale,
+    y + -19 * sizeScale,
+    x + 433 * sizeScale,
+    y + -4 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 401 * scale,
-    104 - scale * 21,
-    x + 404 * scale,
-    104 - scale * 27,
-    x + 402 * scale,
-    104 - scale * 32
+    x + 432 * sizeScale,
+    y + -2 * sizeScale,
+    x + 431 * sizeScale,
+    y + 0 * sizeScale,
+    x + 430 * sizeScale,
+    y + 2 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 409 * scale,
-    104 - scale * 33,
-    x + 416 * scale,
-    104 - scale * 32,
-    x + 423 * scale,
-    104 - scale * 33
+    x + 429 * sizeScale,
+    y + 5 * sizeScale,
+    x + 430 * sizeScale,
+    y + 9 * sizeScale,
+    x + 430 * sizeScale,
+    y + 13 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 430 * scale,
-    104 - scale * 35,
-    x + 437 * scale,
-    104 - scale * 41,
-    x + 436 * scale,
-    104 - scale * 48
+    x + 430 * sizeScale,
+    y + 21 * sizeScale,
+    x + 425 * sizeScale,
+    y + 28 * sizeScale,
+    x + 417 * sizeScale,
+    y + 31 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 435 * scale,
-    104 - scale * 53,
-    x + 431 * scale,
-    104 - scale * 57,
-    x + 427 * scale,
-    104 - scale * 58
+    x + 415 * sizeScale,
+    y + 32 * sizeScale,
+    x + 412 * sizeScale,
+    y + 33 * sizeScale,
+    x + 409 * sizeScale,
+    y + 34 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 422 * scale,
-    104 - scale * 60,
-    x + 417 * scale,
-    104 - scale * 60,
-    x + 413 * scale,
-    104 - scale * 59
+    x + 404 * sizeScale,
+    y + 37 * sizeScale,
+    x + 401 * sizeScale,
+    y + 44 * sizeScale,
+    x + 397 * sizeScale,
+    y + 49 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 415 * scale,
-    104 - scale * 67,
-    x + 417 * scale,
-    104 - scale * 74,
-    x + 419 * scale,
-    104 - scale * 81
+    x + 388 * sizeScale,
+    y + 58 * sizeScale,
+    x + 373 * sizeScale,
+    y + 56 * sizeScale,
+    x + 360 * sizeScale,
+    y + 59 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 419 * scale,
-    104 - scale * 84,
-    x + 420 * scale,
-    104 - scale * 88,
-    x + 418 * scale,
-    104 - scale * 90
+    x + 359 * sizeScale,
+    y + 59 * sizeScale,
+    x + 358 * sizeScale,
+    y + 60 * sizeScale,
+    x + 356 * sizeScale,
+    y + 61 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 417 * scale,
-    104 - scale * 92,
-    x + 416 * scale,
-    104 - scale * 93,
-    x + 414 * scale,
-    104 - scale * 94
+    x + 354 * sizeScale,
+    y + 62 * sizeScale,
+    x + 354 * sizeScale,
+    y + 65 * sizeScale,
+    x + 353 * sizeScale,
+    y + 68 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 404 * scale,
-    104 - scale * 98,
-    x + 392 * scale,
-    104 - scale * 93,
-    x + 384 * scale,
-    104 - scale * 85
+    x + 350 * sizeScale,
+    y + 78 * sizeScale,
+    x + 335 * sizeScale,
+    y + 80 * sizeScale,
+    x + 335 * sizeScale,
+    y + 91 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 382 * scale,
-    104 - scale * 90,
-    x + 380 * scale,
-    104 - scale * 94,
-    x + 377 * scale,
-    104 - scale * 98
+    x + 335 * sizeScale,
+    y + 98 * sizeScale,
+    x + 327 * sizeScale,
+    y + 103 * sizeScale,
+    x + 327 * sizeScale,
+    y + 103 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 374 * scale,
-    104 - scale * 101,
-    x + 370 * scale,
-    104 - scale * 104,
-    x + 366 * scale,
-    104 - scale * 104
-  ); // top (104 * scale) + (n * scale))
-  ctx.bezierCurveTo(
-    x + 361 * scale,
-    104 - scale * 104,
-    x + 356 * scale,
-    104 - scale * 101,
-    x + 353 * scale,
-    104 - scale * 98
+    x + 327 * sizeScale,
+    y + 105 * sizeScale,
+    x + 314 * sizeScale,
+    y + 107 * sizeScale,
+    x + 312 * sizeScale,
+    y + 101 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 349 * scale,
-    104 - scale * 95,
-    x + 346 * scale,
-    104 - scale * 91,
-    x + 343 * scale,
-    104 - scale * 88
+    x + 309 * sizeScale,
+    y + 94 * sizeScale,
+    x + 303 * sizeScale,
+    y + 92 * sizeScale,
+    x + 298 * sizeScale,
+    y + 87 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 343 * scale,
-    104 - scale * 92,
-    x + 340 * scale,
-    104 - scale * 96,
-    x + 336 * scale,
-    104 - scale * 97
+    x + 294 * sizeScale,
+    y + 81 * sizeScale,
+    x + 287 * sizeScale,
+    y + 74 * sizeScale,
+    x + 280 * sizeScale,
+    y + 71 * sizeScale
   );
   ctx.bezierCurveTo(
-    x + 332 * scale,
-    104 - scale * 98,
-    x + 327 * scale,
-    104 - scale * 96,
-    x + 325 * scale,
-    104 - scale * 92
+    x + 267 * sizeScale,
+    y + 65 * sizeScale,
+    x + 254 * sizeScale,
+    y + 67 * sizeScale,
+    x + 245 * sizeScale,
+    y + 58 * sizeScale
   );
-  ctx.fillStyle = `rgba(255, 255, 255, ${breathOpacity}`;
-  ctx.fill();
-
-  // tharsheblows/red
-  ctx.beginPath();
-  ctx.moveTo(x + 367 * scale, 104 - scale * 98);
   ctx.bezierCurveTo(
-    x + 367 * scale,
-    104 - scale * 98,
-    x + 285 * scale,
-    104 - scale * 130,
-    x + 283 * scale,
-    104 - scale * 9
+    x + 237 * sizeScale,
+    y + 51 * sizeScale,
+    x + 241 * sizeScale,
+    y + 37 * sizeScale,
+    x + 232 * sizeScale,
+    y + 33 * sizeScale
   );
-  ctx.lineTo(x + 287 * scale, 104 - scale * 9);
   ctx.bezierCurveTo(
-    x + 287 * scale,
-    104 - scale * 9,
-    x + 280 * scale,
-    104 - scale * 115,
-    x + 368 * scale,
-    104 - scale * 98
+    x + 228 * sizeScale,
+    y + 31 * sizeScale,
+    x + 220 * sizeScale,
+    y + 30 * sizeScale,
+    x + 217 * sizeScale,
+    y + 27 * sizeScale
   );
-  ctx.lineTo(x + 367 * scale, 104 - scale * 98);
+  ctx.bezierCurveTo(
+    x + 214 * sizeScale,
+    y + 24 * sizeScale,
+    x + 206 * sizeScale,
+    y + 21 * sizeScale,
+    x + 206 * sizeScale,
+    y + 6 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 206 * sizeScale,
+    y + 2 * sizeScale,
+    x + 211 * sizeScale,
+    y + -2 * sizeScale,
+    x + 212 * sizeScale,
+    y + -6 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 215 * sizeScale,
+    y + -18 * sizeScale,
+    x + 207 * sizeScale,
+    y + -10 * sizeScale,
+    x + 206 * sizeScale,
+    y + -28 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 206 * sizeScale,
+    y + -34 * sizeScale,
+    x + 213 * sizeScale,
+    y + -49 * sizeScale,
+    x + 218 * sizeScale,
+    y + -44 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 217 * sizeScale,
+    y + -59 * sizeScale,
+    x + 217 * sizeScale,
+    y + -62 * sizeScale,
+    x + 220 * sizeScale,
+    y + -68 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 223 * sizeScale,
+    y + -72 * sizeScale,
+    x + 236 * sizeScale,
+    y + -72 * sizeScale,
+    x + 242 * sizeScale,
+    y + -69 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 244 * sizeScale,
+    y + -75 * sizeScale,
+    x + 247 * sizeScale,
+    y + -89 * sizeScale,
+    x + 251 * sizeScale,
+    y + -86 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 257 * sizeScale,
+    y + -94 * sizeScale,
+    x + 268 * sizeScale,
+    y + -98 * sizeScale,
+    x + 277 * sizeScale,
+    y + -98 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 281 * sizeScale,
+    y + -96 * sizeScale,
+    x + 285 * sizeScale,
+    y + -92 * sizeScale,
+    x + 289 * sizeScale,
+    y + -92 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 291 * sizeScale,
+    y + -93 * sizeScale,
+    x + 293 * sizeScale,
+    y + -94 * sizeScale,
+    x + 295 * sizeScale,
+    y + -95 * sizeScale
+  );
+  ctx.bezierCurveTo(
+    x + 300 * sizeScale,
+    y + -97 * sizeScale,
+    x + 306 * sizeScale,
+    y + -100 * sizeScale,
+    x + 312 * sizeScale,
+    y + -100 * sizeScale
+  );
   ctx.closePath();
-  ctx.fillStyle = `rgba(255, 0, 0, ${rainbowOpacity}`;
+  ctx.fillStyle = `rgba(255, 255, 255, ${this.breathOpacity})`;
   ctx.fill();
+  // ctx.stroke();
+  ctx.clip();
 
-  // tharsheblows/orange
   ctx.beginPath();
-  ctx.moveTo(x + 369 * scale, 104 - scale * 98);
-  ctx.bezierCurveTo(
-    x + 369 * scale,
-    104 - scale * 98,
-    x + 289 * scale,
-    104 - scale * 127,
-    x + 287 * scale,
-    104 - scale * 9
-  );
-  ctx.lineTo(x + 291 * scale, 104 - scale * 9);
-  ctx.bezierCurveTo(
-    x + 291 * scale,
-    104 - scale * 9,
-    x + 287 * scale,
-    104 - scale * 114,
-    x + 369 * scale,
-    104 - scale * 97
-  );
-  ctx.lineTo(x + 369 * scale, 104 - scale * 98);
+  ctx.transform(1, 0, 0, 1.4, 0, 0);
+  ctx.arc(x + 376 * sizeScale, 118 * sizeScale, 122 * sizeScale, 0, 2 * Math.PI);
   ctx.closePath();
-  ctx.fillStyle = `rgba(255, 164, 0, ${rainbowOpacity}`;
-  ctx.fill();
+  gradient = ctx.createRadialGradient(
+    x + 405 * sizeScale,
+    0,
+    0,
+    x + 376 * sizeScale,
+    118 * sizeScale,
+    122 * sizeScale
+  );
+  gradient.addColorStop(0, `rgba(255, 255, 255, 0)`);
+  gradient.addColorStop(0.74, `rgba(255, 255, 255, 0)`);
+  gradient.addColorStop(0.77, `rgba(255, 0, 255, ${this.rainbowOpacity})`);
+  gradient.addColorStop(0.79, `rgba(127, 0, 255, ${this.rainbowOpacity})`);
+  gradient.addColorStop(0.82, `rgba(0, 0, 255, ${this.rainbowOpacity})`);
+  gradient.addColorStop(0.85, `rgba(0, 127, 127, ${this.rainbowOpacity})`);
+  gradient.addColorStop(0.87, `rgba(0, 255, 0, ${this.rainbowOpacity})`);
+  gradient.addColorStop(0.91, `rgba(255, 255, 0, ${this.rainbowOpacity})`);
+  gradient.addColorStop(0.96, `rgba(255, 127, 0, ${this.rainbowOpacity})`);
+  gradient.addColorStop(0.99, `rgba(255, 0, 0, ${this.rainbowOpacity})`);
+  gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
 
-  // tharsheblows/yellow
-  ctx.beginPath();
-  ctx.moveTo(x + 370 * scale, 104 - scale * 97);
-  ctx.bezierCurveTo(
-    x + 370 * scale,
-    104 - scale * 97,
-    x + 293 * scale,
-    104 - scale * 123,
-    x + 291 * scale,
-    104 - scale * 9
-  );
-  ctx.lineTo(x + 295 * scale, 104 - scale * 9);
-  ctx.bezierCurveTo(
-    x + 295 * scale,
-    104 - scale * 9,
-    x + 292 * scale,
-    104 - scale * 114,
-    x + 371 * scale,
-    104 - scale * 97
-  );
-  ctx.lineTo(x + 370 * scale, 104 - scale * 97);
-  ctx.closePath();
-  ctx.fillStyle = `rgba(255, 255, 0, ${rainbowOpacity}`;
+  ctx.fillStyle = gradient;
   ctx.fill();
+  ctx.transform(1, 0, 0, 1, 0, 0);
 
-  // tharsheblows/green
-  ctx.beginPath();
-  ctx.moveTo(x + 372 * scale, 104 - scale * 97);
-  ctx.bezierCurveTo(
-    x + 372 * scale,
-    104 - scale * 97,
-    x + 296 * scale,
-    104 - scale * 120,
-    x + 295 * scale,
-    104 - scale * 9
-  );
-  ctx.lineTo(x + 298 * scale, 104 - scale * 9);
-  ctx.bezierCurveTo(
-    x + 298 * scale,
-    104 - scale * 9,
-    x + 292 * scale,
-    104 - scale * 110,
-    x + 372 * scale,
-    104 - scale * 97
-  );
-  ctx.lineTo(x + 372 * scale, 104 - scale * 97);
-  ctx.closePath();
-  ctx.fillStyle = `rgba(0, 255, 0, ${rainbowOpacity}`;
-  ctx.fill();
+};
 
-  // tharsheblows/blue
-  ctx.beginPath();
-  ctx.moveTo(x + 372 * scale, 104 - scale * 97);
-  ctx.bezierCurveTo(
-    x + 372 * scale,
-    104 - scale * 97,
-    x + 299 * scale,
-    104 - scale * 116,
-    x + 297 * scale,
-    104 - scale * 9
-  );
-  ctx.lineTo(x + 301 * scale, 104 - scale * 9);
-  ctx.bezierCurveTo(
-    x + 301 * scale,
-    104 - scale * 9,
-    x + 294 * scale,
-    104 - scale * 103,
-    x + 373 * scale,
-    104 - scale * 96
-  );
-  ctx.lineTo(x + 372 * scale, 104 - scale * 97);
-  ctx.closePath();
-  ctx.fillStyle = `rgba(0, 0, 255, ${rainbowOpacity}`;
-  ctx.fill();
-
-  // tharsheblows/indigo
-  ctx.beginPath();
-  ctx.moveTo(x + 374 * scale, 104 - scale * 96);
-  ctx.bezierCurveTo(
-    x + 374 * scale,
-    104 - scale * 96,
-    x + 299 * scale,
-    104 - scale * 110,
-    x + 301 * scale,
-    104 - scale * 9
-  );
-  ctx.lineTo(x + 304 * scale, 104 - scale * 9);
-  ctx.bezierCurveTo(
-    x + 304 * scale,
-    104 - scale * 9,
-    x + 300 * scale,
-    104 - scale * 102,
-    x + 374 * scale,
-    104 - scale * 96
-  );
-  ctx.lineTo(x + 374 * scale, 104 - scale * 96);
-  ctx.closePath();
-  ctx.fillStyle = `rgba(74, 0, 129, ${rainbowOpacity}`;
-  ctx.fill();
-
-  // tharsheblows/violet
-  ctx.beginPath();
-  ctx.moveTo(x + 375 * scale, 104 - scale * 96);
-  ctx.bezierCurveTo(
-    x + 375 * scale,
-    104 - scale * 96,
-    x + 306 * scale,
-    104 - scale * 109,
-    x + 304 * scale,
-    104 - scale * 9
-  );
-  ctx.lineTo(x + 307 * scale, 104 - scale * 9);
-  ctx.bezierCurveTo(
-    x + 307 * scale,
-    104 - scale * 9,
-    x + 305 * scale,
-    104 - scale * 98,
-    x + 375 * scale,
-    104 - scale * 95
-  );
-  ctx.lineTo(x + 375 * scale, 104 - scale * 96);
-  ctx.closePath();
-  ctx.fillStyle = `rgba(255, 0, 255, ${rainbowOpacity}`;
-  ctx.fill();
-  ctx.restore();
-}
-
-  module.exports = tharSheBlows;
+module.exports = tharSheBlows;
