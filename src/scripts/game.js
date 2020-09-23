@@ -1,5 +1,7 @@
 const Enemy = require("./enemy");
 // const Util = require("./util");
+const Orca = require("./orca");
+const TharSheBlows = require("./thar_she_blows");
 const Waylon = require("./waylon");
 const WhiteShark = require("./whiteshark");
 
@@ -7,6 +9,7 @@ const WhiteShark = require("./whiteshark");
 /*
 NOTES: 
   ctx created in index.js
+  ctx.canvas.height/width or this.dimensions[0]/[1]?
 
 
 */
@@ -28,14 +31,21 @@ function Game() {
   // this.startGame
 }
 
-const OCEAN_GRADIENT = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+const SKY_GRADIENT = ctx.createLinearGradient(0, 0, 0, 100);
+SKY_GRADIENT.addColorStop(0, "#8699F6");
+SKY_GRADIENT.addColorStop(1, "#9AD3F3");
+
+const OCEAN_GRADIENT = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
 OCEAN_GRADIENT.addColorStop(0, "#5AFFFF");
 OCEAN_GRADIENT.addColorStop(1, "#000050");
 
 Game.prototype.draw = function draw(ctx) {
-  ctx.clearRect(0, 0, this.dimensions[0], this.dimensions[1]);
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  
+  ctx.fillStyle = SKY_GRADIENT;
+  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   ctx.fillStyle = OCEAN_GRADIENT;
-  ctx.fillRect(0, 0, this.dimensions[0], this.dimensions[1]);
+  ctx.fillRect(0, 100, ctx.canvas.width, ctx.canvas.height);
 
   this.allObjects().forEach(function(object) {
     object.draw(ctx);

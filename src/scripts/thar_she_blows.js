@@ -1,4 +1,4 @@
-function tharSheBlows(options) {
+function TharSheBlows(options) {
   this.ctx = options.ctx;
   this.sizeScale = options.sizeScale;
   this.position = options.position;
@@ -6,7 +6,7 @@ function tharSheBlows(options) {
   this.rainbowOpacity = 0.3;
 }
 
-tharSheBlows.prototype.draw = function draw() {
+TharSheBlows.prototype.draw = function draw() {
   
   const ctx = this.ctx;
   const x = this.position[0];
@@ -334,4 +334,4 @@ tharSheBlows.prototype.draw = function draw() {
 
 };
 
-module.exports = tharSheBlows;
+module.exports = TharSheBlows;

@@ -164,3 +164,26 @@ function startApp(audioCtxt) {
 };
 
 
+
+
+
+
+
+// DRAW CANVAS
+//   const ctx = document.getElementById("canvas").getContext("2d");
+
+
+//   // Clear by redrawing the ocean
+// function drawOcean(ctx) {
+//   const skyGradient = ctx.createLinearGradient(0, 0, 0, 100);
+//   skyGradient.addColorStop(0, "#8699F6");
+//   skyGradient.addColorStop(1, "#9AD3F3");
+//   ctx.fillStyle = skyGradient;
+//   ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+//   const oceanGradient = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
+//   oceanGradient.addColorStop(0, "#5AFFFF");
+//   oceanGradient.addColorStop(1, "#000050");
+//   ctx.fillStyle = oceanGradient;
+//   ctx.fillRect(0, 100, ctx.canvas.width, ctx.canvas.height);
+// };
