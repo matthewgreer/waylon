@@ -9,7 +9,7 @@ aside {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: rgba(0,0,80,0.5); 
+  background-color: $modalBG;
 }
 
 #modal-shown {
@@ -26,7 +26,7 @@ aside {
   background-image: linear-gradient($shallowBlue, $modalBlue);
   margin: auto 20%;
   padding: 3.5vmin;
-  box-shadow: -1px 10px 2px 1px rgba(0, 0, 0, .6) ;
+  box-shadow: -1px 10px 2px 1px $shadow;
   border-radius: 50px;
   animation-name: zoom;
   animation-duration: 0.9s;
