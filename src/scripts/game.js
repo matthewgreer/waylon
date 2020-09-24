@@ -22,7 +22,7 @@ const ENEMY_TYPES = [
 ]
 
 function Game() {
-  this.dimensions = [1200, 1000]
+  this.dimensions = [1200, 900]
   this.enemies = [];
   this.waylon = [];
   this.tharSheBlows = [];
@@ -100,7 +100,7 @@ Game.prototype.checkPredation = function checkPredation() {
 };
 
 Game.prototype.randomDepth = function randomDepth(objectHeight) {
-  return [1201, Math.floor(Math.random() * (1000 - objectHeight))];
+  return [1201, Math.floor(Math.random() * (900 - objectHeight))];
 };
 
 Game.prototype.randomScale = function randomScale() {
@@ -129,7 +129,7 @@ Game.prototype.moveObjects = function moveObjects(velocityScale) {
 
 Game.prototype.step = function step(delta) {
   const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
-  const velocityScale = delta / NORMAL_FRAME_TIME_DELTA,
+  const velocityScale = delta / NORMAL_FRAME_TIME_DELTA;
   this.moveObjects(velocityScale);
   this.checkPredation();
 };

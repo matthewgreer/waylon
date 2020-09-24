@@ -26,21 +26,21 @@ Waylon.prototype.move = function move(velocityScale) {
   let offsetY = this.velocity * velocityScale;
   if (newPitch > this.currentPitch) {
     this.position = [this.position[0], this.position[1] - offsetY];
-      // level out near surface
+      // level out near the surface
       if (this.position[1] <= 175 && this.currentRotation < 0) {
         this.currentRotation++;
       }
     this.currentRotation--;
   } else if (newPitch < this.currentPitch) {
     this.position = [this.position[0], this.position[1] + offsetY];
-      // level out at depth limits
+      // level out at depth limit
       if (this.position[1] >= 675 && this.currentRotation > 0) {
         this.currentRotation--;
       } 
     this.currentRotation++;
   }
 
-  // set hard depth limits
+  // set hard surface and depth limits
   if (this.position[1] <= 101) {this.position[1] = 100}
   if (this.position[1] >= 749) {this.position[1] = 750}
   
