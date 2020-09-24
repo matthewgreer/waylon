@@ -30,14 +30,27 @@ function Game() {
 
   // this.startGame
 }
+/*
+const skyGradient = ctx.createLinearGradient(0, 0, 0, 100);
+  skyGradient.addColorStop(0, "#8699F6"); // skyTop
+  skyGradient.addColorStop(1, "#97C9F3"); // skyHorizon
+  ctx.fillStyle = skyGradient;
+  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
+  const oceanGradient = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
+  oceanGradient.addColorStop(0, "#57F7FA"); // oceanHorizon
+  oceanGradient.addColorStop(1, "#000050"); // deepBlue
+  ctx.fillStyle = oceanGradient;
+  ctx.fillRect(0, 100, ctx.canvas.width, ctx.canvas.height);
+
+*/
 const SKY_GRADIENT = ctx.createLinearGradient(0, 0, 0, 100);
-SKY_GRADIENT.addColorStop(0, "#8699F6");
-SKY_GRADIENT.addColorStop(1, "#9AD3F3");
+SKY_GRADIENT.addColorStop(0, $skyTop);
+SKY_GRADIENT.addColorStop(1, $skyHorizon);
 
 const OCEAN_GRADIENT = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
-OCEAN_GRADIENT.addColorStop(0, "#5AFFFF");
-OCEAN_GRADIENT.addColorStop(1, "#000050");
+OCEAN_GRADIENT.addColorStop(0, $oceanHorizon);
+OCEAN_GRADIENT.addColorStop(1, $deepBlue);
 
 Game.prototype.draw = function draw(ctx) {
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);

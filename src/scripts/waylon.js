@@ -6,8 +6,7 @@ function Waylon(options) {
 }
 // Waylon model is x:466, y:233 at 1:1 scale
 
-Waylon.prototype.draw = function draw() {
-  const ctx = this.ctx;
+Waylon.prototype.draw = function draw(ctx) {
   const x = this.position[0];
   const y = this.position[1];
   const scale = this.sizeScale;

@@ -26,7 +26,7 @@ function Orca(options) {
 
 Util.inherits(Orca, Enemy);
 
-Orca.prototype.draw = (ctx) => {
+Orca.prototype.draw = function draw(ctx) {
   const x = this.position[0];
   const y = this.position[1];
   const scale = this.sizeScale;

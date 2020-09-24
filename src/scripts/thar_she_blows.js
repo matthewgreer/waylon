@@ -6,9 +6,7 @@ function TharSheBlows(options) {
   this.rainbowOpacity = 0.3;
 }
 
-TharSheBlows.prototype.draw = function draw() {
-  
-  const ctx = this.ctx;
+TharSheBlows.prototype.draw = function draw(ctx) {
   const x = this.position[0];
   let y = this.position[1];
   const sizeScale = this.sizeScale;

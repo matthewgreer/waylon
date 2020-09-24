@@ -26,22 +26,10 @@ function WhiteShark(options) {
 
 Util.inherits(WhiteShark, Enemy)
 
-WhiteShark.prototype.draw = (ctx) => {
+WhiteShark.prototype.draw = function(ctx) {
   
   const x = this.position[0];
   const y = this.position[1];
-  
-  
-  // This bit is vestigial code, leftover from experimentation
-              // const ctx = document.getElementById("canvas").getContext("2d");
-
-              // Clear by redrawing the ocean, now handled by this.game.draw
-              // const oceanGradient = ctx.createLinearGradient(0, 0, 0, 1080);
-              // oceanGradient.addColorStop(0, "#5AFFFF");
-              // oceanGradient.addColorStop(1, "#000050");
-              // ctx.fillStyle = oceanGradient;
-              // ctx.fillRect(0, 0, 1920, 1080);
-
               
   // Below follows the instructions for drawing the various parts of
   //   a WhiteShark instance, in layered order from furthest to nearest on
