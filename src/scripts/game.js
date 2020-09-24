@@ -1,5 +1,4 @@
 const Enemy = require("./enemy");
-const Modal = require("./modal");
 const Orca = require("./orca");
 const TharSheBlows = require("./thar_she_blows");
 const Waves = require("./waves");
@@ -32,15 +31,15 @@ function Game() {
   // this.startGame
 }
 
-const SKY_GRADIENT = ctx.createLinearGradient(0, 0, 0, 100);
-SKY_GRADIENT.addColorStop(0, $skyTop);
-SKY_GRADIENT.addColorStop(1, $skyHorizon);
-
-const OCEAN_GRADIENT = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
-OCEAN_GRADIENT.addColorStop(0, $oceanHorizon);
-OCEAN_GRADIENT.addColorStop(1, $deepBlue);
 
 Game.prototype.draw = function draw(ctx) {
+  const SKY_GRADIENT = ctx.createLinearGradient(0, 0, 0, 100);
+  SKY_GRADIENT.addColorStop(0, $skyTop);
+  SKY_GRADIENT.addColorStop(1, $skyHorizon);
+  
+  const OCEAN_GRADIENT = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
+  OCEAN_GRADIENT.addColorStop(0, $oceanHorizon);
+  OCEAN_GRADIENT.addColorStop(1, $deepBlue);
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   
   ctx.fillStyle = SKY_GRADIENT;
