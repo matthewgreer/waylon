@@ -12,14 +12,8 @@ function WhiteShark(options) {
     // this.sizeScale assigned randomly by .randomScale()
     // this.velocity assigned randomly by .randomVelocity()
   
-  this.hSize = options.sizeScale * 862;
-  this.vSize = options.sizeScale * 371;
-  this.box = [
-    this.position[0],
-    this.position[0] + hSize,
-    this.position[1],
-    this.position[1] + vSize,
-  ];
+  this.hSize = 862;
+  this.vSize = 371;
 
   Enemy.call(this, options);
 }
@@ -30,6 +24,7 @@ WhiteShark.prototype.draw = function(ctx) {
   
   const x = this.position[0];
   const y = this.position[1];
+  const scale = this.sizeScale;
               
   // Below follows the instructions for drawing the various parts of
   //   a WhiteShark instance, in layered order from furthest to nearest on

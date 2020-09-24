@@ -12,14 +12,8 @@ function Orca(options) {
   // this.sizeScale assigned randomly by .randomScale()
   // this.velocity assigned randomly by .randomVelocity()
 
-  this.hSize = options.sizeScale * 932;
-  this.vSize = options.sizeScale * 463;
-  this.box = [
-    this.position[0],
-    this.position[0] + hSize,
-    this.position[1],
-    this.position[1] + vSize,
-  ];
+  this.hSize = 932;
+  this.vSize = 463;
 
   Enemy.call(this, options);
 };

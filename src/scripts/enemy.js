@@ -3,8 +3,8 @@
 function Enemy(options) {
   this.position = options.position;
   this.velocity = options.velocity;
-  this.hSize = options.hSize;
-  this.vSize = options.vSize;
+  this.hSize;
+  this.vSize;
   this.sizeScale = options.sizeScale;
   this.box = [
     this.position[0], 
@@ -25,20 +25,12 @@ Enemy.prototype.isEating = function isEating(waylon) {
 
 };
 
-const STANDARD_FRAME_RATE_TIME_DELTA = 16.66666667;
-
-Enemy.prototype.move = function move(timeDelta) {
-  const velocityScale = timeDelta / STANDARD_FRAME_RATE_TIME_DELTA, // multiply by sizeScale???
-    offsetX = this.velocity[0] * velocityScale,
-    offsetY = this.velocity[1] * velocityScale;
-
-    this.position = [this.position[0] + offsetX, this.pos[1] + offsetY];
-
-  if (this.box[1] < 0) { this.remove() }
-};
-
-Enemy.prototype.remove = function remove() {
-  this.game.remove(this);
+Enemy.prototype.move = function move(velocityScale) {
+  // currently, enemies move along a constant depth (y-value)
+  // future updates will provide more complex enemy movement
+  offsetX = this.velocity * velocityScale,
+  this.position = [this.position[0] + offsetX, this.pos[1]];
+  if (this.box[1] < 0) { this.game.remove(this) }
 };
 
 module.exports = Enemy;

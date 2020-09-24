@@ -1,7 +1,8 @@
 const Enemy = require("./enemy");
-// const Util = require("./util");
+const Modal = require("./modal");
 const Orca = require("./orca");
 const TharSheBlows = require("./thar_she_blows");
+const Waves = require("./waves");
 const Waylon = require("./waylon");
 const WhiteShark = require("./whiteshark");
 
@@ -23,27 +24,14 @@ const ENEMY_TYPES = [
 function Game() {
   this.dimensions = [1200, 1000]
   this.enemies = [];
-  this.waylon;
-  this.spray;
-  this.waves;
+  this.waylon = [];
+  this.tharSheBlows = [];
+  this.waves = [];
   this.bubbles = [];
 
   // this.startGame
 }
-/*
-const skyGradient = ctx.createLinearGradient(0, 0, 0, 100);
-  skyGradient.addColorStop(0, "#8699F6"); // skyTop
-  skyGradient.addColorStop(1, "#97C9F3"); // skyHorizon
-  ctx.fillStyle = skyGradient;
-  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-  const oceanGradient = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
-  oceanGradient.addColorStop(0, "#57F7FA"); // oceanHorizon
-  oceanGradient.addColorStop(1, "#000050"); // deepBlue
-  ctx.fillStyle = oceanGradient;
-  ctx.fillRect(0, 100, ctx.canvas.width, ctx.canvas.height);
-
-*/
 const SKY_GRADIENT = ctx.createLinearGradient(0, 0, 0, 100);
 SKY_GRADIENT.addColorStop(0, $skyTop);
 SKY_GRADIENT.addColorStop(1, $skyHorizon);
@@ -65,15 +53,19 @@ Game.prototype.draw = function draw(ctx) {
   });
 };
 
-Game.prototype.track = function track(object) {
+Game.prototype.add = function add(object) {
   if (object instanceof Waylon) {
-    this.waylon = object;
-  } else if (object instanceof Enemy) {
+    this.waylon.push(object);
+  } else if (object instanceof Enemy) { //does this need to be specific?
     this.enemies.push(object);
+  } else if (object instanceof Waves) {
+    this.waves.push(object);
+  } else if (object instanceof TharSheBlows) {
+    this.tharSheBlows.push(object);
   // } else if (object instanceof Bubble) {
   //   this.bubbles.push(object);
   } else {
-    throw new Error("Unknown Object");
+    throw new Error("wat");
   }
 };
 
@@ -87,11 +79,11 @@ Game.prototype.spawnEnemy = function spawnEnemy(enemyType) {
 
   switch (enemyType) {
     case "Orca":
-      this.track(new Orca(options));
+      this.add(new Orca(options));
       break;
   
     default:
-      this.track(new WhiteShark(options));
+      this.add(new WhiteShark(options));
       break;
   }
   
@@ -101,7 +93,8 @@ Game.prototype.checkPredation = function checkPredation() {
   for (let i = 0; i < this.enemies.length; i++) {
     const predator = this.enemies[i];
     if (predator.isEating(this.waylon)) {
-      // not sure what to return here yet
+      // not sure what to return here yet...
+      // should it just be T/F is the predator eating Waylon?
     }
   }
 };
@@ -116,7 +109,7 @@ Game.prototype.randomScale = function randomScale() {
 };;
 
 Game.prototype.randomVelocity = function randomVelocity() {
-  return (velocity = speed = Math.floor(Math.random() * 5) + 3);
+  return (Math.floor(Math.random() * 5) + 3);
 };
 
 Game.prototype.randomEnemy = function randomEnemy() {
@@ -125,9 +118,18 @@ Game.prototype.randomEnemy = function randomEnemy() {
 };
 
 Game.prototype.allObjects = function allObjects() {
-  return [].concat(this.waylon, this.enemies) //this.bubbles
+  return [].concat(this.waylon, this.enemies, this.waves, this.tharSheBlows); //this.bubbles
 };
 
-Game.prototype.moveObjects = function moveObjects(delta) {
-  this.allObjects
-}
+Game.prototype.moveObjects = function moveObjects(velocityScale) {
+  this.allObjects.forEach(function(object){
+    object.move(velocityScale);
+  });
+};
+
+Game.prototype.step = function step(delta) {
+  const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
+  const velocityScale = delta / NORMAL_FRAME_TIME_DELTA,
+  this.moveObjects(velocityScale);
+  this.checkPredation();
+};

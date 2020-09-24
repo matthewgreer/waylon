@@ -1,10 +1,72 @@
+const TharSheBlows = require("./thar_she_blows");
 
 function Waylon(options) {
-  this.ctx = options.ctx;
+  this.game = options.game;
+  this.freqAnalyzer = options.freqAnalyzer;
   this.position = options.position;
   this.sizeScale = options.sizeScale;
-}
-// Waylon model is x:466, y:233 at 1:1 scale
+  this.velocity = options.velocity;
+  this.box = [
+    // Waylon model is x:466, y:233 at 1:1 scale
+    this.position[0],
+    this.position[0] + this.sizeScale * 466,
+    this.position[1],
+    this.position[1] + this.sizeScale * 233,
+  ];
+  this.centerOfRotation = [
+    this.position[0] + this.sizeScale * 180,
+    this.position[1] + this.sizeScale * 116
+  ]
+  this.currentRotation = 0;
+  this.currentPitch = 0;
+};
+
+Waylon.prototype.move = function move(velocityScale) {
+  let newPitch = this.freqAnalyzer.outputTopFreq();
+  let offsetY = this.velocity * velocityScale;
+  if (newPitch > this.currentPitch) {
+    this.position = [this.position[0], this.position[1] - offsetY];
+      // level out near surface
+      if (this.position[1] <= 175 && this.currentRotation < 0) {
+        this.currentRotation++;
+      }
+    this.currentRotation--;
+  } else if (newPitch < this.currentPitch) {
+    this.position = [this.position[0], this.position[1] + offsetY];
+      // level out at depth limits
+      if (this.position[1] >= 675 && this.currentRotation > 0) {
+        this.currentRotation--;
+      } 
+    this.currentRotation++;
+  }
+
+  // set hard depth limits
+  if (this.position[1] <= 101) {this.position[1] = 100}
+  if (this.position[1] >= 749) {this.position[1] = 750}
+  
+  // set rotation limits
+  if (this.currentRotation <= -15) {this.currentRotation = -15}
+  if (this.currentRotation >= 30) {this.currentRotation = 30}
+
+  // hold breath underwater -- always a good idea for mammals
+  if (this.position[0] >= 110) { this.game.tharSheBlows = [] }
+
+  // breathe when on the surface
+  if (this.position[0] <= 105) {
+    this.breathe();
+  }
+
+  this.currentPitch = newPitch;
+};
+
+Waylon.prototype.breathe = function breathe() {
+  this.game.add(
+    new TharSheBlows({
+      position: [this.position[0], 0],
+      sizeScale: this.sizeScale,
+    })
+  );
+};
 
 Waylon.prototype.draw = function draw(ctx) {
   const x = this.position[0];
@@ -13,6 +75,11 @@ Waylon.prototype.draw = function draw(ctx) {
   const scaledLineWidth = function (lineW) {
     return Math.floor(lineW * scale);
   };
+
+  ctx.translate(this.centerofRotation[0], this.centerOfRotation[1]);
+  ctx.rotate((this.currentRotation * Math.PI) / 180);
+  ctx.translate(-(this.centerofRotation[0]), -(this.centerOfRotation[1]));
+
 
   // Waylon Left Pectoral Fin
   ctx.beginPath();

@@ -1,5 +1,4 @@
-function FreqAnalyzer(ctx) {
-  this.ctx = ctx;
+function FreqAnalyzer() {
   this.audioCtxt;
   this.analyzer;
   this.audioArray;
@@ -42,7 +41,7 @@ FreqAnalyzer.prototype.createAnalyzerNode = function createAnalyzerNode () {
   this.audioArray = new Uint8Array(this.analyzer.frequencyBinCount);
 };
 
-FreqAnalyzer.prototype.getMicStream = function getMicStream () {
+FreqAnalyzer.prototype.getMicStream = function getMicStream() {
   if (navigator.mediaDevices.getUserMedia) {
     const constraints = { audio: true };
     navigator.mediaDevices
@@ -88,10 +87,5 @@ FreqAnalyzer.prototype.outputTopFreq = function outputTopFreq () {
   //   return null;
   }
 };
-
-  
-// window.requestAnimationFrame(outputTopFreq);
-// moveWaylon(nextPitch);
-// outputTopFreq();
 
 module.exports = FreqAnalyzer;

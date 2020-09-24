@@ -1,5 +1,4 @@
 function TharSheBlows(options) {
-  this.ctx = options.ctx;
   this.sizeScale = options.sizeScale;
   this.position = options.position;
   this.breathOpacity = 0.7;
