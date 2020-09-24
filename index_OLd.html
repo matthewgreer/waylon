@@ -14,19 +14,43 @@
 
   <body>
     <div class="maintain-aspect-ratio">
+
+      <header>
+        <button id="start-button">Start</button>
+        <img src="./src/images/waylon_blows.png" 
+          id="thar-she-blows" 
+          alt="Waylon exhales mist. Oh, look! A rainbow!"
+        />
+        <img src="./src/images/waylon-title.svg"
+          class="waylon-logo" 
+          alt="Waylon game logo"
+        />
+        <button id="stop-button">Stop</button>
+      </header>
+
+      <div class="waves-container">
+        <img src="./src/images/waves.svg" 
+          id="waves" 
+          alt="Waves rolling across the ocean" 
+        />
+      </div>
+
       <main>
-        <header>
-          <img src="./src/images/waylon-title.svg"
-            class="waylon-logo" 
-            alt="Waylon game logo"
+          <img src="./src/images/waylon_v3.svg" 
+            alt="Waylon, the lost baby humpback whale" 
+            id="waylon"
           />
-          <button id="start-button">Start</button>
-          <button id="stop-button">Stop</button>
-        </header>
-        <canvas id="canvas"></canvas>
+          <img src="./src/images/whiteshark4.svg"
+            alt="A scary and hungry-looking great white shark"
+            class="whiteshark"
+          />
+          <img src="./src/images/orca2.svg"
+            alt="A scary and hungry-looking orca"
+            class="orca"
+          />
       </main>
 
-      <aside id="modal">
+      <aside id="modal-shown">
         <!-- eventually, modal will be separated into click-through panels -->
         <!--  with cute animation to support the storytelling -->
         <!-- <span id="close">x</span> -->
@@ -66,7 +90,7 @@
               />
             </li>
           </a>
-          <a class="profile-link" href="https://www.linkedin.com/in/matthewgreerdev/">
+          <a class="profile-link" href="https://www.linkedin.com/in/matthew-greer-dev/">
             <li class="profile-list-item">
               <img src="./src/images/linkedin-logo.png" 
                 class="profile-link-image"
