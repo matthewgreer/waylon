@@ -54,3 +54,5 @@ GameView.prototype.stop = function stop() {
   ;
   return this.initialize();
 };
+
+module.exports = GameView;

@@ -132,3 +132,5 @@ Game.prototype.step = function step(delta) {
   this.moveObjects(velocityScale);
   this.checkPredation();
 };
+
+module.exports = Game;
