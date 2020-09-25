@@ -1,3 +1,4 @@
+import colors from "../styles/_colors.scss";
 const Enemy = require("./enemy");
 const Util = require("./util");
 
@@ -61,9 +62,10 @@ Orca.prototype.draw = function draw(ctx) {
     y + 347 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#7F7F7F";
+  ctx.fillStyle = color.medGray;
   ctx.fill();
   ctx.lineWidth = 2;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Inner Jaw
@@ -101,9 +103,10 @@ Orca.prototype.draw = function draw(ctx) {
     x + 100 * scale,
     y + 235 * scale
   );
-  ctx.fillStyle = "#FBDFDF";
+  ctx.fillStyle = colors.orcaMouthPink;
   ctx.fill();
   ctx.lineWidth = 2;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Teeth Right Side
@@ -136,8 +139,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 270 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#FFFFFF";
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Right Tooth #2
@@ -168,7 +172,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 268 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Right Tooth #3
@@ -199,7 +205,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 266 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Right Tooth #4
@@ -230,7 +238,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 263 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Right Tooth #5
@@ -261,7 +271,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 260 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Right Tooth #6
@@ -292,7 +304,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 258 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Right Tooth #7
@@ -323,7 +337,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 256 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Right Tooth #8
@@ -354,7 +370,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 254 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Teeth Left Side
@@ -388,7 +406,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 280 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Left Tooth #2
@@ -419,7 +439,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 276 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Left Tooth #3
@@ -450,7 +472,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 274 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Left Tooth #4
@@ -481,7 +505,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 269 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Left Tooth #5
@@ -512,7 +538,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 267 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Left Tooth #6
@@ -543,7 +571,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 262 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Left Tooth #7
@@ -574,7 +604,9 @@ Orca.prototype.draw = function draw(ctx) {
     y + 260 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Eye - Sclera
@@ -605,7 +637,7 @@ Orca.prototype.draw = function draw(ctx) {
     y + 227 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#FFFFDD";
+  ctx.fillStyle = $orcaEyeWhite;
   ctx.fill();
 
   // Orca Eye - Iris
@@ -644,9 +676,10 @@ Orca.prototype.draw = function draw(ctx) {
     y + 221 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#393939";
+  ctx.fillStyle = colors.orcaEyeDkGray;
   ctx.fill();
   ctx.lineWidth = 1;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Eye - Pupil
@@ -685,9 +718,10 @@ Orca.prototype.draw = function draw(ctx) {
     y + 221 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#000000";
+  ctx.fillStyle = colors.waylonBlack;
   ctx.fill();
   ctx.lineWidth = 1;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Eye - Shine
@@ -726,7 +760,7 @@ Orca.prototype.draw = function draw(ctx) {
     y + 226 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "rgba(255, 255, 255, .1";
+  ctx.fillStyle = colors.eyeShine;
   ctx.fill();
   ctx.beginPath();
   ctx.moveTo(x + 103 * scale, y + 217 * scale);
@@ -1011,7 +1045,7 @@ Orca.prototype.draw = function draw(ctx) {
     y + 227 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#000000";
+  ctx.fillStyle = colors.waylonBlack;
   ctx.fill();
 
   // Orca Belly (white)
@@ -1075,9 +1109,10 @@ Orca.prototype.draw = function draw(ctx) {
     y + 338 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#FFFFFF";
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
   ctx.lineWidth = 3;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Chin (white)
@@ -1148,9 +1183,10 @@ Orca.prototype.draw = function draw(ctx) {
     y + 295 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#FFFFFF";
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
   ctx.lineWidth = 3;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Orca Eye Patch (white)
@@ -1181,7 +1217,7 @@ Orca.prototype.draw = function draw(ctx) {
     y + 220 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#FFFFFF";
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
 
   // Orca Saddle (gray)
@@ -1220,7 +1256,7 @@ Orca.prototype.draw = function draw(ctx) {
     y + 178 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "#7F7F7F";
+  ctx.fillStyle = colors.medGray;
   ctx.fill();
 };
 

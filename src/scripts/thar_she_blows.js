@@ -1,7 +1,7 @@
+import colors from "../styles/_colors.scss";
 function TharSheBlows(options) {
   this.sizeScale = options.sizeScale;
   this.position = options.position;
-  this.breathOpacity = 0.7;
   this.rainbowOpacity = 0.3;
 }
 
@@ -296,9 +296,11 @@ TharSheBlows.prototype.draw = function draw(ctx) {
     y + -100 * sizeScale
   );
   ctx.closePath();
-  ctx.fillStyle = `rgba(255, 255, 255, ${this.breathOpacity})`;
+  ctx.fillStyle = colors.tharSheBlows;
   ctx.fill();
-  // ctx.stroke();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.shadowBlack;
+  ctx.stroke();
   ctx.clip();
 
   ctx.beginPath();
@@ -313,17 +315,17 @@ TharSheBlows.prototype.draw = function draw(ctx) {
     118 * sizeScale,
     122 * sizeScale
   );
-  gradient.addColorStop(0, `rgba(255, 255, 255, 0)`);
-  gradient.addColorStop(0.74, `rgba(255, 255, 255, 0)`);
-  gradient.addColorStop(0.77, `rgba(255, 0, 255, ${this.rainbowOpacity})`);
-  gradient.addColorStop(0.79, `rgba(127, 0, 255, ${this.rainbowOpacity})`);
-  gradient.addColorStop(0.82, `rgba(0, 0, 255, ${this.rainbowOpacity})`);
-  gradient.addColorStop(0.85, `rgba(0, 127, 127, ${this.rainbowOpacity})`);
-  gradient.addColorStop(0.87, `rgba(0, 255, 0, ${this.rainbowOpacity})`);
-  gradient.addColorStop(0.91, `rgba(255, 255, 0, ${this.rainbowOpacity})`);
-  gradient.addColorStop(0.96, `rgba(255, 127, 0, ${this.rainbowOpacity})`);
-  gradient.addColorStop(0.99, `rgba(255, 0, 0, ${this.rainbowOpacity})`);
-  gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
+  gradient.addColorStop(0, colors.transparent);
+  gradient.addColorStop(0.74, colors.transparent);
+  gradient.addColorStop(0.77, colors.rainbowViolet);
+  gradient.addColorStop(0.79, colors.rainbowIndigo);
+  gradient.addColorStop(0.82, colors.rainbowBlue);
+  gradient.addColorStop(0.85, colors.rainbowAqua);
+  gradient.addColorStop(0.87, colors.rainbowGreen);
+  gradient.addColorStop(0.91, colors.rainbowYellow);
+  gradient.addColorStop(0.96, colors.rainbowOrange);
+  gradient.addColorStop(0.99, colors.rainbowRed);
+  gradient.addColorStop(1, colors.transparent);
 
   ctx.fillStyle = gradient;
   ctx.fill();

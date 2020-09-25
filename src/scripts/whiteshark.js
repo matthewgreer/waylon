@@ -1,3 +1,4 @@
+import colors from "../styles/_colors.scss";
 const Enemy = require("./enemy");
 const Util = require("./util");
 
@@ -31,9 +32,7 @@ WhiteShark.prototype.draw = function(ctx) {
   //   the surface of the canvas.
 
   // Shark - Right Pelvic Fin
-  ctx.fillStyle = "#97A5AD";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 2;
+
   ctx.beginPath();
   ctx.moveTo(x + 546 * scale, y + 222 * scale);
   ctx.bezierCurveTo(
@@ -54,13 +53,13 @@ WhiteShark.prototype.draw = function(ctx) {
   );
   ctx.lineTo(x + 546 * scale, y + 222 * scale);
   ctx.closePath();
+  ctx.fillStyle = colors.sharkDkGray;
   ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Inside Mouth
-  ctx.fillStyle = "#7F3C3C";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.moveTo(x + 100 * scale, y + 191 * scale);
   ctx.bezierCurveTo(
@@ -104,12 +103,15 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 191 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkMouthRed;
   ctx.fill();
+  ctx.lineWidth = 2;  
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #1, Light Gray
-  ctx.fillStyle = "#B7B7B7";
-  ctx.strokeStyle = "#000000";
+  ctx.fillStyle = colors.bgLtGray;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 59 * scale, y + 248 * scale);
@@ -174,9 +176,7 @@ WhiteShark.prototype.draw = function(ctx) {
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #2, Light Gray
-  ctx.fillStyle = "#B7B7B7";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
+
   ctx.beginPath();
   ctx.moveTo(x + 61 * scale, y + 243 * scale);
   ctx.bezierCurveTo(
@@ -236,13 +236,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 243 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.bgLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #3, Light Gray
-  ctx.fillStyle = "#B7B7B7";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 63 * scale, y + 241 * scale);
   ctx.bezierCurveTo(
@@ -302,13 +302,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 241 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.bgLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #4, Light Gray
-  ctx.fillStyle = "#B7B7B7";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 65 * scale, y + 237 * scale);
   ctx.bezierCurveTo(
@@ -368,13 +368,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 237 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.bgLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #4A, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 66 * scale, y + 238 * scale);
   ctx.bezierCurveTo(
@@ -434,13 +434,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 238 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #5, Light Gray
-  ctx.fillStyle = "#B7B7B7";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 69 * scale, y + 234 * scale);
   ctx.bezierCurveTo(
@@ -500,13 +500,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 234 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.bgLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #5A, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 69 * scale, y + 235 * scale);
   ctx.bezierCurveTo(
@@ -566,13 +566,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 235 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #6, Light Gray
-  ctx.fillStyle = "#B7B7B7";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 72 * scale, y + 230 * scale);
   ctx.bezierCurveTo(
@@ -632,13 +632,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 230 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.bgLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #7, Light Gray
-  ctx.fillStyle = "#B7B7B7";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 76 * scale, y + 226 * scale);
   ctx.bezierCurveTo(
@@ -698,14 +698,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 226 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.bgLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #8, Light Gray
-  ctx.fillStyle = "#B7B7B7";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
-  ctx.miterLimit = "10";
   ctx.beginPath();
   ctx.moveTo(x + 80 * scale, y + 223 * scale);
   ctx.bezierCurveTo(
@@ -765,13 +764,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 223 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.bgLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #8A, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 80 * scale, y + 222 * scale);
   ctx.bezierCurveTo(
@@ -831,13 +830,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 222 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #9, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 83 * scale, y + 219 * scale);
   ctx.bezierCurveTo(
@@ -897,13 +896,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 219 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #9A, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 84 * scale, y + 218 * scale);
   ctx.bezierCurveTo(
@@ -963,13 +962,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 218 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #10, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 86 * scale, y + 216 * scale);
   ctx.bezierCurveTo(
@@ -1029,13 +1028,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 216 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #11, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 88 * scale, y + 212 * scale);
   ctx.bezierCurveTo(
@@ -1095,13 +1094,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 212 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #12, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 91 * scale, y + 209 * scale);
   ctx.bezierCurveTo(
@@ -1161,13 +1160,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 209 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #13, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 95 * scale, y + 206 * scale);
   ctx.bezierCurveTo(
@@ -1227,13 +1226,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 206 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Right Tooth #12-13A, Dark Gray
-  ctx.fillStyle = "#595959";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 93 * scale, y + 207 * scale);
   ctx.bezierCurveTo(
@@ -1293,12 +1292,15 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 207 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothDkGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #1, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
+  ctx.fillStyle = colors.waylonWhite;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 55 * scale, y + 251 * scale);
@@ -1363,8 +1365,8 @@ WhiteShark.prototype.draw = function(ctx) {
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #2A, Light Gray
-  ctx.fillStyle = "#A3A3A3";
-  ctx.strokeStyle = "#000000";
+  ctx.fillStyle = colors.sharkToothLtGray;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 66 * scale, y + 249 * scale);
@@ -1429,9 +1431,6 @@ WhiteShark.prototype.draw = function(ctx) {
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #2, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 60 * scale, y + 251 * scale);
   ctx.bezierCurveTo(
@@ -1491,13 +1490,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 251 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #3, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 67 * scale, y + 252 * scale);
   ctx.bezierCurveTo(
@@ -1557,13 +1556,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 252 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #4A, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 68 * scale, y + 249 * scale);
   ctx.bezierCurveTo(
@@ -1623,13 +1622,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 249 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #5A, Light Gray
-  ctx.fillStyle = "#A3A3A3";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 72 * scale, y + 246 * scale);
   ctx.bezierCurveTo(
@@ -1689,13 +1688,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 246 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #4, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 68 * scale, y + 247 * scale);
   ctx.bezierCurveTo(
@@ -1755,13 +1754,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 247 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #5, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 75 * scale, y + 243 * scale);
   ctx.bezierCurveTo(
@@ -1821,13 +1820,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 243 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #6, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 77 * scale, y + 239 * scale);
   ctx.bezierCurveTo(
@@ -1887,13 +1886,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 239 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #7A, Gray
-  ctx.fillStyle = "#A3A3A3";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 84 * scale, y + 235 * scale);
   ctx.bezierCurveTo(
@@ -1953,13 +1952,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 235 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #7, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 82 * scale, y + 236 * scale);
   ctx.bezierCurveTo(
@@ -2019,13 +2018,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 236 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #8, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 88 * scale, y + 231 * scale);
   ctx.bezierCurveTo(
@@ -2085,13 +2084,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 231 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #9, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 91 * scale, y + 228 * scale);
   ctx.bezierCurveTo(
@@ -2151,13 +2150,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 228 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #10, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 96 * scale, y + 225 * scale);
   ctx.bezierCurveTo(
@@ -2217,13 +2216,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 225 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #11, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 98 * scale, y + 218 * scale);
   ctx.bezierCurveTo(
@@ -2283,13 +2282,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 218 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #12, Gray
-  ctx.fillStyle = "#A3A3A3";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 102 * scale, y + 217 * scale);
   ctx.bezierCurveTo(
@@ -2349,13 +2348,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 217 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Lower Jaw Left Tooth #13, Gray
-  ctx.fillStyle = "#A3A3A3";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 107 * scale, y + 213 * scale);
   ctx.bezierCurveTo(
@@ -2415,13 +2414,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 213 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Right Tooth #8, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 84 * scale, y + 156 * scale);
   ctx.bezierCurveTo(
@@ -2465,13 +2464,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 156 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Right Tooth #7, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 79 * scale, y + 152 * scale);
   ctx.bezierCurveTo(
@@ -2515,13 +2514,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 152 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Right Tooth #6, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 72 * scale, y + 147 * scale);
   ctx.bezierCurveTo(
@@ -2565,13 +2564,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 147 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Right Tooth #5, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 67 * scale, y + 143 * scale);
   ctx.bezierCurveTo(
@@ -2615,13 +2614,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 143 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Right Tooth #4, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 62 * scale, y + 141 * scale);
   ctx.bezierCurveTo(
@@ -2665,13 +2664,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 141 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Right Tooth #3, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 57 * scale, y + 138 * scale);
   ctx.bezierCurveTo(
@@ -2715,13 +2714,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 138 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Right Tooth #2, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 51 * scale, y + 137 * scale);
   ctx.bezierCurveTo(
@@ -2765,13 +2764,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 137 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Right Tooth #1, Gray
-  ctx.fillStyle = "#A8A8A8";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 44 * scale, y + 133 * scale);
   ctx.bezierCurveTo(
@@ -2815,13 +2814,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 133 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkToothLtGray;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Left Tooth #1, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 40 * scale, y + 129 * scale);
   ctx.bezierCurveTo(
@@ -2865,13 +2864,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 129 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Left Tooth #2, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 50 * scale, y + 132 * scale);
   ctx.bezierCurveTo(
@@ -2915,13 +2914,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 132 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Left Tooth #3, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 58 * scale, y + 134 * scale);
   ctx.bezierCurveTo(
@@ -2965,13 +2964,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 134 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Left Tooth #4, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 68 * scale, y + 136 * scale);
   ctx.bezierCurveTo(
@@ -3015,13 +3014,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 136 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Left Tooth #5, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 77 * scale, y + 142 * scale);
   ctx.bezierCurveTo(
@@ -3065,13 +3064,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 142 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Left Tooth #6, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 88 * scale, y + 144 * scale);
   ctx.bezierCurveTo(
@@ -3115,13 +3114,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 144 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Upper Jaw Left Tooth #7, White
-  ctx.fillStyle = "#FFFFFF";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(x + 94 * scale, y + 147 * scale);
   ctx.bezierCurveTo(
@@ -3165,13 +3164,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 147 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
+  ctx.lineWidth = 0.5;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Right Pectoral Fin
-  ctx.fillStyle = "#CFD1E2";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.moveTo(x + 206 * scale, y + 210 * scale);
   ctx.bezierCurveTo(
@@ -3223,13 +3222,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 216 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkLtGrey;
   ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Right Pectoral Fin Black Tip
-  ctx.fillStyle = "#333333";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.moveTo(x + 172 * scale, y + 340 * scale);
   ctx.bezierCurveTo(
@@ -3265,13 +3264,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 340 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.bgDkGray;
   ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Anal Fin
-  ctx.fillStyle = "#78798C";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.moveTo(x + 635 * scale, y + 209 * scale);
   ctx.bezierCurveTo(
@@ -3289,11 +3288,13 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 205 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.sharkDkrGray;
   ctx.fill();
+  ctx.lineWidth = 2;  
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Light Gray Ventral Coloration
-  ctx.fillStyle = "#E5E5E5";
   ctx.beginPath();
   ctx.moveTo(x + 748 * scale, y + 207 * scale);
   ctx.bezierCurveTo(
@@ -3472,10 +3473,10 @@ WhiteShark.prototype.draw = function(ctx) {
     x + 748 * scale,
     y + 207 * scale
   );
+  ctx.fillStyle = colors.waylonLtrGray;
   ctx.fill();
 
   // Shark - Gray Dorsal Coloration
-  ctx.fillStyle = "#78798E";
   ctx.beginPath();
   ctx.moveTo(x + 748 * scale, y + 207 * scale); // middle of front edge of lower caudal lobe
   ctx.bezierCurveTo(
@@ -3671,12 +3672,11 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 207 * scale
   ); // middle of front edge of lower caudal lobe
   ctx.closePath();
+  ctx.fillStyle = colors.sharkDkrGray;
   ctx.fill();
 
   // Shark - Body Outline
-  ctx.strokeStyle = "#000000";
   ctx.lineWidth = 3;
-  ctx.miterLimit = "10";
   ctx.beginPath();
   ctx.moveTo(x + 748 * scale, y + 207 * scale);
   ctx.bezierCurveTo(
@@ -3867,12 +3867,10 @@ WhiteShark.prototype.draw = function(ctx) {
   );
   ctx.moveTo(x + 616 * scale, y + 150 * scale);
   ctx.lineTo(x + 649 * scale, y + 159 * scale);
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Left Pectoral Fin
-  ctx.fillStyle = "#78798E";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.moveTo(x + 338 * scale, y + 207 * scale);
   ctx.bezierCurveTo(
@@ -3907,13 +3905,13 @@ WhiteShark.prototype.draw = function(ctx) {
     x + 291 * scale,
     y + 198 * scale
   );
+  ctx.fillStyle = colors.sharkDkrGray;
   ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Left Pelvic Fin
-  ctx.fillStyle = "#78798E";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.moveTo(x + 557 * scale, y + 212 * scale);
   ctx.bezierCurveTo(
@@ -3948,12 +3946,17 @@ WhiteShark.prototype.draw = function(ctx) {
     x + 503 * scale,
     y + 210 * scale
   );
+  ctx.fillStyle = colors.sharkDkrGray;
+  ctx.fill();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = colors.waylonBlack;
+  ctx.stroke();
   ctx.fill();
   ctx.stroke();
 
   // Shark - Gill Slits
-  ctx.strokeStyle = "#000000";
   ctx.lineWidth = 2;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.beginPath();
   ctx.moveTo(x + 262.28 * scale, y + 182.98 * scale);
   ctx.bezierCurveTo(
@@ -4000,19 +4003,21 @@ WhiteShark.prototype.draw = function(ctx) {
     x + 301 * scale,
     y + 187 * scale
   ); // 5
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Shark - Eye Iris
-  ctx.fillStyle = "#000000";
-  ctx.strokeStyle = "#555555";
   ctx.beginPath();
   ctx.arc(x + 107 * scale, y + 115 * scale, 8 * scale, 0, 2 * Math.PI, false);
   ctx.closePath();
+  ctx.fillStyle = colors.waylonBlack;
   ctx.fill();
+  ctx.strokeStyle = colors.sharkToothDkGray;
   ctx.stroke();
 
   // Shark - Eye Reflection
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
+  ctx.strokeStyle = colors.eyeShine;
   ctx.beginPath();
   ctx.moveTo(x + 109 * scale, y + 113 * scale);
   ctx.lineTo(x + 107 * scale, y + 112 * scale);
@@ -4020,8 +4025,6 @@ WhiteShark.prototype.draw = function(ctx) {
   ctx.stroke();
 
   // Shark - Nostril
-  ctx.fillStyle = "#2B2B2B";
-  ctx.strokeStyle = "#000000";
   ctx.beginPath();
   ctx.moveTo(x + 47 * scale, y + 104 * scale);
   ctx.bezierCurveTo(
@@ -4049,51 +4052,10 @@ WhiteShark.prototype.draw = function(ctx) {
     y + 104 * scale
   );
   ctx.closePath();
+  ctx.fillStyle = colors.bgDkGray;
   ctx.fill();
+  ctx.strokeStyle = colors.waylonBlack;  
   ctx.stroke();
 };
-
-
-// This code is vestigial, leftover from experimentation
-// It is left here in case I need to reference it
-              // document.addEventListener(
-              //   "DOMContentLoaded",
-              //   () => {
-              //     let x = 1920;
-              //     let i = 0;
-              //     let y = Math.floor(Math.random() * 650);
-              //     let prevY = 0;
-              //     let reps = 8;
-              //     let speed = Math.floor(Math.random() * 5) + 3;
-              //     let scale = Math.random();
-
-              //     let tick = setInterval(() => {
-              //       drawShark(x, y, scale);
-
-              //       const stop = () => {
-              //         clearInterval(tick);
-              //       };
-
-              //       if (i >= reps) {
-              //         stop();
-              //       }
-
-              //       if (x <= -862) {
-              //         x = 1920;
-              //         i = i + 1;
-              //         speed = Math.floor(Math.random() * 5) + 3;
-              //         scale = Math.random();
-              //         if (prevY < 300) {
-              //           y = prevY + Math.floor(Math.random() * 350);
-              //         } else {
-              //           y = Math.floor(Math.random() * 400);
-              //         }
-              //       }
-
-              //       x = x - speed;
-              //     });
-              //   },
-              //   200
-              // );
 
 module.exports = WhiteShark;

@@ -1,18 +1,10 @@
+import colors from "../styles/_colors.scss";
 const Enemy = require("./enemy");
 const Orca = require("./orca");
 const TharSheBlows = require("./thar_she_blows");
 const Waves = require("./waves");
 const Waylon = require("./waylon");
 const WhiteShark = require("./whiteshark");
-
-
-/*
-NOTES: 
-  ctx created in index.js
-  ctx.canvas.height/width or this.dimensions[0]/[1]?
-
-
-*/
 
 const ENEMY_TYPES = [
   "WhiteShark",
@@ -34,12 +26,12 @@ function Game() {
 
 Game.prototype.draw = function draw(ctx) {
   const SKY_GRADIENT = ctx.createLinearGradient(0, 0, 0, 100);
-  SKY_GRADIENT.addColorStop(0, $skyTop);
-  SKY_GRADIENT.addColorStop(1, $skyHorizon);
+  SKY_GRADIENT.addColorStop(0, colors.skyTop);
+  SKY_GRADIENT.addColorStop(1, colors.skyHorizon);
   
   const OCEAN_GRADIENT = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
-  OCEAN_GRADIENT.addColorStop(0, $oceanHorizon);
-  OCEAN_GRADIENT.addColorStop(1, $deepBlue);
+  OCEAN_GRADIENT.addColorStop(0, colors.oceanHorizon);
+  OCEAN_GRADIENT.addColorStop(1, colors.deepBlue);
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   
   ctx.fillStyle = SKY_GRADIENT;
@@ -121,8 +113,8 @@ Game.prototype.allObjects = function allObjects() {
 };
 
 Game.prototype.moveObjects = function moveObjects(velocityScale) {
-  this.allObjects.forEach(function(object){
-    object.move(velocityScale);
+  this.allObjects().forEach(function(object){
+    return object.move(velocityScale);
   });
 };
 

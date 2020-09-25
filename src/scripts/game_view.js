@@ -1,30 +1,37 @@
 const FreqAnalyzer = require("./freq_analyzer");
-const Modal = require("./modal");
 const Waylon = require("./waylon");
 
 function GameView(game, ctx) {
   this.ctx = ctx;
   this.game = game;
-  this.modal = new Modal();
+  this.modal = document.getElementById("modal-shown");
   this.freqAnalyzer = new FreqAnalyzer();
   this.stopButton = document.getElementById("stop-button");
   this.startButton = document.getElementById("start-button");
+  this.start = this.start.bind(this);
 }
 
 GameView.prototype.initialize = function initialize() {
   return document.addEventListener("click", this.start);
 };
 
+GameView.prototype.closeModal = function closeModal() {
+  return this.modal.id = "modal-hidden";
+};
+
+GameView.prototype.showModal = function showModal() {
+  return this.modal.id = "modal-shown";
+};
+
 GameView.prototype.start = function start() {
   document.removeEventListener("click", this.start);
-  this.modal.closeModal();
-  this.freqAnalyzer
-    .getMediaDevices()
-    .then(createAudioContext())
-    .then(createAnalyzerNode())
-    .then(getMicStream())
-  ;
-  this.waylon = this.game.add(
+  this.closeModal();
+  debugger
+  this.freqAnalyzer.getMediaDevices();
+  this.freqAnalyzer.createAudioContext();
+  this.freqAnalyzer.createAnalyzerNode();
+  this.freqAnalyzer.getMicStream();
+  this.game.add(
     new Waylon({
       freqAnalyzer: this.freqAnalyzer,
       game: this.game,
@@ -56,3 +63,55 @@ GameView.prototype.stop = function stop() {
 };
 
 module.exports = GameView;
+
+/*
+
+
+Modal.prototype.showModal = function showModal(){
+  this.instructions.id = "modal-shown";
+
+
+*/
+
+
+// This code is vestigial, leftover from experimentation
+// It is left here in case I need to reference it
+              // document.addEventListener(
+              //   "DOMContentLoaded",
+              //   () => {
+              //     let x = 1920;
+              //     let i = 0;
+              //     let y = Math.floor(Math.random() * 650);
+              //     let prevY = 0;
+              //     let reps = 8;
+              //     let speed = Math.floor(Math.random() * 5) + 3;
+              //     let scale = Math.random();
+
+              //     let tick = setInterval(() => {
+              //       drawShark(x, y, scale);
+
+              //       const stop = () => {
+              //         clearInterval(tick);
+              //       };
+
+              //       if (i >= reps) {
+              //         stop();
+              //       }
+
+              //       if (x <= -862) {
+              //         x = 1920;
+              //         i = i + 1;
+              //         speed = Math.floor(Math.random() * 5) + 3;
+              //         scale = Math.random();
+              //         if (prevY < 300) {
+              //           y = prevY + Math.floor(Math.random() * 350);
+              //         } else {
+              //           y = Math.floor(Math.random() * 400);
+              //         }
+              //       }
+
+              //       x = x - speed;
+              //     });
+              //   },
+              //   200
+              // );
