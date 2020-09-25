@@ -1,6 +1,7 @@
 import colors from "../styles/_colors.scss";
-const Enemy = require("./enemy");
-const Util = require("./util");
+
+import Enemy from "./enemy";
+import Util from "./util";
 
 // Orca model is x:932, y: 463 at 1:1 scale
 
@@ -1260,4 +1261,4 @@ Orca.prototype.draw = function draw(ctx) {
   ctx.fill();
 };
 
-module.exports = Orca;
+export default Orca;

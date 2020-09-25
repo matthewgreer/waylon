@@ -1,4 +1,5 @@
 import colors from "../styles/_colors.scss";
+
 function TharSheBlows(options) {
   this.sizeScale = options.sizeScale;
   this.position = options.position;
@@ -333,4 +334,4 @@ TharSheBlows.prototype.draw = function draw(ctx) {
 
 };
 
-module.exports = TharSheBlows;
+export default TharSheBlows;

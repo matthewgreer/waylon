@@ -1,10 +1,10 @@
 import colors from "../styles/_colors.scss";
-const Enemy = require("./enemy");
-const Orca = require("./orca");
-const TharSheBlows = require("./thar_she_blows");
-const Waves = require("./waves");
-const Waylon = require("./waylon");
-const WhiteShark = require("./whiteshark");
+import Enemy from "./enemy";
+import Orca from "./orca";
+import TharSheBlows from "./thar_she_blows";
+import Waves from "./waves";
+import Waylon from "./waylon";
+import WhiteShark from "./whiteshark";
 
 const ENEMY_TYPES = [
   "WhiteShark",
@@ -125,4 +125,4 @@ Game.prototype.step = function step(delta) {
   this.checkPredation();
 };
 
-module.exports = Game;
+export default Game;

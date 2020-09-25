@@ -1,6 +1,6 @@
 import colors from "../styles/_colors.scss";
-const Enemy = require("./enemy");
-const Util = require("./util");
+import Enemy from "./enemy";
+import Util from "./util";
 
 // WhiteShark model is x:862, y:371 at scale 1:1
 
@@ -4058,4 +4058,4 @@ WhiteShark.prototype.draw = function(ctx) {
   ctx.stroke();
 };
 
-module.exports = WhiteShark;
+export default WhiteShark;

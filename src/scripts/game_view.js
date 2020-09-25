@@ -1,5 +1,5 @@
-const FreqAnalyzer = require("./freq_analyzer");
-const Waylon = require("./waylon");
+import FreqAnalyzer from "./freq_analyzer";
+import Waylon from "./waylon";
 
 function GameView(game, ctx) {
   this.ctx = ctx;
@@ -62,7 +62,7 @@ GameView.prototype.stop = function stop() {
   return this.initialize();
 };
 
-module.exports = GameView;
+export default GameView;
 
 /*
 

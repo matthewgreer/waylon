@@ -1,4 +1,4 @@
-// const Util = require("./util");
+// import Util from "./util";
 
 function Enemy(options) {
   this.position = options.position;
@@ -33,4 +33,4 @@ Enemy.prototype.move = function move(velocityScale) {
   if (this.box[1] < 0) { this.game.remove(this) }
 };
 
-module.exports = Enemy;
+export default Enemy;

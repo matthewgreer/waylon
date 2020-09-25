@@ -1,6 +1,6 @@
 import './styles/index.scss';
-const Game = require("./scripts/game");
-const GameView = require("./scripts/game_view");
+import Game from "./scripts/game";
+import GameView from "./scripts/game_view";
 
 document.addEventListener("DOMContentLoaded", function() {
   const canvas = document.getElementById("canvas");

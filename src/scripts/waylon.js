@@ -1,5 +1,5 @@
 import colors from "../styles/_colors.scss";
-const TharSheBlows = require("./thar_she_blows");
+import TharSheBlows from "./thar_she_blows";
 
 function Waylon(options) {
   this.game = options.game;
@@ -1585,4 +1585,4 @@ Waylon.prototype.draw = function draw(ctx) {
   ctx.restore();
 };
 
-module.exports = Waylon;
+export default Waylon;

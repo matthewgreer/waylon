@@ -88,4 +88,4 @@ FreqAnalyzer.prototype.outputTopFreq = function outputTopFreq () {
   }
 };
 
-module.exports = FreqAnalyzer;
+export default FreqAnalyzer;

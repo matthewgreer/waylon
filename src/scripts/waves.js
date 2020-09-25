@@ -1,4 +1,5 @@
 import colors from "../styles/_colors.scss";
+
 function Waves(options) {
   this.sizeScale = options.sizeScale;
   this.position = options.position;
@@ -55,4 +56,4 @@ Waves.prototype.draw = function draw(ctx) {
   }
 };
 
-module.exports = Waves;
+export default Waves;
