@@ -34,7 +34,7 @@ GameView.prototype.start = function start() {
     new Waylon({
       freqAnalyzer: this.freqAnalyzer,
       game: this.game,
-      position: [25, 150],
+      position: [25, 0],
       sizeScale: 0.6,
       velocity: 3
     })
@@ -47,7 +47,6 @@ GameView.prototype.start = function start() {
 GameView.prototype.animate = function animate(time) {
   const timeDelta = time - this.lastTime;
   this.game.step(timeDelta);
-  debugger
   this.game.draw(this.ctx);
   this.lastTime = time;
   return this.animReq = requestAnimationFrame(this.animate.bind(this));
