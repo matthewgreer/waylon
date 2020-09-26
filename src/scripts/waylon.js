@@ -28,7 +28,7 @@ Waylon.prototype.move = function move(velocityScale) {
   if (newPitch > this.currentPitch) {
     this.position = [this.position[0], this.position[1] - offsetY];
       // level out near the surface
-      if (this.position[1] <= 175 && this.currentRotation < 0) {
+      if (this.position[1] <= 75 && this.currentRotation < 0) {
         this.currentRotation++;
       }
     this.currentRotation--;
@@ -57,7 +57,7 @@ Waylon.prototype.move = function move(velocityScale) {
     this.breathe();
   }
 
-  this.currentPitch = newPitch;
+  return this.currentPitch = newPitch;
 };
 
 Waylon.prototype.breathe = function breathe() {
@@ -77,9 +77,9 @@ Waylon.prototype.draw = function draw(ctx) {
     return Math.floor(lineW * scale);
   };
 
-  ctx.translate(this.centerofRotation[0], this.centerOfRotation[1]);
-  ctx.rotate((this.currentRotation * Math.PI) / 180);
-  ctx.translate(-(this.centerofRotation[0]), -(this.centerOfRotation[1]));
+  // ctx.translate(this.centerofRotation[0], this.centerOfRotation[1]);
+  // ctx.rotate((this.currentRotation * Math.PI) / 180);
+  // ctx.translate(-(this.centerofRotation[0]), -(this.centerOfRotation[1]));
 
 
   // Waylon Left Pectoral Fin
@@ -158,7 +158,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 209 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonDkrGray;
+  ctx.fillStyle = "rgba(225, 228, 235, 1.0)";
+  // ctx.fillStyle = colors.waylonDkrGray;
   ctx.fill();
   ctx.lineWidth = scaledLineWidth(3);
   ctx.stroke();
@@ -495,7 +496,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 103 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonBlue;
+  ctx.fillStyle = "rgba(50, 102, 158, 1.0)";
+  // ctx.fillStyle = colors.waylonBlue;
   ctx.fill();
 
   // Waylon Ventral Gray Fill
@@ -655,7 +657,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 172 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonGray;
+  ctx.fillStyle = "rgba(226, 232, 247, 1.0)";
+  // ctx.fillStyle = colors.waylonGray;
   ctx.fill();
 
   // Waylon Ventral Area - Lower Wrinkle, Shadow
@@ -686,7 +689,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 65 * scale
   );
   ctx.lineWidth = scaledLineWidth(3);
-  ctx.strokeStyle = colors.waylonWrinkShd;
+  ctx.strokeStyle = "rgba(191, 192, 193, 1.0)";
+  // ctx.strokeStyle = colors.waylonWrinkShd;
   ctx.stroke();
 
   // Waylon Ventral Area - Lower Wrinkle, Highlight
@@ -717,7 +721,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 65 * scale
   );
   ctx.lineWidth = scaledLineWidth(4);
-  ctx.strokeStyle = colors.waylonWrinkHlt;
+  ctx.strokeStyle = "rgba(226, 232, 247, 0.9)";
+  // ctx.strokeStyle = colors.waylonWrinkHlt;
   ctx.stroke();
 
   // Waylon Ventral Area - Middle Wrinkle, shadow
@@ -732,7 +737,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 63 * scale
   );
   ctx.lineWidth = scaledLineWidth(3);
-  ctx.strokeStyle = colors.waylonWrinkShd;
+  ctx.strokeStyle = "rgba(191, 192, 193, 1.0)";
+  // ctx.strokeStyle = colors.waylonWrinkShd;
   ctx.stroke();
 
   // Waylon Ventral Area - Middle Wrinkle, Highlight
@@ -747,7 +753,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 63 * scale
   );
   ctx.lineWidth = scaledLineWidth(4);
-  ctx.strokeStyle = colors.waylonWrinkHlt;
+  ctx.strokeStyle = "rgba(226, 232, 247, 0.9)";
+  // ctx.strokeStyle = colors.waylonWrinkHlt;
   ctx.stroke();
 
   // Waylon Ventral Area - Top Wrinkle, Shadow
@@ -770,7 +777,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 65 * scale
   );
   ctx.lineWidth = scaledLineWidth(3);
-  ctx.strokeStyle = colors.waylonWrinkShd;
+  ctx.strokeStyle = "rgba(191, 192, 193, 1.0)";
+  // ctx.strokeStyle = colors.waylonWrinkShd;
   ctx.stroke();
 
   // Waylon Ventral Area - Top Wrinkle, Highlight
@@ -793,7 +801,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 64 * scale
   );
   ctx.lineWidth = scaledLineWidth(4);
-  ctx.strokeStyle = colors.waylonWrinkHlt;
+  ctx.strokeStyle = "rgba(226, 232, 247, 0.9)";
+  // ctx.strokeStyle = colors.waylonWrinkHlt;
   ctx.stroke();
 
   // Waylon Body Outline
@@ -1122,7 +1131,8 @@ Waylon.prototype.draw = function draw(ctx) {
   );
   ctx.closePath();
   ctx.lineWidth = scaledLineWidth(4);
-  ctx.strokeStyle = colors.waylonBlack;
+  ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Waylon Mouth
@@ -1185,10 +1195,12 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 31 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonBlack;
+  ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.fillStyle = colors.waylonBlack;
   ctx.fill();
   ctx.lineWidth = scaledLineWidth(2);
-  ctx.stokeStyle = colors.waylonBlack;
+  ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Waylon Blowhole
@@ -1211,10 +1223,12 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 9 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonBlack;
+  ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.fillStyle = colors.waylonBlack;
   ctx.fill();
   ctx.lineWidth = scaledLineWidth(1);
-  ctx.stokeStyle = colors.waylonBlack;
+  ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Waylon Eye, Sclera
@@ -1253,7 +1267,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 63 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonWhite;
+  ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
+  // ctx.fillStyle = colors.waylonWhite;
   ctx.fill();
 
   // Waylon Eye, Iris
@@ -1292,9 +1307,11 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 63 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonEye;
+  ctx.fillStyle = "rgba(80, 116, 214, 1.0)";
+  // ctx.fillStyle = colors.waylonEye;
   ctx.fill();
-  ctx.stokeStyle = colors.waylonBlack;
+  ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Waylon Eye, Pupil
@@ -1333,9 +1350,11 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 63 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonBlack;
+  ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.fillStyle = colors.waylonBlack;
   ctx.fill();
-  ctx.stokeStyle = colors.waylonBlack;
+  ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Waylon Eye, Bottom Shine
@@ -1374,7 +1393,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 76 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.eyeShine;
+  ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+  // ctx.fillStyle = colors.eyeShine;
   ctx.fill();
 
   // Waylon Eye, Bottom Shine
@@ -1413,7 +1433,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 44 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.eyeShine;
+  ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+  // ctx.fillStyle = colors.eyeShine;
   ctx.fill();
 
   // Waylon Eyelashes, Masking
@@ -1452,7 +1473,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 34 * scale
   );
   ctx.closePath();
-  ctx.strokeStyle = colors.waylonBlack;
+  ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
 
   // Waylon Eyelashes
@@ -1498,7 +1520,8 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 90 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonBlack;
+  ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.fillStyle = colors.waylonBlack;
   ctx.fill();
 
   // Waylon Right Pectoral Fin
@@ -1577,10 +1600,12 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 230 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.waylonLtrGray;
+  ctx.fillStyle = "rgba(234, 237, 244, 1.0)";
+  // ctx.fillStyle = colors.waylonLtrGray;
   ctx.fill();
   ctx.lineWidth = scaledLineWidth(3);
-  ctx.strokeStyle = colors.waylonBlack;
+  ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
+  // ctx.strokeStyle = colors.waylonBlack;
   ctx.stroke();
   ctx.restore();
 };
