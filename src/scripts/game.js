@@ -1,4 +1,6 @@
-import * as colors from "../styles/index.scss";
+import * as myColors from "../styles/_colors.scss";
+// import { myColors } from "../styles/_colors.scss";
+// import myColors from "../styles/_colors.scss";
 import Enemy from "./enemy";
 import Orca from "./orca";
 import TharSheBlows from "./thar_she_blows";
@@ -21,21 +23,24 @@ function Game() {
   this.bubbles = [];
 }
 
-
 Game.prototype.draw = function draw(ctx) {
-  debugger
-  const SKY_GRADIENT = ctx.createLinearGradient(0, 0, 0, 100);
-  SKY_GRADIENT.addColorStop(0, colors.skyTop);
-  SKY_GRADIENT.addColorStop(1, colors.skyHorizon);
+
+  const skyGradient = ctx.createLinearGradient(0, 0, 0, 100);
+  skyGradient.addColorStop(0, "rgba(134, 153, 246, 1.0)");
+  skyGradient.addColorStop(1, "rgba(151, 202, 243, 1.0)");
+  // skyGradient.addColorStop(0, myColors.skyTop);
+  // skyGradient.addColorStop(1, myColors.skyHorizon);
   
-  const OCEAN_GRADIENT = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
-  OCEAN_GRADIENT.addColorStop(0, colors.oceanHorizon);
-  OCEAN_GRADIENT.addColorStop(1, colors.deepBlue);
+  const oceanGradient = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
+  oceanGradient.addColorStop(0, "rgba(87, 247, 250, 1.0)");
+  oceanGradient.addColorStop(1, "rgba(0, 0, 80, 1.0)");
+  // oceanGradient.addColorStop(0, myColors.oceanHorizon);
+  // oceanGradient.addColorStop(1, myColors.deepBlue);
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   
-  ctx.fillStyle = SKY_GRADIENT;
-  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  ctx.fillStyle = OCEAN_GRADIENT;
+  ctx.fillStyle = skyGradient;
+  ctx.fillRect(0, 0, ctx.canvas.width, 100);
+  ctx.fillStyle = oceanGradient;
   ctx.fillRect(0, 100, ctx.canvas.width, ctx.canvas.height);
 
   this.allObjects().forEach(function(object) {
@@ -112,8 +117,9 @@ Game.prototype.allObjects = function allObjects() {
 };
 
 Game.prototype.moveObjects = function moveObjects(velocityScale) {
+  debugger
   this.allObjects().forEach(function(object){
-    return object.move(velocityScale);
+    object.move(velocityScale);
   });
 };
 
