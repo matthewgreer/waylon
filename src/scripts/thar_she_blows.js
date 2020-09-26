@@ -6,6 +6,10 @@ function TharSheBlows(options) {
   this.rainbowOpacity = 0.3;
 }
 
+TharSheBlows.prototype.move = function move(velocityScale) {
+  // him no move
+};
+
 TharSheBlows.prototype.draw = function draw(ctx) {
   const x = this.position[0];
   let y = this.position[1];
@@ -297,7 +301,7 @@ TharSheBlows.prototype.draw = function draw(ctx) {
     y + -100 * sizeScale
   );
   ctx.closePath();
-  ctx.fillStyle = colors.tharSheBlows;
+  ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
   ctx.fill();
   ctx.lineWidth = 0.5;
   ctx.strokeStyle = colors.shadowBlack;
@@ -308,7 +312,7 @@ TharSheBlows.prototype.draw = function draw(ctx) {
   ctx.transform(1, 0, 0, 1.4, 0, 0);
   ctx.arc(x + 376 * sizeScale, 118 * sizeScale, 122 * sizeScale, 0, 2 * Math.PI);
   ctx.closePath();
-  gradient = ctx.createRadialGradient(
+  const gradient = ctx.createRadialGradient(
     x + 405 * sizeScale,
     0,
     0,
@@ -316,17 +320,28 @@ TharSheBlows.prototype.draw = function draw(ctx) {
     118 * sizeScale,
     122 * sizeScale
   );
-  gradient.addColorStop(0, colors.transparent);
-  gradient.addColorStop(0.74, colors.transparent);
-  gradient.addColorStop(0.77, colors.rainbowViolet);
-  gradient.addColorStop(0.79, colors.rainbowIndigo);
-  gradient.addColorStop(0.82, colors.rainbowBlue);
-  gradient.addColorStop(0.85, colors.rainbowAqua);
-  gradient.addColorStop(0.87, colors.rainbowGreen);
-  gradient.addColorStop(0.91, colors.rainbowYellow);
-  gradient.addColorStop(0.96, colors.rainbowOrange);
-  gradient.addColorStop(0.99, colors.rainbowRed);
-  gradient.addColorStop(1, colors.transparent);
+  gradient.addColorStop(0, "rgba(255, 255, 255, 0.0)");
+  gradient.addColorStop(0.74, "rgba(255, 255, 255, 0.0)");
+  gradient.addColorStop(0.77, "rgba(255, 0, 255, 0.3)");
+  gradient.addColorStop(0.79, "rgba(127, 0, 255, 0.3)");
+  gradient.addColorStop(0.82, "rgba(0, 0, 255, 0.3)");
+  gradient.addColorStop(0.85, "rgba(0, 127, 127, 0.3)");
+  gradient.addColorStop(0.87, "rgba(0, 255, 0, 0.3)");
+  gradient.addColorStop(0.91, "rgba(255, 255, 0, 0.3)");
+  gradient.addColorStop(0.96, "rgba(255, 187, 0, 0.3)");
+  gradient.addColorStop(0.99, "rgba(255, 0, 0, 0.3)");
+  gradient.addColorStop(1, "rgba(255, 255, 255, 0.0)");
+  // gradient.addColorStop(0, colors.transparent);
+  // gradient.addColorStop(0.74, colors.transparent);
+  // gradient.addColorStop(0.77, colors.rainbowViolet);
+  // gradient.addColorStop(0.79, colors.rainbowIndigo);
+  // gradient.addColorStop(0.82, colors.rainbowBlue);
+  // gradient.addColorStop(0.85, colors.rainbowAqua);
+  // gradient.addColorStop(0.87, colors.rainbowGreen);
+  // gradient.addColorStop(0.91, colors.rainbowYellow);
+  // gradient.addColorStop(0.96, colors.rainbowOrange);
+  // gradient.addColorStop(0.99, colors.rainbowRed);
+  // gradient.addColorStop(1, colors.transparent);
 
   ctx.fillStyle = gradient;
   ctx.fill();
