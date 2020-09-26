@@ -50,7 +50,7 @@ $rainbowViolet: rgba(255, 0, 255, 0.3);     // #FF00FF
 
 
 // export for JS parsing
-:export{
+:export {
   transparent: $transparent;
   eyeShine: $eyeShine;
   tharSheBlows: $tharSheBlows;
@@ -98,3 +98,4 @@ $rainbowViolet: rgba(255, 0, 255, 0.3);     // #FF00FF
   rainbowIndigo: $rainbowIndigo;
   rainbowViolet: $rainbowViolet;
 };
+

@@ -26,7 +26,6 @@ GameView.prototype.showModal = function showModal() {
 GameView.prototype.start = function start() {
   document.removeEventListener("click", this.start);
   this.closeModal();
-  debugger
   this.freqAnalyzer.getMediaDevices();
   this.freqAnalyzer.createAudioContext();
   this.freqAnalyzer.createAnalyzerNode();
@@ -48,6 +47,7 @@ GameView.prototype.start = function start() {
 GameView.prototype.animate = function animate(time) {
   const timeDelta = time - this.lastTime;
   this.game.step(timeDelta);
+  debugger
   this.game.draw(this.ctx);
   this.lastTime = time;
   return this.animReq = requestAnimationFrame(this.animate.bind(this));

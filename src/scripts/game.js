@@ -1,4 +1,4 @@
-import colors from "../styles/_colors.scss";
+import * as colors from "../styles/index.scss";
 import Enemy from "./enemy";
 import Orca from "./orca";
 import TharSheBlows from "./thar_she_blows";
@@ -19,12 +19,11 @@ function Game() {
   this.tharSheBlows = [];
   this.waves = [];
   this.bubbles = [];
-
-  // this.startGame
 }
 
 
 Game.prototype.draw = function draw(ctx) {
+  debugger
   const SKY_GRADIENT = ctx.createLinearGradient(0, 0, 0, 100);
   SKY_GRADIENT.addColorStop(0, colors.skyTop);
   SKY_GRADIENT.addColorStop(1, colors.skyHorizon);
