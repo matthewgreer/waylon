@@ -1,4 +1,4 @@
-import * as myColors from "../styles/_colors.scss";
+// import * as myColors from "../styles/_colors.scss";
 // import { myColors } from "../styles/_colors.scss";
 // import myColors from "../styles/_colors.scss";
 import Enemy from "./enemy";
@@ -31,17 +31,17 @@ Game.prototype.draw = function draw(ctx) {
   // skyGradient.addColorStop(0, myColors.skyTop);
   // skyGradient.addColorStop(1, myColors.skyHorizon);
   
-  const oceanGradient = ctx.createLinearGradient(0, 100, 0, ctx.canvas.height);
+  const oceanGradient = ctx.createLinearGradient(0, 100, 0, this.dimensions[1]);
   oceanGradient.addColorStop(0, "rgba(87, 247, 250, 1.0)");
   oceanGradient.addColorStop(1, "rgba(0, 0, 80, 1.0)");
   // oceanGradient.addColorStop(0, myColors.oceanHorizon);
   // oceanGradient.addColorStop(1, myColors.deepBlue);
-  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+  ctx.clearRect(0, 0, this.dimensions[0], this.dimensions[1]);
   
   ctx.fillStyle = skyGradient;
-  ctx.fillRect(0, 0, ctx.canvas.width, 100);
+  ctx.fillRect(0, 0, this.dimensions[0], 100);
   ctx.fillStyle = oceanGradient;
-  ctx.fillRect(0, 100, ctx.canvas.width, ctx.canvas.height);
+  ctx.fillRect(0, 100, this.dimensions[0], this.dimensions[1]);
 
   this.allObjects().forEach(function(object) {
     object.draw(ctx);
@@ -117,7 +117,7 @@ Game.prototype.allObjects = function allObjects() {
 };
 
 Game.prototype.moveObjects = function moveObjects(velocityScale) {
-  debugger
+  // debugger
   this.allObjects().forEach(function(object){
     object.move(velocityScale);
   });
