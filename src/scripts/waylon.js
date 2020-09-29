@@ -1,4 +1,4 @@
-import colors from "../styles/_colors.scss";
+// import colors from "../styles/_colors.scss";
 import TharSheBlows from "./thar_she_blows";
 
 function Waylon(options) {
@@ -56,7 +56,7 @@ Waylon.prototype.move = function move(velocityScale) {
   if (this.position[0] <= 105) {
     this.breathe();
   }
-
+  debugger
   return this.currentPitch = newPitch;
 };
 
@@ -1393,11 +1393,11 @@ Waylon.prototype.draw = function draw(ctx) {
     y + 76 * scale
   );
   ctx.closePath();
-  ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+  ctx.fillStyle = "rgba(255, 255, 255, 0.45)";
   // ctx.fillStyle = colors.eyeShine;
   ctx.fill();
 
-  // Waylon Eye, Bottom Shine
+  // Waylon Eye, Top Shine
   ctx.beginPath();
   ctx.moveTo(x + 236 * scale, y + 44 * scale);
   ctx.bezierCurveTo(
