@@ -54,7 +54,7 @@ GameView.prototype.animate = function animate(time) {
 
 GameView.prototype.stop = function stop() {
   this.freqAnalyzer.audioCtxt.close()
-    .then(cancelAnimationFrame(this.animReq()))
+    .then(cancelAnimationFrame(this.animReq))
     .then(this.modal.showModal())
     .catch(location.reload())
   ;
