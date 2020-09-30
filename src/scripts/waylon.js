@@ -62,12 +62,13 @@ Waylon.prototype.move = function move(velocityScale) {
 };
 
 Waylon.prototype.breathe = function breathe() {
+  if (!this.game.tharSheBlows) {
   return this.game.add(
     new TharSheBlows({
       position: [this.position[0], 0],
       sizeScale: this.sizeScale,
     })
-  );
+  )};
 };
 
 Waylon.prototype.draw = function draw(ctx) {
