@@ -44,11 +44,13 @@ Game.prototype.draw = function draw(ctx) {
   ctx.fillRect(0, 100, this.dimensions[0], this.dimensions[1]);
 
   this.allObjects().forEach(function(object) {
+    debugger
     object.draw(ctx);
   });
 };
 
 Game.prototype.add = function add(object) {
+  debugger
   if (object instanceof Waylon) {
     this.waylon.push(object);
   } else if (object instanceof Enemy) { //does this need to be specific?
@@ -117,8 +119,8 @@ Game.prototype.allObjects = function allObjects() {
 };
 
 Game.prototype.moveObjects = function moveObjects(velocityScale) {
-  // debugger
   this.allObjects().forEach(function(object){
+    debugger
     object.move(velocityScale);
   });
 };
@@ -127,7 +129,8 @@ Game.prototype.step = function step(delta) {
   const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
   const velocityScale = delta / NORMAL_FRAME_TIME_DELTA;
   this.moveObjects(velocityScale);
-  this.checkPredation();
+  debugger
+  // this.checkPredation();
 };
 
 export default Game;
