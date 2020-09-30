@@ -25,6 +25,7 @@ function Waylon(options) {
 Waylon.prototype.move = function move(velocityScale) {
   let newPitch = this.freqAnalyzer.outputTopFreq();
   let offsetY = this.velocity * velocityScale;
+  debugger
   if (newPitch > this.currentPitch) {
     this.position = [this.position[0], this.position[1] - offsetY];
       // level out near the surface
@@ -56,12 +57,12 @@ Waylon.prototype.move = function move(velocityScale) {
   if (this.position[0] <= 105) {
     this.breathe();
   }
-  debugger
+  // debugger
   return this.currentPitch = newPitch;
 };
 
 Waylon.prototype.breathe = function breathe() {
-  this.game.add(
+  return this.game.add(
     new TharSheBlows({
       position: [this.position[0], 0],
       sizeScale: this.sizeScale,

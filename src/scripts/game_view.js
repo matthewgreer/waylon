@@ -30,10 +30,11 @@ GameView.prototype.start = function start() {
   this.freqAnalyzer.createAudioContext();
   this.freqAnalyzer.createAnalyzerNode();
   this.freqAnalyzer.getMicStream();
+  debugger
   this.game.add(
     new Waylon({
-      freqAnalyzer: this.freqAnalyzer,
       game: this.game,
+      freqAnalyzer: this.freqAnalyzer,
       position: [25, 0],
       sizeScale: 0.6,
       velocity: 3
@@ -41,13 +42,17 @@ GameView.prototype.start = function start() {
   );
   this.stopButton.addEventListener("click", this.stop);
   this.lastTime = 0;
+  debugger
   return this.animReq = requestAnimationFrame(this.animate.bind(this));
 };
 
 GameView.prototype.animate = function animate(time) {
   const timeDelta = time - this.lastTime;
+  debugger
   this.game.step(timeDelta);
+  debugger
   this.game.draw(this.ctx);
+  debugger
   this.lastTime = time;
   return this.animReq = requestAnimationFrame(this.animate.bind(this));
 };
