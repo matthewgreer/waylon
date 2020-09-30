@@ -17,11 +17,11 @@ FreqAnalyzer.prototype.getMediaDevices = function getMediaDevices() {
         navigator.msGetUserMedia;
       if (!getUserMedia) {
         return Promise.reject(
-          new Error("This browser cannot support this game.")
+        new Error("This browser cannot support this game.")
         );
       }
-      return new Promise(function (resolve, reject) {
-        return getUserMedia.call(navigator, constraints, resolve, reject);
+       return new Promise(function (resolve, reject) {
+        getUserMedia.call(navigator, constraints, resolve, reject);
       });
     };
   }
@@ -44,10 +44,13 @@ FreqAnalyzer.prototype.createAnalyzerNode = function createAnalyzerNode () {
 FreqAnalyzer.prototype.getMicStream = function getMicStream() {
   if (navigator.mediaDevices.getUserMedia) {
     const constraints = { audio: true };
+    debugger
     navigator.mediaDevices
       .getUserMedia(constraints)
       .then(function(stream) {
+        debugger
         const source = this.audioCtxt.createMediaStreamSource(stream);
+        debugger
         return source.connect(this.analyzer);
         // to enable speaker output (not currently desired), 
         // connect a destination node; 
@@ -76,16 +79,22 @@ FreqAnalyzer.prototype.indexOfGreatestFrequency = function indexOfGreatestFreque
 };
 
 FreqAnalyzer.prototype.outputTopFreq = function outputTopFreq () {
+  const display = document.getElementById("freq-display");
   if (this.audioCtxt && this.audioCtxt.state !== "closed") {
     // start analyzing data from audioArray
-    debugger
+    debugger;
     this.analyzer.getByteFrequencyData(this.audioArray);
+    
+    // if not displaying numeric output:
+    // return this.indexOfGreatestFrequency(this.audioArray);
+    
+    // display numeric output in top right corner
     let nextPitch = this.indexOfGreatestFrequency(this.audioArray);
+    display.textContent = nextPitch;
     return nextPitch;
-    // uncomment below to display numeric output in top right corner
-  // } else {
-  //   display.textContent = "No audioCtxt";
-  //   return null;
+  } else {
+    display.textContent = "No audioCtxt";
+    return null;
   }
 };
 
