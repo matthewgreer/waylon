@@ -29,7 +29,7 @@ FreqAnalyzer.prototype.getMediaDevices = function getMediaDevices() {
 
 FreqAnalyzer.prototype.createAudioContext = function createAudioContext () {
   // Apparently Safari crashes without << window. >>
-  this.audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
+  return this.audioCtxt = new (window.AudioContext || window.webkitAudioContext)();
 };
 
 FreqAnalyzer.prototype.createAnalyzerNode = function createAnalyzerNode () {
@@ -38,7 +38,7 @@ FreqAnalyzer.prototype.createAnalyzerNode = function createAnalyzerNode () {
   this.analyzer.minDecibels = -50;
   this.analyzer.smoothingTimeConstant = 0.5;
   // create buffer array of length 1/2 fftSize
-  this.audioArray = new Uint8Array(this.analyzer.frequencyBinCount);
+  return this.audioArray = new Uint8Array(this.analyzer.frequencyBinCount);
 };
 
 FreqAnalyzer.prototype.getMicStream = function getMicStream() {
@@ -78,6 +78,7 @@ FreqAnalyzer.prototype.indexOfGreatestFrequency = function indexOfGreatestFreque
 FreqAnalyzer.prototype.outputTopFreq = function outputTopFreq () {
   if (this.audioCtxt && this.audioCtxt.state !== "closed") {
     // start analyzing data from audioArray
+    debugger
     this.analyzer.getByteFrequencyData(this.audioArray);
     let nextPitch = this.indexOfGreatestFrequency(this.audioArray);
     return nextPitch;
