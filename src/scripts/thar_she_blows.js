@@ -1,9 +1,9 @@
-import colors from "../styles/_colors.scss";
+// import colors from "../styles/_colors.scss";
 
 class TharSheBlows{
-  constructor(options) {
-    this.sizeScale = options.sizeScale;
-    this.position = options.position;
+  constructor(position, sizeScale) {
+    this.sizeScale = sizeScale;
+    this.position = position;
     this.rainbowOpacity = 0.3;
   };
 
@@ -13,8 +13,9 @@ class TharSheBlows{
   };
 
   draw = (ctx) => {
-    const x = this.position[0];
-    const y = this.position[1];
+    ctx.save();
+    let x = this.position[0];
+    let y = this.position[1];
     const sizeScale = this.sizeScale;
     const inverseScale = 1 - sizeScale;
     
@@ -304,9 +305,11 @@ class TharSheBlows{
     );
     ctx.closePath();
     ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+    // ctx.fillStyle = colors.tharSheBlows;
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.shadowBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 0.6)";
+    // ctx.strokeStyle = colors.shadowBlack;
     ctx.stroke();
     ctx.clip();
 
@@ -314,41 +317,46 @@ class TharSheBlows{
     ctx.transform(1, 0, 0, 1.4, 0, 0);
     ctx.arc(x + 376 * sizeScale, 118 * sizeScale, 122 * sizeScale, 0, 2 * Math.PI);
     ctx.closePath();
-    const gradient = ctx.createRadialGradient(
-      x + 405 * sizeScale,
+    let rainbowStartX = x + 405 * sizeScale;
+    let rainbowEndX = x + 376 * sizeScale;
+    let rainbowEndY = 118 * sizeScale;
+    let rainbowRadius = 122 * sizeScale;
+    debugger
+    const rainbowGradient = ctx.createRadialGradient(
+      rainbowStartX,
       0,
       0,
-      x + 376 * sizeScale,
-      118 * sizeScale,
-      122 * sizeScale
+      rainbowEndX,
+      rainbowEndY,
+      rainbowRadius
     );
-    gradient.addColorStop(0, "rgba(255, 255, 255, 0.0)");
-    gradient.addColorStop(0.74, "rgba(255, 255, 255, 0.0)");
-    gradient.addColorStop(0.77, "rgba(255, 0, 255, 0.3)");
-    gradient.addColorStop(0.79, "rgba(127, 0, 255, 0.3)");
-    gradient.addColorStop(0.82, "rgba(0, 0, 255, 0.3)");
-    gradient.addColorStop(0.85, "rgba(0, 127, 127, 0.3)");
-    gradient.addColorStop(0.87, "rgba(0, 255, 0, 0.3)");
-    gradient.addColorStop(0.91, "rgba(255, 255, 0, 0.3)");
-    gradient.addColorStop(0.96, "rgba(255, 187, 0, 0.3)");
-    gradient.addColorStop(0.99, "rgba(255, 0, 0, 0.3)");
-    gradient.addColorStop(1, "rgba(255, 255, 255, 0.0)");
-    // gradient.addColorStop(0, colors.transparent);
-    // gradient.addColorStop(0.74, colors.transparent);
-    // gradient.addColorStop(0.77, colors.rainbowViolet);
-    // gradient.addColorStop(0.79, colors.rainbowIndigo);
-    // gradient.addColorStop(0.82, colors.rainbowBlue);
-    // gradient.addColorStop(0.85, colors.rainbowAqua);
-    // gradient.addColorStop(0.87, colors.rainbowGreen);
-    // gradient.addColorStop(0.91, colors.rainbowYellow);
-    // gradient.addColorStop(0.96, colors.rainbowOrange);
-    // gradient.addColorStop(0.99, colors.rainbowRed);
-    // gradient.addColorStop(1, colors.transparent);
+    rainbowGradient.addColorStop(0, "rgba(255, 255, 255, 0.0)");
+    rainbowGradient.addColorStop(0.74, "rgba(255, 255, 255, 0.0)");
+    rainbowGradient.addColorStop(0.77, "rgba(255, 0, 255, 0.3)");
+    rainbowGradient.addColorStop(0.79, "rgba(127, 0, 255, 0.3)");
+    rainbowGradient.addColorStop(0.82, "rgba(0, 0, 255, 0.3)");
+    rainbowGradient.addColorStop(0.85, "rgba(0, 127, 127, 0.3)");
+    rainbowGradient.addColorStop(0.87, "rgba(0, 255, 0, 0.3)");
+    rainbowGradient.addColorStop(0.91, "rgba(255, 255, 0, 0.3)");
+    rainbowGradient.addColorStop(0.96, "rgba(255, 187, 0, 0.3)");
+    rainbowGradient.addColorStop(0.99, "rgba(255, 0, 0, 0.3)");
+    rainbowGradient.addColorStop(1, "rgba(255, 255, 255, 0.0)");
+    // rainbowGradient.addColorStop(0, colors.transparent);
+    // rainbowGradient.addColorStop(0.74, colors.transparent);
+    // rainbowGradient.addColorStop(0.77, colors.rainbowViolet);
+    // rainbowGradient.addColorStop(0.79, colors.rainbowIndigo);
+    // rainbowGradient.addColorStop(0.82, colors.rainbowBlue);
+    // rainbowGradient.addColorStop(0.85, colors.rainbowAqua);
+    // rainbowGradient.addColorStop(0.87, colors.rainbowGreen);
+    // rainbowGradient.addColorStop(0.91, colors.rainbowYellow);
+    // rainbowGradient.addColorStop(0.96, colors.rainbowOrange);
+    // rainbowGradient.addColorStop(0.99, colors.rainbowRed);
+    // rainbowGradient.addColorStop(1, colors.transparent);
 
-    ctx.fillStyle = gradient;
+    ctx.fillStyle = rainbowGradient;
     ctx.fill();
     ctx.transform(1, 0, 0, 1, 0, 0);
-
+    ctx.restore();
   };
 };
 export default TharSheBlows;
