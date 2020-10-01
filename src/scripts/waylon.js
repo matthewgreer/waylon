@@ -15,11 +15,11 @@ class Waylon{
       this.position[1],
       this.position[1] + this.sizeScale * 233,
     ];
-    this.centerOfRotation = [
-      this.position[0] + this.sizeScale * 180,
-      this.position[1] + this.sizeScale * 116
-    ]
-    this.currentRotation = 0;
+    // this.centerOfRotation = [
+    //   this.position[0] + this.sizeScale * 180,
+    //   this.position[1] + this.sizeScale * 116
+    // ]
+    // this.currentRotation = 0;
     this.currentPitch = 0;
   };
 
@@ -29,48 +29,39 @@ class Waylon{
     debugger
     
     if (newPitch > this.currentPitch) {
-      // level out near the surface
       this.position = [this.position[0], this.position[1] - offsetY];
-        if (this.position[1] <= 75 && this.currentRotation < 0) {
-          this.currentRotation++;
-        }
-      this.currentRotation--;
+      // level out near the surface
+        // if (this.position[1] <= 75 && this.currentRotation < 0) {
+        //   this.currentRotation++;
+        // }
+      // this.currentRotation--;
     } else if (newPitch < this.currentPitch) {
-      // level out at depth limit
       this.position = [this.position[0], this.position[1] + offsetY];
-        if (this.position[1] >= 675 && this.currentRotation > 0) {
-          this.currentRotation--;
-        } 
-      this.currentRotation++;
+      // level out at depth limit
+      //   if (this.position[1] >= 675 && this.currentRotation > 0) {
+      //     this.currentRotation--;
+      //   } 
+      // this.currentRotation++;
     }
 
     // set hard surface and depth limits
-    if (this.position[1] <= 101) {this.position[1] = 100}
-    if (this.position[1] >= 749) {this.position[1] = 750}
+    if (this.position[1] <= 125) {this.position = [this.position[0], 110]}
+    if (this.position[1] >= 749) {this.position = [this.position[0],  750]}
     
-    // set rotation limits
-    if (this.currentRotation <= -15) {this.currentRotation = -15}
-    if (this.currentRotation >= 30) {this.currentRotation = 30}
+    // // set rotation limits
+    // if (this.currentRotation <= -15) {this.currentRotation = -15}
+    // if (this.currentRotation >= 30) {this.currentRotation = 30}
 
     // hold breath underwater -- always a good idea for mammals
-    if (this.position[1] >= 120) { this.game.tharSheBlows = [] }
+    if (this.position[1] >= 115) { this.game.tharSheBlows = [] }
 
     // breathe when on the surface
-    if (this.position[1] <= 115) {
-      this.breathe();
-    }
-    // debugger
-    return this.currentPitch = newPitch;
-  };
-
-  breathe = () => {
-    if (this.game.tharSheBlows === []) {
+    if (this.position[1] <= 115 && !this.game.tharSheBlows.length) {
       this.game.add(
-        new TharSheBlows({
-          position: [this.position[0], 0],
-          sizeScale: this.sizeScale,
-        })
-    )};
+        new TharSheBlows([this.position[0], 10], this.sizeScale)
+      );
+    }
+    return this.currentPitch = newPitch;
   };
 
   draw = (ctx) => {
@@ -1611,7 +1602,7 @@ class Waylon{
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     // ctx.strokeStyle = colors.waylonBlack;
     ctx.stroke();
-    ctx.restore();
+    // ctx.restore();
   };
 };
 
