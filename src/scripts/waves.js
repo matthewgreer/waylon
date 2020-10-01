@@ -1,9 +1,17 @@
 import colors from "../styles/_colors.scss";
 
 class Waves {
-  constructor(options){
-    this.sizeScale = options.sizeScale;
-    this.position = options.position;
+  constructor(sizeScale, position) {
+    this.sizeScale = sizeScale;
+    this.position = position;
+  };
+
+  move = () => {
+    if (this.position[0] <= -480 * this.sizeScale) {
+      this.position = [0, this.position[1]];
+    } else {
+      this.position = [this.position[0] - 2, this.position[1]];
+    }
   };
 
   draw = (ctx) => {
@@ -40,8 +48,8 @@ class Waves {
     
     for (let i = 0; i < Math.ceil(3 / sizeScale); i++){
     
-      let x = 480 * sizeScale * i;
-
+      let x = (480 * sizeScale * i) + this.position[0];
+      ctx.save();
       ctx.beginPath();
       ctx.moveTo(x + 0 * sizeScale, 120 - 45 * sizeScale);
       ctx.bezierCurveTo(
@@ -65,7 +73,8 @@ class Waves {
       ctx.lineTo(x + 0 * sizeScale, 120 - 45 * sizeScale);
       ctx.closePath();
       ctx.fillStyle = oceanCrestToTroughGradient;
-      ctx.fill();  
+      ctx.fill();
+      ctx.restore();
     }
   };
 };
