@@ -82,15 +82,15 @@ class FreqAnalyzer {
       this.analyzer.getByteFrequencyData(this.audioArray);
       
       // if not displaying numeric output:
-      // return this.indexOfGreatestFrequency(this.audioArray);
+      return this.indexOfGreatestFrequency(this.audioArray);
       
-      // display numeric output in top right corner
-      let nextPitch = this.indexOfGreatestFrequency(this.audioArray);
-      this.display.textContent = nextPitch;
-      return nextPitch;
-    } else {
-      this.display.textContent = "No audioCtxt";
-      return null;
+    //   // to display numeric output in top left corner for testing
+    //   let nextPitch = this.indexOfGreatestFrequency(this.audioArray);
+    //   this.display.textContent = nextPitch;
+    //   return nextPitch;
+    // } else {
+    //   this.display.textContent = "No audioCtxt";
+    //   return null;
     }
   };
 };
