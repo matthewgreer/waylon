@@ -2,7 +2,7 @@ import './styles/index.scss';
 import Game from "./scripts/game";
 import GameView from "./scripts/game_view";
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("canvas");
   const game = new Game();
   canvas.width = game.dimensions[0];

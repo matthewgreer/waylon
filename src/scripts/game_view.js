@@ -1,71 +1,65 @@
 import FreqAnalyzer from "./freq_analyzer";
 import Waylon from "./waylon";
 
-function GameView(game, ctx) {
-  this.ctx = ctx;
-  this.game = game;
-  this.modal = document.getElementById("modal-shown");
-  this.freqAnalyzer = new FreqAnalyzer();
-  this.stopButton = document.getElementById("stop-button");
-  this.startButton = document.getElementById("start-button");
-  this.start = this.start.bind(this);
-}
+class GameView {
+  constructor(game, ctx){
+    this.ctx = ctx;
+    this.game = game;
+    this.modal = document.getElementById("modal-shown");
+    this.freqAnalyzer = new FreqAnalyzer();
+    this.stopButton = document.getElementById("stop-button");
+    this.startButton = document.getElementById("start-button");
+  }
 
-GameView.prototype.initialize = function initialize() {
-  return document.addEventListener("click", this.start);
+  initialize = () => document.addEventListener("click", this.start);
+
+  closeModal = () => this.modal.id = "modal-hidden";
+
+  showModal = () => this.modal.id = "modal-shown";
+
+  start = () => {
+    document.removeEventListener("click", this.start);
+    this.closeModal();
+    this.freqAnalyzer.getMediaDevices();
+    this.freqAnalyzer.createAudioContext();
+    this.freqAnalyzer.createAnalyzerNode();
+    this.freqAnalyzer.getMicStream();
+    debugger
+    this.game.add(
+      new Waylon({
+        game: this.game,
+        freqAnalyzer: this.freqAnalyzer,
+        position: [25, 0],
+        sizeScale: 0.6,
+        velocity: 3
+      })
+    );
+    this.stopButton.addEventListener("click", this.stop);
+    this.lastTime = 0;
+    debugger
+    return this.animReq = requestAnimationFrame(this.animate.bind(this));
+  };
+
+  animate = (time) => {
+    const timeDelta = time - this.lastTime;
+    debugger
+    this.game.step(timeDelta);
+    debugger
+    this.game.draw(this.ctx);
+    debugger
+    this.lastTime = time;
+    return this.animReq = requestAnimationFrame(this.animate.bind(this));
+  };
+
+  stop = () => {
+    this.freqAnalyzer.audioCtxt.close()
+      .then(cancelAnimationFrame(this.animReq))
+      .then(this.modal.showModal())
+      .catch(location.reload())
+    ;
+    return this.initialize();
+  };
 };
-
-GameView.prototype.closeModal = function closeModal() {
-  return this.modal.id = "modal-hidden";
-};
-
-GameView.prototype.showModal = function showModal() {
-  return this.modal.id = "modal-shown";
-};
-
-GameView.prototype.start = function start() {
-  document.removeEventListener("click", this.start);
-  this.closeModal();
-  this.freqAnalyzer.getMediaDevices();
-  this.freqAnalyzer.createAudioContext();
-  this.freqAnalyzer.createAnalyzerNode();
-  this.freqAnalyzer.getMicStream();
-  debugger
-  this.game.add(
-    new Waylon({
-      game: this.game,
-      freqAnalyzer: this.freqAnalyzer,
-      position: [25, 0],
-      sizeScale: 0.6,
-      velocity: 3
-    })
-  );
-  this.stopButton.addEventListener("click", this.stop);
-  this.lastTime = 0;
-  debugger
-  return this.animReq = requestAnimationFrame(this.animate.bind(this));
-};
-
-GameView.prototype.animate = function animate(time) {
-  const timeDelta = time - this.lastTime;
-  debugger
-  this.game.step(timeDelta);
-  debugger
-  this.game.draw(this.ctx);
-  debugger
-  this.lastTime = time;
-  return this.animReq = requestAnimationFrame(this.animate.bind(this));
-};
-
-GameView.prototype.stop = function stop() {
-  this.freqAnalyzer.audioCtxt.close()
-    .then(cancelAnimationFrame(this.animReq))
-    .then(this.modal.showModal())
-    .catch(location.reload())
-  ;
-  return this.initialize();
-};
-
 export default GameView;
 
 /*

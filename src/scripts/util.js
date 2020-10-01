@@ -1,11 +1,5 @@
 const Util = {
   
-  // Inheritance function
-  inherits(ChildClass, BaseClass) {
-    ChildClass.prototype = Object.create(BaseClass.prototype);
-    ChildClass.prototype.constructor = ChildClass;
-  },
-
   // Currently Waylon only moves vertically (y-axis) and Enemies only move
   //  straight horizontally (x-axis). Future updates will have Enemies move
   //  along variable vectors, utilizing the following methods.

@@ -7,10 +7,10 @@ module.exports = {
   output: {
     path: path.join(__dirname, outputDir),
     filename: "[name].js",
-    publicPath: "/dist/"
+    publicPath: "/dist/",
   },
   resolve: {
-    extensions: [".js"]
+    extensions: [".js"],
   },
   module: {
     rules: [
@@ -20,10 +20,13 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: ["@babel/preset-env"],
-            plugins: ["@babel/plugin-proposal-optional-chaining"],
-            exclude: /node_modules/
-          } 
-        }
+            plugins: [
+              ["@babel/plugin-proposal-optional-chaining"],
+              ["@babel/plugin-proposal-class-properties"]
+            ],
+            exclude: /node_modules/,
+          },
+        },
       },
       {
         test: /\.css$/,
@@ -32,12 +35,12 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               publicPath: "../",
-              hmr: process.env.NODE_ENV === "development"
-            }
+              hmr: process.env.NODE_ENV === "development",
+            },
           },
           "css-loader",
-          "postcss-loader"
-        ]
+          "postcss-loader",
+        ],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -47,10 +50,10 @@ module.exports = {
             options: {
               name: "[name].[ext]",
               outputPath: "images/",
-              publicPath: "images/"
-            }
-          }
-        ]
+              publicPath: "images/",
+            },
+          },
+        ],
       },
       {
         test: /\.scss$/,
@@ -59,23 +62,23 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               publicPath: "../",
-              hmr: process.env.NODE_ENV === "development"
-            }
+              hmr: process.env.NODE_ENV === "development",
+            },
           },
           // THE ORDER OF THESE 3 IS CRUCIAL!
           "css-loader",
           "postcss-loader",
-          "sass-loader"
-        ]
-      }
-    ]
+          "sass-loader",
+        ],
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css",
-      ignoreOrder: false // Enable to remove warnings about conflicting order
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
-    require("autoprefixer")
-  ]
+    require("autoprefixer"),
+  ],
 };
