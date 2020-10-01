@@ -46,13 +46,10 @@ class FreqAnalyzer {
   getMicStream = () => {
     if (navigator.mediaDevices.getUserMedia) {
       const constraints = { audio: true };
-      debugger
       navigator.mediaDevices
         .getUserMedia(constraints)
         .then((stream) => {
-          debugger
           const source = this.audioCtxt.createMediaStreamSource(stream);
-          debugger
           return source.connect(this.analyzer);
           // to enable speaker output (not currently desired), 
           // connect a destination node; 
@@ -82,7 +79,6 @@ class FreqAnalyzer {
     
     if (this.audioCtxt && this.audioCtxt.state !== "closed") {
       // start analyzing data from audioArray
-      debugger;
       this.analyzer.getByteFrequencyData(this.audioArray);
       
       // if not displaying numeric output:
