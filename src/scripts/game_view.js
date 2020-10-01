@@ -1,4 +1,5 @@
 import FreqAnalyzer from "./freq_analyzer";
+import Waves from "./waves";
 import Waylon from "./waylon";
 
 class GameView {
@@ -24,29 +25,28 @@ class GameView {
     this.freqAnalyzer.createAudioContext();
     this.freqAnalyzer.createAnalyzerNode();
     this.freqAnalyzer.getMicStream();
-    debugger
+    this.game.add(
+      new Waves(.5, [0, 0])
+    );
     this.game.add(
       new Waylon({
         game: this.game,
         freqAnalyzer: this.freqAnalyzer,
         position: [25, 0],
-        sizeScale: 0.6,
-        velocity: 3
-      })
+        sizeScale: .6,
+        velocity: 18
+      })      
     );
     this.stopButton.addEventListener("click", this.stop);
     this.lastTime = 0;
-    debugger
     return this.animReq = requestAnimationFrame(this.animate.bind(this));
   };
 
   animate = (time) => {
     const timeDelta = time - this.lastTime;
-    debugger
     this.game.step(timeDelta);
     debugger
     this.game.draw(this.ctx);
-    debugger
     this.lastTime = time;
     return this.animReq = requestAnimationFrame(this.animate.bind(this));
   };
@@ -54,23 +54,13 @@ class GameView {
   stop = () => {
     this.freqAnalyzer.audioCtxt.close()
       .then(cancelAnimationFrame(this.animReq))
-      .then(this.modal.showModal())
+      .then(this.showModal())
       .catch(location.reload())
     ;
     return this.initialize();
   };
 };
 export default GameView;
-
-/*
-
-
-Modal.prototype.showModal = function showModal(){
-  this.instructions.id = "modal-shown";
-
-
-*/
-
 
 // This code is vestigial, leftover from experimentation
 // It is left here in case I need to reference it
