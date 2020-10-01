@@ -121,7 +121,7 @@ class Game {
   };
 
   allObjects = () => {
-    return [].concat(this.waylon, this.enemies, this.waves, this.tharSheBlows); //this.bubbles
+    return [].concat(this.waves, this.tharSheBlows, this.waylon, this.enemies); //this.bubbles
   };
 
   moveObjects = (velocityScale) => {
@@ -135,7 +135,6 @@ class Game {
     const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
     const velocityScale = delta / NORMAL_FRAME_TIME_DELTA;
     return this.moveObjects(velocityScale);
-    debugger
     // this.checkPredation();
   };
 }
