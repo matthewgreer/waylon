@@ -36,7 +36,7 @@ class Enemy {
     // future updates will provide more complex enemy movement
     let offsetX = this.velocity * velocityScale;
     this.position = [this.position[0] - offsetX, this.position[1]];
-    if (this.box[0] < 0) {
+    if (this.box[1] < 0) {
       return this.game.remove(this);
     }
   };
