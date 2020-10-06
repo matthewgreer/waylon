@@ -1,5 +1,4 @@
 import colors from "../styles/_colors.scss";
-
 import Enemy from "./enemy";
 // import Util from "./util";
 
@@ -62,7 +61,7 @@ class Orca extends Enemy {
       y + 347 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = color.medGray;
+    ctx.fillStyle = colors.medGray;
     ctx.fill();
     ctx.lineWidth = 2;
     ctx.strokeStyle = colors.waylonBlack;
@@ -637,7 +636,7 @@ class Orca extends Enemy {
       y + 227 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = $orcaEyeWhite;
+    ctx.fillStyle = colors.orcaEyeWhite;
     ctx.fill();
 
     // Orca Eye - Iris

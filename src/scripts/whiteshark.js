@@ -1,26 +1,14 @@
 import colors from "../styles/_colors.scss";
 import Enemy from "./enemy";
-// import Util from "./util";
 
 // WhiteShark model is x:862, y:371 at scale 1:1
 
 class WhiteShark extends Enemy {
   constructor(options){
     super(options)
-
-    // these attributes are assigned at creation by options.game
-      // this.game
-      // this.position assigned randomly by .randomDepth()
-      // this.sizeScale assigned randomly by .randomScale()
-      // this.velocity assigned randomly by .randomVelocity()
-    
     this.hSize = 862;
     this.vSize = 371;
-
-    // Enemy.call(this, options);
   }
-
-  // Util.inherits(WhiteShark, Enemy)
 
   draw = (ctx) => {
     

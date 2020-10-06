@@ -1,4 +1,5 @@
 import FreqAnalyzer from "./freq_analyzer";
+import Modal from "./modal";
 import Waves from "./waves";
 import Waylon from "./waylon";
 
@@ -6,21 +7,24 @@ class GameView {
   constructor(game, ctx){
     this.ctx = ctx;
     this.game = game;
-    this.modal = document.getElementById("modal-shown");
+    this.modal = new Modal();
+    this.modal.intro();
+    this.modal.show();
     this.freqAnalyzer = new FreqAnalyzer();
-    this.stopButton = document.getElementById("stop-button");
     this.startButton = document.getElementById("start-button");
+    this.pauseButton = document.getElementById("pause-button");
+    this.stopButton = document.getElementById("stop-button");
   }
 
-  initialize = () => document.addEventListener("click", this.start);
+  initialize = () => this.startButton.addEventListener("click", this.start);
 
-  closeModal = () => this.modal.id = "modal-hidden";
+  // closeModal = () => this.modal.id = "modal-hidden";
 
-  showModal = () => this.modal.id = "modal-shown";
+  // showModal = () => this.modal.id = "modal-shown";
 
   start = () => {
-    document.removeEventListener("click", this.start);
-    this.closeModal();
+    this.startButton.removeEventListener("click", this.start);
+    this.modal.close();
     this.freqAnalyzer.getMediaDevices();
     this.freqAnalyzer.createAudioContext();
     this.freqAnalyzer.createAnalyzerNode();
@@ -37,6 +41,8 @@ class GameView {
         velocity: 18
       })      
     );
+    this.game.spawnTimer();
+    // this.pauseButton.addEventListener("click", this.pause)
     this.stopButton.addEventListener("click", this.stop);
     this.lastTime = 0;
     return this.animReq = requestAnimationFrame(this.animate.bind(this));
@@ -45,19 +51,24 @@ class GameView {
   animate = (time) => {
     const timeDelta = time - this.lastTime;
     this.game.step(timeDelta);
-    debugger
     this.game.draw(this.ctx);
     this.lastTime = time;
     return this.animReq = requestAnimationFrame(this.animate.bind(this));
   };
 
+  reset = () => {
+    clearInterval(this.game.tick);
+    this.game.difficulty = 0;
+    this.modal.intro();
+    this.modal.show();
+    return this.initialize();
+  };
+
   stop = () => {
     this.freqAnalyzer.audioCtxt.close()
       .then(cancelAnimationFrame(this.animReq))
-      .then(this.showModal())
-      .catch(location.reload())
-    ;
-    return this.initialize();
+      .catch(location.reload());
+    return this.reset();
   };
 };
 export default GameView;

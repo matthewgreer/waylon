@@ -22,6 +22,8 @@ class Game {
     this.tharSheBlows = [];
     this.waves = [];
     this.bubbles = [];
+    this.difficulty = 1;
+    this.tick
   }
 
 
@@ -52,10 +54,9 @@ class Game {
   };
 
   add = (object) => {
-    debugger
     if (object instanceof Waylon) {
       this.waylon.push(object);
-    } else if (object instanceof Enemy) { //does this need to be specific?
+    } else if (object instanceof Enemy) {
       this.enemies.push(object);
     } else if (object instanceof Waves) {
       this.waves.push(object);
@@ -68,26 +69,45 @@ class Game {
     }
   };
 
+  remove = (object) => {
+    if (object instanceof Enemy) {
+      this.enemies.splice(this.enemies.indexOf(object), 1);
+    // } else if (object instanceof Bubble) {
+      // this.bubbles.splice(this.bubbles.indexOf(object), 1);
+    }
+  };
+
+  spawnTimer = () => {
+    // let i = 0;
+    this.tick = setInterval(() => {this.chooseRandomEnemy()}, 5000);
+  };
+
+  chooseRandomEnemy = () => {
+    const chosenEnemyIdx = Math.floor(Math.random() * ENEMY_TYPES.length);
+    return this.spawnEnemy(ENEMY_TYPES[chosenEnemyIdx])
+  };
+  
   spawnEnemy = (enemyType) => {
     const options = {
       game: this,
       sizeScale: this.randomScale(),
-      position: [this.dimensions[0] + 1, this.randomDepth],
+      position: [this.dimensions[0] + 1, 0],
       velocity: this.randomVelocity()
     };
 
+    let enemy;
     switch (enemyType) {
       case "Orca":
-        this.add(new Orca(options));
-        break;
-    
+        enemy = new Orca(options);
+        enemy.position[1] = this.randomDepth(enemy.vSize);
+        return this.add(enemy);
       default:
-        this.add(new WhiteShark(options));
-        break;
-    }
-    
+        enemy = new WhiteShark(options);
+        enemy.position[1] = this.randomDepth(enemy.vSize);
+        return this.add(enemy);
+      }
   };
-
+    
   checkPredation = () => {
     for (let i = 0; i < this.enemies.length; i++) {
       const predator = this.enemies[i];
@@ -103,22 +123,18 @@ class Game {
   };
 
   randomDepth = (objectHeight) => {
-    return [1201, Math.floor(Math.random() * (900 - objectHeight))];
+    return Math.floor(Math.random() * (900 - objectHeight));
   };
 
   randomScale = () => {
     // rounded to hundredths
-    return (scale = Math.round(100 * (Math.random() * 0.4 + 0.6)) / 100);
+    return (Math.round(100 * (Math.random() * 0.4 + 0.6)) / 100);
   };
 
   randomVelocity = () => {
     return (Math.floor(Math.random() * 5) + 3);
   };
 
-  randomEnemy = () => {
-    const chosenEnemyIdx = Math.floor(Math.random() * ENEMY_TYPES.length);
-    return this.spawnEnemy(ENEMY_TYPES[chosenEnemyIdx])
-  };
 
   allObjects = () => {
     return [].concat(this.waves, this.tharSheBlows, this.waylon, this.enemies); //this.bubbles

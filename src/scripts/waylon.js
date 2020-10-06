@@ -8,13 +8,13 @@ class Waylon{
     this.position = options.position;
     this.sizeScale = options.sizeScale;
     this.velocity = options.velocity;
-    this.box = [
+    this.box = [];
       // Waylon model is x:466, y:233 at 1:1 scale
-      this.position[0],
-      this.position[0] + this.sizeScale * 466,
-      this.position[1],
-      this.position[1] + this.sizeScale * 233,
-    ];
+    //   this.position[0],
+    //   this.position[0] + (this.sizeScale * 466),
+    //   this.position[1],
+    //   this.position[1] + (this.sizeScale * 233)
+    // ];
     // this.centerOfRotation = [
     //   this.position[0] + this.sizeScale * 180,
     //   this.position[1] + this.sizeScale * 116
@@ -24,9 +24,15 @@ class Waylon{
   };
 
   move = (velocityScale) => {
+    this.box = [
+      // Waylon model is x:466, y:233 at 1:1 scale
+      this.position[0],
+      this.position[0] + this.sizeScale * 466,
+      this.position[1],
+      this.position[1] + this.sizeScale * 233,
+    ];
     let newPitch = this.freqAnalyzer.outputTopFreq();
     let offsetY = this.velocity * velocityScale;
-    debugger
     
     if (newPitch > this.currentPitch) {
       this.position = [this.position[0], this.position[1] - offsetY];
