@@ -42,10 +42,12 @@ class WhiteShark extends Enemy {
     );
     ctx.lineTo(x + 546 * scale, y + 222 * scale);
     ctx.closePath();
-    ctx.fillStyle = colors.sharkDkGray;
+    // ctx.fillStyle = colors.sharkDkGray;
+    ctx.fillStyle = "rgba(151, 165, 173, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Inside Mouth
@@ -92,15 +94,19 @@ class WhiteShark extends Enemy {
       y + 191 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkMouthRed;
+    // ctx.fillStyle = colors.sharkMouthRed;
+    ctx.fillStyle = "rgba(127, 60, 60, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;  
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #1, Light Gray
-    ctx.fillStyle = colors.bgLtGray;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.fillStyle = colors.bgLtGray;
+    ctx.fillStyle = "rgba(187, 187, 187, 1.0)";
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.lineWidth = 0.5;
     ctx.beginPath();
     ctx.moveTo(x + 59 * scale, y + 248 * scale);
@@ -225,10 +231,12 @@ class WhiteShark extends Enemy {
       y + 243 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.bgLtGray;
+    // ctx.fillStyle = colors.bgLtGray;
+    ctx.fillStyle = "rgba(187, 187, 187, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #3, Light Gray
@@ -291,10 +299,12 @@ class WhiteShark extends Enemy {
       y + 241 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.bgLtGray;
+    // ctx.fillStyle = colors.bgLtGray;
+    ctx.fillStyle = "rgba(187, 187, 187, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #4, Light Gray
@@ -357,10 +367,12 @@ class WhiteShark extends Enemy {
       y + 237 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.bgLtGray;
+    // ctx.fillStyle = colors.bgLtGray;
+    ctx.fillStyle = "rgba(187, 187, 187, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #4A, Dark Gray
@@ -423,10 +435,12 @@ class WhiteShark extends Enemy {
       y + 238 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #5, Light Gray
@@ -489,10 +503,12 @@ class WhiteShark extends Enemy {
       y + 234 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.bgLtGray;
+    // ctx.fillStyle = colors.bgLtGray;
+    ctx.fillStyle = "rgba(187, 187, 187, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #5A, Dark Gray
@@ -555,10 +571,12 @@ class WhiteShark extends Enemy {
       y + 235 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #6, Light Gray
@@ -621,10 +639,12 @@ class WhiteShark extends Enemy {
       y + 230 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.bgLtGray;
+    // ctx.fillStyle = colors.bgLtGray;
+    ctx.fillStyle = "rgba(187, 187, 187, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #7, Light Gray
@@ -687,10 +707,12 @@ class WhiteShark extends Enemy {
       y + 226 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.bgLtGray;
+    // ctx.fillStyle = colors.bgLtGray;
+    ctx.fillStyle = "rgba(187, 187, 187, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #8, Light Gray
@@ -753,10 +775,12 @@ class WhiteShark extends Enemy {
       y + 223 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.bgLtGray;
+    // ctx.fillStyle = colors.bgLtGray;
+    ctx.fillStyle = "rgba(187, 187, 187, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #8A, Dark Gray
@@ -819,10 +843,12 @@ class WhiteShark extends Enemy {
       y + 222 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #9, Dark Gray
@@ -885,10 +911,12 @@ class WhiteShark extends Enemy {
       y + 219 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #9A, Dark Gray
@@ -951,10 +979,12 @@ class WhiteShark extends Enemy {
       y + 218 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #10, Dark Gray
@@ -1017,10 +1047,12 @@ class WhiteShark extends Enemy {
       y + 216 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #11, Dark Gray
@@ -1083,10 +1115,12 @@ class WhiteShark extends Enemy {
       y + 212 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #12, Dark Gray
@@ -1149,10 +1183,12 @@ class WhiteShark extends Enemy {
       y + 209 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #13, Dark Gray
@@ -1215,10 +1251,12 @@ class WhiteShark extends Enemy {
       y + 206 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Right Tooth #12-13A, Dark Gray
@@ -1281,15 +1319,19 @@ class WhiteShark extends Enemy {
       y + 207 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothDkGray;
+    // ctx.fillStyle = colors.sharkToothDkGray;
+    ctx.fillStyle = "rgba(89, 89, 89, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #1, White
-    ctx.fillStyle = colors.waylonWhite;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.lineWidth = 0.5;
     ctx.beginPath();
     ctx.moveTo(x + 55 * scale, y + 251 * scale);
@@ -1354,8 +1396,10 @@ class WhiteShark extends Enemy {
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #2A, Light Gray
-    ctx.fillStyle = colors.sharkToothLtGray;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.lineWidth = 0.5;
     ctx.beginPath();
     ctx.moveTo(x + 66 * scale, y + 249 * scale);
@@ -1479,10 +1523,12 @@ class WhiteShark extends Enemy {
       y + 251 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #3, White
@@ -1545,10 +1591,12 @@ class WhiteShark extends Enemy {
       y + 252 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #4A, White
@@ -1611,10 +1659,12 @@ class WhiteShark extends Enemy {
       y + 249 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #5A, Light Gray
@@ -1677,10 +1727,12 @@ class WhiteShark extends Enemy {
       y + 246 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #4, White
@@ -1743,10 +1795,12 @@ class WhiteShark extends Enemy {
       y + 247 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #5, White
@@ -1809,10 +1863,12 @@ class WhiteShark extends Enemy {
       y + 243 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #6, White
@@ -1875,10 +1931,12 @@ class WhiteShark extends Enemy {
       y + 239 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #7A, Gray
@@ -1941,10 +1999,12 @@ class WhiteShark extends Enemy {
       y + 235 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #7, White
@@ -2007,10 +2067,12 @@ class WhiteShark extends Enemy {
       y + 236 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #8, White
@@ -2073,10 +2135,12 @@ class WhiteShark extends Enemy {
       y + 231 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #9, Gray
@@ -2139,10 +2203,12 @@ class WhiteShark extends Enemy {
       y + 228 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #10, Gray
@@ -2205,10 +2271,12 @@ class WhiteShark extends Enemy {
       y + 225 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #11, Gray
@@ -2271,10 +2339,12 @@ class WhiteShark extends Enemy {
       y + 218 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #12, Gray
@@ -2337,10 +2407,12 @@ class WhiteShark extends Enemy {
       y + 217 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Lower Jaw Left Tooth #13, Gray
@@ -2403,10 +2475,12 @@ class WhiteShark extends Enemy {
       y + 213 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Right Tooth #8, Gray
@@ -2453,10 +2527,12 @@ class WhiteShark extends Enemy {
       y + 156 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Right Tooth #7, Gray
@@ -2503,10 +2579,12 @@ class WhiteShark extends Enemy {
       y + 152 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Right Tooth #6, Gray
@@ -2553,10 +2631,12 @@ class WhiteShark extends Enemy {
       y + 147 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Right Tooth #5, Gray
@@ -2603,10 +2683,12 @@ class WhiteShark extends Enemy {
       y + 143 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Right Tooth #4, Gray
@@ -2653,10 +2735,12 @@ class WhiteShark extends Enemy {
       y + 141 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Right Tooth #3, Gray
@@ -2703,10 +2787,12 @@ class WhiteShark extends Enemy {
       y + 138 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Right Tooth #2, Gray
@@ -2753,10 +2839,12 @@ class WhiteShark extends Enemy {
       y + 137 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Right Tooth #1, Gray
@@ -2803,10 +2891,12 @@ class WhiteShark extends Enemy {
       y + 133 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkToothLtGray;
+    // ctx.fillStyle = colors.sharkToothLtGray;
+    ctx.fillStyle = "rgba(163, 163, 163, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Left Tooth #1, White
@@ -2853,10 +2943,12 @@ class WhiteShark extends Enemy {
       y + 129 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Left Tooth #2, White
@@ -2903,10 +2995,12 @@ class WhiteShark extends Enemy {
       y + 132 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Left Tooth #3, White
@@ -2953,10 +3047,12 @@ class WhiteShark extends Enemy {
       y + 134 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Left Tooth #4, White
@@ -3003,10 +3099,12 @@ class WhiteShark extends Enemy {
       y + 136 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Left Tooth #5, White
@@ -3053,10 +3151,12 @@ class WhiteShark extends Enemy {
       y + 142 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Left Tooth #6, White
@@ -3103,10 +3203,12 @@ class WhiteShark extends Enemy {
       y + 144 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Upper Jaw Left Tooth #7, White
@@ -3153,10 +3255,12 @@ class WhiteShark extends Enemy {
       y + 147 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+    // ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 253, 1.0)";
     ctx.fill();
     ctx.lineWidth = 0.5;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Right Pectoral Fin
@@ -3211,10 +3315,12 @@ class WhiteShark extends Enemy {
       y + 216 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkLtGrey;
+    // ctx.fillStyle = colors.sharkLtGray;
+    ctx.fillStyle = "rgba(207, 209, 226, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Right Pectoral Fin Black Tip
@@ -3253,10 +3359,12 @@ class WhiteShark extends Enemy {
       y + 340 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.bgDkGray;
+    // ctx.fillStyle = colors.bgDkGray;
+    ctx.fillStyle = "rgba(34, 34, 34, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Anal Fin
@@ -3277,10 +3385,12 @@ class WhiteShark extends Enemy {
       y + 205 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.sharkDkrGray;
+    // ctx.fillStyle = colors.sharkDkrGray;
+    ctx.fillStyle = "rgba(120, 121, 140, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;  
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Light Gray Ventral Coloration
@@ -3462,7 +3572,8 @@ class WhiteShark extends Enemy {
       x + 748 * scale,
       y + 207 * scale
     );
-    ctx.fillStyle = colors.waylonLtrGray;
+    // ctx.fillStyle = colors.waylonLtrGray;
+    ctx.fillStyle = "rgba(234, 237, 244, 1.0)";
     ctx.fill();
 
     // Shark - Gray Dorsal Coloration
@@ -3661,7 +3772,8 @@ class WhiteShark extends Enemy {
       y + 207 * scale
     ); // middle of front edge of lower caudal lobe
     ctx.closePath();
-    ctx.fillStyle = colors.sharkDkrGray;
+    // ctx.fillStyle = colors.sharkDkrGray;
+    ctx.fillStyle = "rgba(120, 121, 140, 1.0)";
     ctx.fill();
 
     // Shark - Body Outline
@@ -3856,7 +3968,8 @@ class WhiteShark extends Enemy {
     );
     ctx.moveTo(x + 616 * scale, y + 150 * scale);
     ctx.lineTo(x + 649 * scale, y + 159 * scale);
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Left Pectoral Fin
@@ -3894,10 +4007,12 @@ class WhiteShark extends Enemy {
       x + 291 * scale,
       y + 198 * scale
     );
-    ctx.fillStyle = colors.sharkDkrGray;
+    // ctx.fillStyle = colors.sharkDkrGray;
+    ctx.fillStyle = "rgba(120, 121, 140, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Left Pelvic Fin
@@ -3935,17 +4050,20 @@ class WhiteShark extends Enemy {
       x + 503 * scale,
       y + 210 * scale
     );
-    ctx.fillStyle = colors.sharkDkrGray;
+    // ctx.fillStyle = colors.sharkDkrGray;
+    ctx.fillStyle = "rgba(120, 121, 140, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
     ctx.fill();
     ctx.stroke();
 
     // Shark - Gill Slits
     ctx.lineWidth = 2;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.beginPath();
     ctx.moveTo(x + 262.28 * scale, y + 182.98 * scale);
     ctx.bezierCurveTo(
@@ -3993,20 +4111,24 @@ class WhiteShark extends Enemy {
       y + 187 * scale
     ); // 5
     ctx.lineWidth = 2;
-    ctx.strokeStyle = colors.waylonBlack;
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Shark - Eye Iris
     ctx.beginPath();
     ctx.arc(x + 107 * scale, y + 115 * scale, 8 * scale, 0, 2 * Math.PI, false);
     ctx.closePath();
-    ctx.fillStyle = colors.waylonBlack;
+    // ctx.fillStyle = colors.waylonBlack;
+    ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.sharkToothDkGray;
+    // ctx.strokeStyle = colors.sharkToothDkGray;
+    ctx.strokeStyle = "rgba(89, 89, 89, 1.0)";
     ctx.stroke();
 
     // Shark - Eye Reflection
-    ctx.strokeStyle = colors.eyeShine;
+    // ctx.strokeStyle = colors.eyeShine;
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.7)";
     ctx.beginPath();
     ctx.moveTo(x + 109 * scale, y + 113 * scale);
     ctx.lineTo(x + 107 * scale, y + 112 * scale);
@@ -4041,9 +4163,11 @@ class WhiteShark extends Enemy {
       y + 104 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.bgDkGray;
+    // ctx.fillStyle = colors.bgDkGray;
+    ctx.fillStyle = "rgba(34, 34, 34, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;  
+    // ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";  
     ctx.stroke();
   };
 };

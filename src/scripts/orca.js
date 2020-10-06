@@ -61,10 +61,12 @@ class Orca extends Enemy {
       y + 347 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.medGray;
+//    ctx.fillStyle = colors.medGray;
+    ctx.fillStyle = "rgba(128, 128, 128, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Inner Jaw
@@ -102,10 +104,12 @@ class Orca extends Enemy {
       x + 100 * scale,
       y + 235 * scale
     );
-    ctx.fillStyle = colors.orcaMouthPink;
+//    ctx.fillStyle = colors.orcaMouthPink;
+    ctx.fillStyle = "rgba(251, 223, 223, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Teeth Right Side
@@ -138,9 +142,11 @@ class Orca extends Enemy {
       y + 270 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Right Tooth #2
@@ -171,9 +177,11 @@ class Orca extends Enemy {
       y + 268 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Right Tooth #3
@@ -204,9 +212,11 @@ class Orca extends Enemy {
       y + 266 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Right Tooth #4
@@ -237,9 +247,11 @@ class Orca extends Enemy {
       y + 263 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Right Tooth #5
@@ -270,9 +282,11 @@ class Orca extends Enemy {
       y + 260 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Right Tooth #6
@@ -303,9 +317,11 @@ class Orca extends Enemy {
       y + 258 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Right Tooth #7
@@ -336,9 +352,11 @@ class Orca extends Enemy {
       y + 256 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Right Tooth #8
@@ -369,9 +387,11 @@ class Orca extends Enemy {
       y + 254 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Teeth Left Side
@@ -405,9 +425,11 @@ class Orca extends Enemy {
       y + 280 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Left Tooth #2
@@ -438,9 +460,11 @@ class Orca extends Enemy {
       y + 276 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Left Tooth #3
@@ -471,9 +495,11 @@ class Orca extends Enemy {
       y + 274 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Left Tooth #4
@@ -504,9 +530,11 @@ class Orca extends Enemy {
       y + 269 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Left Tooth #5
@@ -537,9 +565,11 @@ class Orca extends Enemy {
       y + 267 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Left Tooth #6
@@ -570,9 +600,11 @@ class Orca extends Enemy {
       y + 262 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Left Tooth #7
@@ -603,9 +635,11 @@ class Orca extends Enemy {
       y + 260 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Eye - Sclera
@@ -636,7 +670,8 @@ class Orca extends Enemy {
       y + 227 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.orcaEyeWhite;
+//    ctx.fillStyle = colors.orcaEyeWhite;
+    ctx.fillStyle = "rgba(255, 255, 221, 1.0)";
     ctx.fill();
 
     // Orca Eye - Iris
@@ -675,10 +710,12 @@ class Orca extends Enemy {
       y + 221 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.orcaEyeDkGray;
+//    ctx.fillStyle = colors.orcaEyeDkGray;
+    ctx.fillStyle = "rgba(57, 57, 57, 1.0)";
     ctx.fill();
     ctx.lineWidth = 1;
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Eye - Pupil
@@ -717,10 +754,12 @@ class Orca extends Enemy {
       y + 221 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonBlack;
+//    ctx.fillStyle = colors.waylonBlack;
+    ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
     ctx.fill();
     ctx.lineWidth = 1;
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Eye - Shine
@@ -759,7 +798,8 @@ class Orca extends Enemy {
       y + 226 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.eyeShine;
+//    ctx.fillStyle = colors.eyeShine;
+    ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
     ctx.fill();
     ctx.beginPath();
     ctx.moveTo(x + 103 * scale, y + 217 * scale);
@@ -1044,7 +1084,8 @@ class Orca extends Enemy {
       y + 227 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonBlack;
+//    ctx.fillStyle = colors.waylonBlack;
+    ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
     ctx.fill();
 
     // Orca Belly (white)
@@ -1108,10 +1149,12 @@ class Orca extends Enemy {
       y + 338 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
     ctx.lineWidth = 3;
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Chin (white)
@@ -1182,10 +1225,12 @@ class Orca extends Enemy {
       y + 295 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
     ctx.lineWidth = 3;
-    ctx.strokeStyle = colors.waylonBlack;
+//    ctx.strokeStyle = colors.waylonBlack;
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
     // Orca Eye Patch (white)
@@ -1216,7 +1261,8 @@ class Orca extends Enemy {
       y + 220 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.waylonWhite;
+//    ctx.fillStyle = colors.waylonWhite;
+    ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
 
     // Orca Saddle (gray)
@@ -1255,7 +1301,8 @@ class Orca extends Enemy {
       y + 178 * scale
     );
     ctx.closePath();
-    ctx.fillStyle = colors.medGray;
+//    ctx.fillStyle = colors.medGray;
+    ctx.fillStyle = "rgba(128, 128, 128, 1.0)";
     ctx.fill();
   };
 };
