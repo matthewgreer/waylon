@@ -3,6 +3,7 @@ class FreqAnalyzer {
   this.audioCtxt;
   this.analyzer;
   this.audioArray;
+  this.source;
   this.display = document.getElementById("freq-display");
 };
 
@@ -49,8 +50,8 @@ class FreqAnalyzer {
       navigator.mediaDevices
         .getUserMedia(constraints)
         .then((stream) => {
-          const source = this.audioCtxt.createMediaStreamSource(stream);
-          return source.connect(this.analyzer);
+          this.source = this.audioCtxt.createMediaStreamSource(stream);
+          return this.source.connect(this.analyzer);
           // to enable speaker output (not currently desired), 
           // connect a destination node; 
           // analyzer.connect(audioCtxt.destination);
@@ -91,6 +92,15 @@ class FreqAnalyzer {
     // } else {
     //   this.display.textContent = "No audioCtxt";
     //   return null;
+    }
+  };
+
+  resetFreqAnalyzer = () => {
+    if (this.source.mediaStream.active) {};
+    this.analyzer = null;
+    this.audio = null;
+    if (this.audioCtxt.state !== "closed") {
+      this.audioCtxt.close().then();
     }
   };
 };

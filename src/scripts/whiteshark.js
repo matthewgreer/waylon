@@ -1,4 +1,4 @@
-import colors from "../styles/_colors.scss";
+// import colors from "../styles/_colors.scss";
 import Enemy from "./enemy";
 
 // WhiteShark model is x:862, y:371 at scale 1:1
@@ -6,6 +6,7 @@ import Enemy from "./enemy";
 class WhiteShark extends Enemy {
   constructor(options){
     super(options)
+    this.name = "Great White Shark";
     this.hSize = 862;
     this.vSize = 371;
   }

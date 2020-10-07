@@ -1,23 +1,14 @@
-import colors from "../styles/_colors.scss";
+// import colors from "../styles/_colors.scss";
 import Enemy from "./enemy";
-// import Util from "./util";
 
 // Orca model is x:932, y: 463 at 1:1 scale
 
 class Orca extends Enemy {
   constructor(options){
     super(options);
-
-    // these attributes are assigned at creation by options.game
-    // this.game
-    // this.position assigned randomly by .randomDepth()
-    // this.sizeScale assigned randomly by .randomScale()
-    // this.velocity assigned randomly by .randomVelocity()
-
     this.hSize = 932;
     this.vSize = 463;
-
-    // Enemy.call(this, options);
+    this.name = "Orca";
   };
 
   draw = (ctx) => {

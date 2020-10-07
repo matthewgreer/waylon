@@ -4,9 +4,10 @@ import Waves from "./waves";
 import Waylon from "./waylon";
 
 class GameView {
-  constructor(game, ctx){
+  constructor(game, ctx) {
     this.ctx = ctx;
     this.game = game;
+    this.endOfGame = false;
     this.modal = new Modal();
     this.modal.intro();
     this.modal.show();
@@ -14,13 +15,11 @@ class GameView {
     this.startButton = document.getElementById("start-button");
     this.pauseButton = document.getElementById("pause-button");
     this.stopButton = document.getElementById("stop-button");
+    this.animReq;
+    this.killer;
   }
 
   initialize = () => this.startButton.addEventListener("click", this.start);
-
-  // closeModal = () => this.modal.id = "modal-hidden";
-
-  // showModal = () => this.modal.id = "modal-shown";
 
   start = () => {
     this.startButton.removeEventListener("click", this.start);
@@ -29,88 +28,97 @@ class GameView {
     this.freqAnalyzer.createAudioContext();
     this.freqAnalyzer.createAnalyzerNode();
     this.freqAnalyzer.getMicStream();
-    this.game.add(
-      new Waves(.5, [0, 0])
-    );
+    this.game.add(new Waves(0.5, [0, 0]));
     this.game.add(
       new Waylon({
         game: this.game,
         freqAnalyzer: this.freqAnalyzer,
         position: [25, 0],
-        sizeScale: .6,
-        velocity: 18
-      })      
+        sizeScale: 0.6,
+        velocity: 18,
+      })
     );
     this.game.spawnTimer();
-    // this.pauseButton.addEventListener("click", this.pause)
+    this.pauseButton.addEventListener("click", this.pause);
     this.stopButton.addEventListener("click", this.stop);
     this.lastTime = 0;
-    return this.animReq = requestAnimationFrame(this.animate.bind(this));
+    return (this.animReq = requestAnimationFrame(this.animate.bind(this)));
   };
 
   animate = (time) => {
     const timeDelta = time - this.lastTime;
     this.game.step(timeDelta);
-    this.game.draw(this.ctx);
-    this.lastTime = time;
-    return this.animReq = requestAnimationFrame(this.animate.bind(this));
+    this.checkPredation();
+    if (this.endOfGame) {
+      return this.endGame(this.killer);
+    } else {
+      this.game.draw(this.ctx);
+      this.lastTime = time;
+      return (this.animReq = requestAnimationFrame(this.animate.bind(this)));
+    }
+  };
+
+  checkPredation = () => {
+    for (let i = 0; i < this.game.enemies.length; i++) {
+      const predator = this.game.enemies[i];
+      debugger
+      if (predator.isEating(this.game.waylon)) {
+        this.killer = predator;
+        return this.endOfGame = true;
+      }
+    }
+  };
+
+  endGame = (predator) => {
+    this.clear();
+    this.modal.gameOver(predator);
+    this.resetButton = document.getElementById("reset-button");
+    this.freqAnalyzer.audioCtxt.close()
+    .then(this.resetButton.addEventListener("click", this.reset))
   };
 
   reset = () => {
-    clearInterval(this.game.tick);
+    // this.resetButton.removeEventListener("click", this.reset);
     this.game.difficulty = 0;
     this.modal.intro();
-    this.modal.show();
-    return this.initialize();
+    document
+      .getElementById("start-button")
+      .addEventListener("click", this.start);
   };
 
   stop = () => {
-    this.freqAnalyzer.audioCtxt.close()
-      .then(cancelAnimationFrame(this.animReq))
-      .catch(location.reload());
+    this.clear();
     return this.reset();
   };
+
+  clear = () => {
+    cancelAnimationFrame(this.animReq);
+    clearInterval(this.game.tick);
+    this.game.waylon = [];
+    this.game.enemies = [];
+    this.game.tharSheBlows = [];
+    this.game.waves = [];
+    this.endOfGame = false;
+    this.game.draw(this.ctx);
+  };
+
+  pause = () => {
+    this.pauseButton.removeEventListener("click", this.pause);
+    cancelAnimationFrame(this.animReq);
+    this.game.paused = true;
+    this.freqAnalyzer.audioCtxt.suspend().then(this.modal.pause());
+    this.resumeButton = document.getElementById("resume-button");
+    return this.resumeButton.addEventListener("click", this.resume);
+  };
+
+  resume = () => {
+    this.resumeButton.removeEventListener("click", this.resume);
+    this.modal.close();
+    this.game.paused = false;
+    this.pauseButton = document.getElementById("pause-button");
+    this.pauseButton.addEventListener("click", this.resume);
+    this.freqAnalyzer.audioCtxt.resume().then(this.animate())
+  };
+
 };
 export default GameView;
-
-// This code is vestigial, leftover from experimentation
-// It is left here in case I need to reference it
-              // document.addEventListener(
-              //   "DOMContentLoaded",
-              //   () => {
-              //     let x = 1920;
-              //     let i = 0;
-              //     let y = Math.floor(Math.random() * 650);
-              //     let prevY = 0;
-              //     let reps = 8;
-              //     let speed = Math.floor(Math.random() * 5) + 3;
-              //     let scale = Math.random();
-
-              //     let tick = setInterval(() => {
-              //       drawShark(x, y, scale);
-
-              //       const stop = () => {
-              //         clearInterval(tick);
-              //       };
-
-              //       if (i >= reps) {
-              //         stop();
-              //       }
-
-              //       if (x <= -862) {
-              //         x = 1920;
-              //         i = i + 1;
-              //         speed = Math.floor(Math.random() * 5) + 3;
-              //         scale = Math.random();
-              //         if (prevY < 300) {
-              //           y = prevY + Math.floor(Math.random() * 350);
-              //         } else {
-              //           y = Math.floor(Math.random() * 400);
-              //         }
-              //       }
-
-              //       x = x - speed;
-              //     });
-              //   },
-              //   200
-              // );

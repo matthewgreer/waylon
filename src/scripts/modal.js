@@ -34,10 +34,10 @@ class Modal {
       this.show();
   };
 
-  gameOver = () => {
+  gameOver = (predator) => {
     this.modal.innerHTML = 
       `<div class="modal-content">
-        <p class="story">Oh No! You need to help Waylon avoid hungry predators.</p>
+        <p class="story">Oh No! You need to help Waylon avoid hungry ${predator.name}s.</p>
         <button id="reset-button">Try Again</button>
       </div>`;
     this.show()

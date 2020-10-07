@@ -23,6 +23,7 @@ class Game {
     this.waves = [];
     this.bubbles = [];
     this.difficulty = 1;
+    this.paused = false;
     this.tick
   }
 
@@ -79,7 +80,9 @@ class Game {
 
   spawnTimer = () => {
     // let i = 0;
-    this.tick = setInterval(() => {this.chooseRandomEnemy()}, 5000);
+    this.tick = setInterval(() => {
+      if (!this.paused) {this.chooseRandomEnemy()}
+    }, 5000);
   };
 
   chooseRandomEnemy = () => {
@@ -107,20 +110,6 @@ class Game {
         return this.add(enemy);
       }
   };
-    
-  checkPredation = () => {
-    for (let i = 0; i < this.enemies.length; i++) {
-      const predator = this.enemies[i];
-      if (predator.isEating(this.waylon)) {
-        return this.endGame(predator);
-      }
-    }
-  };
-
-  endGame = () => {
-    // need to create an ending sequence, but for now
-    console.log(`Oh no! The predator ate Waylon!`)
-  };
 
   randomDepth = (objectHeight) => {
     return Math.floor(Math.random() * (900 - objectHeight));
@@ -128,7 +117,7 @@ class Game {
 
   randomScale = () => {
     // rounded to hundredths
-    return (Math.round(100 * (Math.random() * 0.4 + 0.6)) / 100);
+    return (Math.round(100 * (Math.random() * 0.3 + 0.5)) / 100);
   };
 
   randomVelocity = () => {
@@ -151,7 +140,6 @@ class Game {
     const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
     const velocityScale = delta / NORMAL_FRAME_TIME_DELTA;
     return this.moveObjects(velocityScale);
-    // this.checkPredation();
   };
 }
 
