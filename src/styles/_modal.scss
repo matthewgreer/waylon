@@ -12,18 +12,10 @@ aside {
   background-color: $modalBG;
 }
 
-// #modal-shown {
-//   display: flex;
-// }
-
-// #modal-hidden {
-//   display: none;
-// }
-
 .modal-content {
   position: relative;
   // look to add moving light effect to linear-gradient
-  background-image: linear-gradient($oceanHorizon, $modalBlue);
+  background-image: linear-gradient($oceanTrough, $modalBlue);
   margin: auto 20%;
   padding: 3.5vmin;
   box-shadow: -1px 10px 2px 1px $shadowBlack;
@@ -71,6 +63,31 @@ aside {
   line-height: 2vmin;
   list-style: disc inside url('../images/bubble-bullet.png');
   text-indent: -3vmin;
+}
+
+.modal-button {
+  // #start-button, #reset-button, #resume-button
+  display: block;
+  color: $deepBlue;
+  background-color: $skyTop;
+  margin: 10px auto 0px;
+  font-size: calc(8px * 1vh);
+  width: 16vw;
+  min-width: 154px;
+  height: 4vw;
+  max-width: 40vh; 
+  max-height: 10vh;
+}
+
+.modal-button:hover {
+  background-color: $waylonEye;
+  color: $waylonWhite;
+}
+
+.modal-button:active {
+  background-color: $storyBlue;
+  color: $skyTrough;
+  
 }
 
 @keyframes zoom {

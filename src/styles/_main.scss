@@ -67,17 +67,6 @@ button:hover {
   background-color: $oceanHorizon;
 }
 
-#start-button, #reset-button, #resume-button {
-  display: block;
-  margin: 10px auto 0px;
-  font-size: calc(8px * 1vh);
-  width: 16vw;
-  min-width: 154px;
-  height: 4vw;
-  max-width: 40vh; 
-  max-height: 10vh;
-}
-
 #pause-button {
   border-bottom-right-radius: 0%; 
   border-top-right-radius: 0%;

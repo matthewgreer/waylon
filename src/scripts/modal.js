@@ -29,7 +29,7 @@ class Modal {
           <li class="instructions-text"><span class="emphasis">NOTE: WAYLON</span> responds to <span class="emphasis">pitch, not volume</span>. Yelling at baby whales is unkind and counterproductive.</li>
         </ul>
         <p></p>
-        <button id="start-button">Click to Start</button>
+        <button id="start-button" class="modal-button">Click to Start</button>
       </div>`;
       this.show();
   };
@@ -38,7 +38,7 @@ class Modal {
     this.modal.innerHTML = 
       `<div class="modal-content">
         <p class="story">Oh No! You need to help Waylon avoid hungry ${predator.name}s.</p>
-        <button id="reset-button">Try Again</button>
+        <button id="reset-button" class="modal-button">Try Again</button>
       </div>`;
     this.show()
   };
@@ -46,7 +46,7 @@ class Modal {
   pause = () => {
     this.modal.innerHTML = 
       `<div class="modal-content">
-        <button id="resume-button">Resume</button>
+        <button id="resume-button" class="modal-button">Resume</button>
       </div>`;
     this.show();
   };
