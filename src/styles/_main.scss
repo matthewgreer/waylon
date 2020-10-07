@@ -71,8 +71,9 @@ button:hover {
   display: block;
   margin: 10px auto 0px;
   font-size: calc(8px * 1vh);
-  width: 20vw; 
-  height: 5vw;
+  width: 16vw;
+  min-width: 154px;
+  height: 4vw;
   max-width: 40vh; 
   max-height: 10vh;
 }

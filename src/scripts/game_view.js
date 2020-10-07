@@ -19,7 +19,10 @@ class GameView {
     this.killer;
   }
 
-  initialize = () => this.startButton.addEventListener("click", this.start);
+  initialize = () => {
+    this.clear();
+    this.startButton.addEventListener("click", this.start);
+  }
 
   start = () => {
     this.startButton.removeEventListener("click", this.start);
