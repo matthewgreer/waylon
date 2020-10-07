@@ -46,15 +46,17 @@ class GameView {
   };
 
   animate = (time) => {
-    const timeDelta = time - this.lastTime;
-    this.game.step(timeDelta);
-    this.checkPredation();
-    if (this.endOfGame) {
-      return this.endGame(this.killer);
-    } else {
-      this.game.draw(this.ctx);
-      this.lastTime = time;
-      return (this.animReq = requestAnimationFrame(this.animate.bind(this)));
+    if (!this.paused) {
+      const timeDelta = time - this.lastTime;
+      this.game.step(timeDelta);
+      this.checkPredation();
+      if (this.endOfGame) {
+        return this.endGame(this.killer);
+      } else {
+        this.game.draw(this.ctx);
+        this.lastTime = time;
+        return (this.animReq = requestAnimationFrame(this.animate.bind(this)));
+      }
     }
   };
 
@@ -78,7 +80,6 @@ class GameView {
   };
 
   reset = () => {
-    // this.resetButton.removeEventListener("click", this.reset);
     this.game.difficulty = 0;
     this.modal.intro();
     document
@@ -103,7 +104,6 @@ class GameView {
   };
 
   pause = () => {
-    this.pauseButton.removeEventListener("click", this.pause);
     cancelAnimationFrame(this.animReq);
     this.game.paused = true;
     this.freqAnalyzer.audioCtxt.suspend().then(this.modal.pause());
@@ -113,11 +113,10 @@ class GameView {
 
   resume = () => {
     this.resumeButton.removeEventListener("click", this.resume);
-    this.modal.close();
+    this.lastTime = 0;
     this.game.paused = false;
-    this.pauseButton = document.getElementById("pause-button");
-    this.pauseButton.addEventListener("click", this.resume);
-    this.freqAnalyzer.audioCtxt.resume().then(this.animate())
+    this.freqAnalyzer.audioCtxt.resume().then(this.modal.close());
+    return this.animate(0);
   };
 
 };

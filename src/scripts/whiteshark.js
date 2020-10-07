@@ -16,13 +16,8 @@ class WhiteShark extends Enemy {
     const x = this.position[0];
     const y = this.position[1];
     const scale = this.sizeScale;
-                
-    // Below follows the instructions for drawing the various parts of
-    //   a WhiteShark instance, in layered order from furthest to nearest on
-    //   the surface of the canvas.
 
     // Shark - Right Pelvic Fin
-
     ctx.beginPath();
     ctx.moveTo(x + 546 * scale, y + 222 * scale);
     ctx.bezierCurveTo(

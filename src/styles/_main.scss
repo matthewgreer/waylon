@@ -67,7 +67,7 @@ button:hover {
   background-color: $oceanHorizon;
 }
 
-#start-button {
+#start-button, #reset-button, #resume-button {
   display: block;
   margin: 10px auto 0px;
   font-size: calc(8px * 1vh);
