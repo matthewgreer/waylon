@@ -1,14 +1,115 @@
 // import colors from "../styles/_colors.scss";
 import Enemy from "./enemy";
 
-// Orca model is x:932, y: 463 at 1:1 scale
-
 class Orca extends Enemy {
-  constructor(options){
+  constructor(options) {
     super(options);
     this.hSize = 932;
     this.vSize = 463;
     this.name = "Orca";
+  }
+
+  calculateHitBox = () => {
+    // Orca model is x:932, y: 463 at 1:1 scale
+    this.hitBox.frontX = this.position[0];
+    this.hitBox.midX = this.position[0] + this.sizeScale * 220;
+    this.hitBox.rearX = this.position[0] + this.sizeScale * 500;
+    this.hitBox.dorsalY = this.position[1] + this.sizeScale * 155;
+    this.hitBox.midY = this.position[1] + this.sizeScale * 305;
+    this.hitBox.ventralY = this.position[1] + this.sizeScale * 365;
+  };
+
+  isEating = () => {
+    this.calculateHitBox();
+    // COLLISION CHECKER
+    let waylon = this.game.waylon[0];
+    // first check if
+    if (
+      // this Orca's front IS level with or beyond Waylon's front
+      this.hitBox.frontX <= waylon.hitBox.frontX &&
+      // WHILST the rear of this Orca's hitbox is NOT yet beyond Waylon's rear
+      this.hitBox.rearX >= waylon.hitBox.rearX
+      // and IF NOT, skip the other checks and return FALSE. (line 110)
+    ) {
+      // but IF SO, then check if
+      if (
+        // this Orca's front is NOT yet beyond Waylon's chest 
+        this.hitBox.frontX > waylon.hitBox.midFrX
+      ) {
+        // and if so, check if
+        if (
+          // this Orca's chest IS level with or beyond Waylon's front
+          this.hitBox.midX <= waylon.hitBox.frontX
+        ) {
+          // in which case, return TRUE if this Orca's *full body* overlaps 
+          //   Waylon's head anywhere along the y-axis
+          return this.hitBox.dorsalY <= waylon.hitBox.midY &&
+          this.hitBox.ventralY >= waylon.hitBox.dorsalY
+          // and return FALSE if not
+        }
+        // but if this Orca's chest is NOT yet beyond Waylon's front
+        else {
+        // then return TRUE if this Orca's *head* overlaps Waylon's head
+        //   anywhere along the y-axis
+          return this. hitBox.dorsalY <= waylon.hitBox.midY &&
+          this.hitBox.midY >= waylon.hitBox.dorsalY
+          // and return FALSE if not  
+        }
+      }
+      // but if this Orca's front IS level with or beyond Waylon's chest
+      //   then check if
+      else if (
+        // this Orca's front is NOT yet beyond Waylon's dorsal fin
+        this.hitBox.frontX >= waylon.hitBox.midRrX ||
+        // OR if this Orca's chest IS beyond Waylon's front
+        (this.hitBox.midX <= waylon.hitBox.frontX &&
+        // WHILST this Orca's rear is NOT yet beyond Waylon's dorsal fin
+        this.hitBox.rearX >= waylon.hitbox.midRrX)
+      ) {
+        // and if so, check if
+        if (
+          // this Orca's chest is level with or beyond Waylon's chest
+          this.hitBox.midX <= waylon.hitBox.midFrX
+          ) {
+            // and if so, return TRUE if this Orca's *full body* overlaps
+            //   Waylon's full body anywhere along the y-axis
+            return this.hitBox.dorsalY < waylon.hitBox.ventralY &&
+            this.hitBox.ventralY > waylon.hitBox.dorsalY
+            // and return FALSE if not.
+          }
+        // and if this Orca's chest is NOT beyond Waylon's chest
+        else {
+        // then return TRUE if this Orca's *head* overlaps Waylon's full body
+        //   anywhere along the y-axis
+          return this.hitBox.dorsalY < waylon.hitBox.ventralY &&
+          this.hitBox.midY > waylon.hitBox.dorsalY
+        // and return FALSE if not.
+        }
+      }
+      // and if this Orca's front IS beyond Waylon's dorsal fin
+      //   then check if
+      else if (
+        // this Orca's rear IS beyond Waylon's dorsal fin
+        this.hitBox.rearX >= waylon.hitBox.midRrX
+      ) {
+        // and if so, return TRUE if this Orca's *full body* overlaps Waylon's
+        //   tail anywhere along the y-axis
+        return this.hitBox.dorsalY <= waylon.ventralY &&
+        this.hitBox.ventralY >= waylon.hitBox.midY
+        // and return FALSE if not.
+      } 
+      // and if this Orca's rear is NOT yet beyond Waylon's dorsal fin
+      else {
+      //   then return TRUE if this Orca's *full body* overlaps Waylon's
+      //   full body anywhere along the y-axis
+        return this.hitBox.dorsalY <= waylon.ventralY &&
+        this.hitBox.ventralY >= waylon.hitBox.dorsalY
+      // and return FALSE if not
+      }
+    } 
+    else {
+      return false // but if the first condition wasn't met, return FALSE
+    }
   };
 
   draw = (ctx) => {
@@ -52,11 +153,11 @@ class Orca extends Enemy {
       y + 347 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.medGray;
+    //    ctx.fillStyle = colors.medGray;
     ctx.fillStyle = "rgba(128, 128, 128, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -95,11 +196,11 @@ class Orca extends Enemy {
       x + 100 * scale,
       y + 235 * scale
     );
-//    ctx.fillStyle = colors.orcaMouthPink;
+    //    ctx.fillStyle = colors.orcaMouthPink;
     ctx.fillStyle = "rgba(251, 223, 223, 1.0)";
     ctx.fill();
     ctx.lineWidth = 2;
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -133,10 +234,10 @@ class Orca extends Enemy {
       y + 270 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -168,10 +269,10 @@ class Orca extends Enemy {
       y + 268 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -203,10 +304,10 @@ class Orca extends Enemy {
       y + 266 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -238,10 +339,10 @@ class Orca extends Enemy {
       y + 263 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -273,10 +374,10 @@ class Orca extends Enemy {
       y + 260 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -308,10 +409,10 @@ class Orca extends Enemy {
       y + 258 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -343,10 +444,10 @@ class Orca extends Enemy {
       y + 256 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -378,10 +479,10 @@ class Orca extends Enemy {
       y + 254 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -416,10 +517,10 @@ class Orca extends Enemy {
       y + 280 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -451,10 +552,10 @@ class Orca extends Enemy {
       y + 276 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -486,10 +587,10 @@ class Orca extends Enemy {
       y + 274 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -521,10 +622,10 @@ class Orca extends Enemy {
       y + 269 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -556,10 +657,10 @@ class Orca extends Enemy {
       y + 267 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -591,10 +692,10 @@ class Orca extends Enemy {
       y + 262 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -626,10 +727,10 @@ class Orca extends Enemy {
       y + 260 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -661,7 +762,7 @@ class Orca extends Enemy {
       y + 227 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.orcaEyeWhite;
+    //    ctx.fillStyle = colors.orcaEyeWhite;
     ctx.fillStyle = "rgba(255, 255, 221, 1.0)";
     ctx.fill();
 
@@ -701,11 +802,11 @@ class Orca extends Enemy {
       y + 221 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.orcaEyeDkGray;
+    //    ctx.fillStyle = colors.orcaEyeDkGray;
     ctx.fillStyle = "rgba(57, 57, 57, 1.0)";
     ctx.fill();
     ctx.lineWidth = 1;
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -745,11 +846,11 @@ class Orca extends Enemy {
       y + 221 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonBlack;
+    //    ctx.fillStyle = colors.waylonBlack;
     ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
     ctx.fill();
     ctx.lineWidth = 1;
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -789,7 +890,7 @@ class Orca extends Enemy {
       y + 226 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.eyeShine;
+    //    ctx.fillStyle = colors.eyeShine;
     ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
     ctx.fill();
     ctx.beginPath();
@@ -1075,7 +1176,7 @@ class Orca extends Enemy {
       y + 227 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonBlack;
+    //    ctx.fillStyle = colors.waylonBlack;
     ctx.fillStyle = "rgba(0, 0, 0, 1.0)";
     ctx.fill();
 
@@ -1140,11 +1241,11 @@ class Orca extends Enemy {
       y + 338 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
     ctx.lineWidth = 3;
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -1216,11 +1317,11 @@ class Orca extends Enemy {
       y + 295 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
     ctx.lineWidth = 3;
-//    ctx.strokeStyle = colors.waylonBlack;
+    //    ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
 
@@ -1252,7 +1353,7 @@ class Orca extends Enemy {
       y + 220 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.waylonWhite;
+    //    ctx.fillStyle = colors.waylonWhite;
     ctx.fillStyle = "rgba(253, 253, 255, 1.0)";
     ctx.fill();
 
@@ -1292,7 +1393,7 @@ class Orca extends Enemy {
       y + 178 * scale
     );
     ctx.closePath();
-//    ctx.fillStyle = colors.medGray;
+    //    ctx.fillStyle = colors.medGray;
     ctx.fillStyle = "rgba(128, 128, 128, 1.0)";
     ctx.fill();
   };

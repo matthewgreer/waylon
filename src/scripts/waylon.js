@@ -7,30 +7,33 @@ class Waylon{
     this.freqAnalyzer = options.freqAnalyzer;
     this.position = options.position;
     this.sizeScale = options.sizeScale;
+    this.hitBox = this.calculateHitBox();
     this.velocity = options.velocity;
-    this.box = [];
-      // Waylon model is x:466, y:233 at 1:1 scale
-    //   this.position[0],
-    //   this.position[0] + (this.sizeScale * 466),
-    //   this.position[1],
-    //   this.position[1] + (this.sizeScale * 233)
-    // ];
+    
+    // NOTE: rotation in Canvas is disappointing, and can wreak havoc with my
+    //   collision logic. Hopefully I can improve this in future updates.
+    // 
     // this.centerOfRotation = [
     //   this.position[0] + this.sizeScale * 180,
     //   this.position[1] + this.sizeScale * 116
     // ]
     // this.currentRotation = 0;
+
     this.currentPitch = 0;
   };
 
+  calculateHitBox = () => {
+    // Waylon model is x:466, y:233 at 1:1 scale
+    this.hitBox.frontX = this.position[0] + (this.sizeScale * 466);
+    this.hitBox.midFrX = this.position[0] + (this.sizeScale * 365);
+    this.hitBox.midRrX = this.position[0] + (this.sizeScale * 170);
+    this.hitBox.rearX = this.position[0];
+    this.hitBox.dorsalY = this.position[1];
+    this.hitBox.midY = this.position[1] + (this.sizeScale * 100);
+    this.hitBox.ventralY = this.position[1] + (this.sizeScale * 170);
+  }
+
   move = (velocityScale) => {
-    this.box = [
-      // Waylon model is x:466, y:233 at 1:1 scale
-      this.position[0],
-      this.position[0] + this.sizeScale * 466,
-      this.position[1],
-      this.position[1] + this.sizeScale * 233,
-    ];
     let newPitch = this.freqAnalyzer.outputTopFreq();
     let offsetY = this.velocity * velocityScale;
     
@@ -67,6 +70,8 @@ class Waylon{
         new TharSheBlows([this.position[0], 10], this.sizeScale)
       );
     }
+    // update hitBox with current position
+    this.calculateHitBox();
     return this.currentPitch = newPitch;
   };
 

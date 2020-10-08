@@ -1,18 +1,70 @@
 // import colors from "../styles/_colors.scss";
 import Enemy from "./enemy";
 
-// WhiteShark model is x:862, y:371 at scale 1:1
-
 class WhiteShark extends Enemy {
-  constructor(options){
-    super(options)
+  constructor(options) {
+    super(options);
     this.name = "Great White Shark";
     this.hSize = 862;
     this.vSize = 371;
   }
 
+  calculateHitBox = () => {
+    // WhiteShark model is x:862, y:371 at scale 1:1
+    this.hitBox.frontX = this.position[0] + this.sizeScale * 10;
+    this.hitBox.rearX = this.position[0] + this.sizeScale * 460;
+    this.hitBox.dorsalY = this.position[1] + this.sizeScale * 65;
+    this.hitBox.ventralY = this.position[1] + this.sizeScale * 170;
+  };
+
+  isEating = () => {
+    this.calculateHitBox();
+    // COLLISION CHECKER
+    let waylon = this.game.waylon[0];
+    // first check if
+    if (
+      // this enemy's front is level with or beyond Waylon's nose
+      this.hitBox.frontX <= waylon.hitBox.frontX &&
+      // AND the rear of this enemy's hitbox is not yet past Waylon's tail
+      this.hitBox.rearX >= waylon.hitBox.rearX
+    ) {
+      // then check if...
+      if (
+        // this enemy's front is between Waylon's nose and chest
+        this.hitBox.frontX >= waylon.hitBox.midFrX
+      ) {
+        // and if so, return TRUE if the hitboxes overlap along the y-axis
+        return this.hitBox.dorsalY <= waylon.hitBox.midY &&
+        this.hitBox.ventralY >= waylon.hitBox.dorsalY
+        // and return FALSE if not.
+      }
+      else if (
+        // check if enemy's front is between Waylon's chest and dorsal fin
+        this.hitBox.frontX >= waylon.hitBox.midRrX
+      ) {
+        // and if so, return TRUE if the hitboxes overlap along the y-axis
+        return this.hitBox.dorsalY < waylon.hitBox.ventralY &&
+        this.hitBox.ventralY > waylon.hitBox.dorsalY
+        // and return FALSE if not.
+      }
+      else if (
+        // check if enemy's front is between Waylon's dorsal fin and tail
+        this.hitBox.frontX >= waylon.hitBox.rearX ||
+        // OR if enemy's rear is between Waylon's dorsal fin and tail
+        this.hitBox.rearX <= waylon.hitBox.midRrX
+      ) {
+        // and if so, return TRUE if the hitboxes overlap along the y-axis
+        return this.hitBox.dorsalY <= waylon.ventralY &&
+        this.hitBox.ventralY >= waylon.hitBox.midY
+        // and return FALSE if not.
+      } 
+     } 
+     else {
+      return false // but if the first condition wasn't met, return FALSE
+    }
+  };
+
   draw = (ctx) => {
-    
     const x = this.position[0];
     const y = this.position[1];
     const scale = this.sizeScale;
@@ -93,7 +145,7 @@ class WhiteShark extends Enemy {
     // ctx.fillStyle = colors.sharkMouthRed;
     ctx.fillStyle = "rgba(127, 60, 60, 1.0)";
     ctx.fill();
-    ctx.lineWidth = 2;  
+    ctx.lineWidth = 2;
     // ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
@@ -3384,7 +3436,7 @@ class WhiteShark extends Enemy {
     // ctx.fillStyle = colors.sharkDkrGray;
     ctx.fillStyle = "rgba(120, 121, 140, 1.0)";
     ctx.fill();
-    ctx.lineWidth = 2;  
+    ctx.lineWidth = 2;
     // ctx.strokeStyle = colors.waylonBlack;
     ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
@@ -4163,7 +4215,7 @@ class WhiteShark extends Enemy {
     ctx.fillStyle = "rgba(34, 34, 34, 1.0)";
     ctx.fill();
     // ctx.strokeStyle = colors.waylonBlack;
-    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";  
+    ctx.strokeStyle = "rgba(0, 0, 0, 1.0)";
     ctx.stroke();
   };
 };
