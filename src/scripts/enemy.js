@@ -7,7 +7,15 @@ class Enemy {
     this.hSize;
     this.vSize;
     this.sizeScale = options.sizeScale;
-    this.hitBox = this.calculateHitBox();
+    this.hitBox = {
+      frontX: 0,
+      midX: 0,
+      rearX: 0,
+      dorsalY: 0,
+      midY: 0,
+      ventralY: 0,
+      tailX: this.position[0] + this.sizeScale * this.hSize
+    };
     this.game = options.game;
   }
 
@@ -17,7 +25,7 @@ class Enemy {
     let offsetX = this.velocity * velocityScale;
     this.position = [this.position[0] - offsetX, this.position[1]];
     debugger
-    if (this.hitBox.rearX < 0) {
+    if (this.hitBox.tailX < 0) {
       return this.game.remove(this);
     }
   };

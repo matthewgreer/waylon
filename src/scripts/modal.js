@@ -35,9 +35,10 @@ class Modal {
   };
 
   gameOver = (predator) => {
-    this.modal.innerHTML = 
-      `<div class="modal-content">
-        <p class="story">Oh No! You need to help Waylon avoid hungry ${predator.name}s.</p>
+    this.modal.innerHTML = `<div class="modal-content">
+        <p class="story boom emphasis">Oh No!</p>
+        <p class="story">You need to help Waylon avoid</p>
+        <p class="story">hungry <span class="emphasis">${predator.name}s.</span></p>
         <button id="reset-button" class="modal-button">Try Again</button>
       </div>`;
     this.show()
@@ -47,6 +48,24 @@ class Modal {
     this.modal.innerHTML = 
       `<div class="modal-content">
         <button id="resume-button" class="modal-button">Resume</button>
+      </div>`;
+    this.show();
+  };
+
+  gameStop = () => {
+    this.modal.innerHTML = `<div class="modal-content">
+        <p class="story"><span class="emphasis">Thank you for playing</span></p>
+        <p class="story"><a class="modal-logo"><img
+            id="game-reset-button" 
+            src="./src/images/waylon-title.svg" 
+            alt="Waylon game logo"
+          /></a></p>
+        <p class="story">Check out the developer's</p>
+        <p class="story boom emphasis"><a class="modal-link" href="https://matthewgreer.github.io/">portfolio</a></p>
+        <p class="story">or the</p>
+        <p class="story boom emphasis"><a class="modal-link" href="https://github.com/matthewgreer/waylon">WAYLON GitHub</a></p>
+        <p class="story">for more info.</p>
+        <p class="story">If you'd like to keep playing, <span class="emphasis">click the WAYLON logo</span>.</p>
       </div>`;
     this.show();
   };

@@ -77,9 +77,13 @@ class GameView {
   endGame = (predator) => {
     this.clear();
     this.modal.gameOver(predator);
-    this.resetButton = document.getElementById("reset-button");
-    this.freqAnalyzer.audioCtxt.close()
-    .then(this.resetButton.addEventListener("click", this.reset))
+    this.freqAnalyzer.audioCtxt
+      .close()
+      .then(
+        document
+          .getElementById("reset-button")
+          .addEventListener("click", this.reset)
+      );
   };
 
   reset = () => {
@@ -92,7 +96,11 @@ class GameView {
 
   stop = () => {
     this.clear();
-    return this.reset();
+    this.freqAnalyzer.resetFreqAnalyzer();
+    this.modal.gameStop();
+    return document
+      .getElementById("game-reset-button")
+      .addEventListener("click", this.reset);
   };
 
   clear = () => {

@@ -64,7 +64,7 @@ class Orca extends Enemy {
         // OR if this Orca's chest IS beyond Waylon's front
         (this.hitBox.midX <= waylon.hitBox.frontX &&
         // WHILST this Orca's rear is NOT yet beyond Waylon's dorsal fin
-        this.hitBox.rearX >= waylon.hitbox.midRrX)
+        this.hitBox.rearX >= waylon.hitBox.midRrX)
       ) {
         // and if so, check if
         if (

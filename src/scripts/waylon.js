@@ -7,7 +7,16 @@ class Waylon{
     this.freqAnalyzer = options.freqAnalyzer;
     this.position = options.position;
     this.sizeScale = options.sizeScale;
-    this.hitBox = this.calculateHitBox();
+    this.hitBox = {
+      frontX: 0,
+      midFrX: 0,
+      midRrX: 0,
+      rearX: 0,
+      dorsalY: 0,
+      midY: 0,
+      ventralY: 0
+    }
+    this.calculateHitBox();
     this.velocity = options.velocity;
     
     // NOTE: rotation in Canvas is disappointing, and can wreak havoc with my

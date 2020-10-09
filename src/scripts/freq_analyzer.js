@@ -13,7 +13,7 @@ class FreqAnalyzer {
     }
 
     if (navigator.mediaDevices.getUserMedia === undefined) {
-      navigator.mediaDevices.getUserMedia =(constraints) => {
+      navigator.mediaDevices.getUserMedia = (constraints) => {
         const getUserMedia =
           navigator.webkitGetUserMedia ||
           navigator.mozGetUserMedia ||
@@ -46,7 +46,7 @@ class FreqAnalyzer {
 
   getMicStream = () => {
     if (navigator.mediaDevices.getUserMedia) {
-      const constraints = { audio: true };
+      const constraints = { audio: true, video: false };
       navigator.mediaDevices
         .getUserMedia(constraints)
         .then((stream) => {
@@ -96,11 +96,17 @@ class FreqAnalyzer {
   };
 
   resetFreqAnalyzer = () => {
-    if (this.source.mediaStream.active) {};
+    if (this.source.mediaStream.active) {
+      let tracks = this.source.mediaStream.getTracks();
+      tracks.forEach((track) => {
+        track.stop();
+        this.source.mediaStream.removeTrack(track);
+      });
+    };
     this.analyzer = null;
     this.audio = null;
     if (this.audioCtxt.state !== "closed") {
-      this.audioCtxt.close().then();
+      this.audioCtxt.close().then(console.log("Audio Context Closed"));
     }
   };
 };
