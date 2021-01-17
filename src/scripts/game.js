@@ -49,7 +49,6 @@ class Game {
     ctx.fillRect(0, 100, this.dimensions[0], this.dimensions[1]);
 
     this.allObjects().forEach((object) => {
-      debugger
       object.draw(ctx);
     });
   };
@@ -131,7 +130,6 @@ class Game {
 
   moveObjects = (velocityScale) => {
     this.allObjects().forEach((object) => {
-      debugger
       object.move(velocityScale);
     });
   };

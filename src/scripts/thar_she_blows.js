@@ -321,7 +321,6 @@ class TharSheBlows{
     let rainbowEndX = x + 376 * sizeScale;
     let rainbowEndY = 118 * sizeScale;
     let rainbowRadius = 122 * sizeScale;
-    debugger
     const rainbowGradient = ctx.createRadialGradient(
       rainbowStartX,
       0,

@@ -1,5 +1,5 @@
 aside {
-  position: fixed;
+  position: absolute;
   align-items: center;
   justify-content: center;
   z-index: 2;
@@ -13,19 +13,33 @@ aside {
 }
 
 .modal-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  // look to add moving light effect to linear-gradient
-  background-image: linear-gradient($oceanTrough, $modalBlue);
-  margin: auto 20%;
-  padding: 3.5vmin;
-  box-shadow: -1px 10px 2px 1px $shadowBlack;
-  border-radius: 50px;
-  animation-name: zoom;
-  animation-duration: 0.9s;
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.9s;
+  // position: relative;
+  // display: flex;
+  // flex-direction: column;
+  // // look to add moving light effect to linear-gradient
+  // background-image: linear-gradient($oceanTrough, $modalBlue);
+  // margin: auto 20%;
+  // padding: 3.5vmin;
+  // box-shadow: -1px 10px 2px 1px $shadowBlack;
+  // border-radius: 50px;
+  // animation-name: zoom;
+  // animation-duration: 0.9s;
+  // -webkit-animation-name: zoom;
+  // -webkit-animation-duration: 0.9s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(#55f2f7, #46caca);
+    max-height: 98%;
+    min-width: 400px;
+    margin: auto 10vh;
+    padding: 3.5vmin;
+    box-shadow: -1px 10px 2px 1px rgba(0, 0, 0, 0.6);
+    border-radius: 50px;
+    animation-name: zoom;
+    animation-duration: 0.9s;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.9s;
 }
 
 .modal-link {

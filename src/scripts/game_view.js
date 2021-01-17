@@ -66,7 +66,6 @@ class GameView {
   checkPredation = () => {
     for (let i = 0; i < this.game.enemies.length; i++) {
       const predator = this.game.enemies[i];
-      debugger
       if (predator.isEating(this.game.waylon)) {
         this.killer = predator;
         return this.endOfGame = true;
