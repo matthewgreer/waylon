@@ -119,7 +119,7 @@ canvas {
 
 footer {
   width: 100%;
-  height: 10%;
+  height: 9.9%;
   background-color: $deepBlue;
 }
 
@@ -127,6 +127,7 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding-bottom: 5px;
 }
 
 .profile-link {
@@ -150,4 +151,17 @@ footer {
 
 .profile-link-image {
   height: 5vmin;
+}
+
+.copyright-notice {
+color: #fdfdff;
+  font-family: sans-serif;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  font-size: 2vmin;
+  position: relative;
+  padding-left: 2vmin;
+
 }
