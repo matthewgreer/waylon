@@ -49,7 +49,7 @@ class GameView {
   };
 
   animate = (time) => {
-    if (!this.paused) {
+    if (!this.game.paused) {
       const timeDelta = time - this.lastTime;
       this.game.step(timeDelta);
       this.checkPredation();
@@ -123,10 +123,10 @@ class GameView {
 
   resume = () => {
     this.resumeButton.removeEventListener("click", this.resume);
-    this.lastTime = 0;
+    this.lastTime = performance.now();
     this.game.paused = false;
     this.freqAnalyzer.audioCtxt.resume().then(this.modal.close());
-    return this.animate(0);
+    return this.animate(this.lastTime);
   };
 
 };
