@@ -23,8 +23,9 @@ class Enemy {
     // currently, enemies move along a constant depth (y-value)
     // future updates will provide more complex enemy movement
     let offsetX = this.velocity * velocityScale;
-    this.position = [this.position[0] - offsetX, this.position[1]];
-    if (this.hitBox.tailX < 0) {
+    this.position[0] = this.position[0] - offsetX;
+    debugger
+    if ((this.position[0] + this.sizeScale * this.hSize) < 0) {
       return this.game.remove(this);
     }
   };
@@ -32,8 +33,8 @@ class Enemy {
   // This is a collision calculator based on the entire rectangular perimeter of
   //   the enemies and Waylon. It allows a generic function to serve for all
   //   enemy types, but results in some very unrealistic collisions. I have now
-  //   attempted to create more complex collision logic. If that fails, revert
-  //   to this method.
+  //   attempted to create more complex collision logic. If that fails, I'll 
+  //   revert to this method.
 
   // isEating = () => {
   //   if (
