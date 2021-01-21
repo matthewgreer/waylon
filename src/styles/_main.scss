@@ -32,47 +32,36 @@ header {
   justify-content: space-around;
   align-items: center;
   padding: 70px, 10px;
-  // overflow: visible
 }
 
-// #freq-display {
-//   float: left;
-//   padding-left: 10px;
-// }
+.header-section {
+  width: 33.33333333%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-display {
+  font-size: 2.7vim;
+  font-family: Arial, Helvetica, sans-serif;
+  color: $deepBlue;
+}
+
+.score-numbers {
+  color: $waylonWhite;
+  font-weight: 900;
+}
 
 .waylon-logo {
   height: 100%;
   width: auto;
-  transform: translateY(5%);
-  margin-left: 40%; 
-  margin-right: 20%; // reduce if transform button translateX() 
 }
-
-		// 	.waylon-logo-highlight-3:hover {
-		// 	fill:#BBBBBB; <!-- #32669E -->
-		// 	stroke:#FDFDFF;
-		// 	stroke-width:5;
-		// 	stroke-linecap:round;
-		// 	stroke-linejoin:round;
-		// 	stroke-miterlimit:10;
-		// }
-
-		// .waylon-logo-highlight-4:hover {
-		// 	fill:#FDFDFF;  <!-- #000050 -->
-		// 	stroke:#FDFDFF;
-		// 	stroke-width:5;
-		// 	stroke-linecap:round;
-		// 	stroke-linejoin:round;
-		// 	stroke-miterlimit:10;
-		// }
-
-		// .waylon-logo-highlight-5:hover {
-		// 	fill:#FDFDFF;
-		// }
-		// .waylon-logo-highlight-6:hover {
-		// 	display:inline;
-		// 	fill:none;
-		// }
+    
+.stop-pause-buttons-container {
+  display: flex;
+  min-width: 10%;
+}
 
 button {
   display: inline-block;
@@ -91,6 +80,13 @@ button {
 button:hover {
   color: $deepBlue;
   background-color: $oceanHorizon;
+}
+
+#pause-button,
+#stop-button {
+  width: 50%;
+  min-width: 10vw;
+  min-height: 5vh;
 }
 
 #pause-button {

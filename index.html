@@ -18,13 +18,17 @@
 
         <header>
           <!-- <p id="freq-display"></p> -->
-          <div id="score"></div>
-          <img src="./src/images/waylon-title.svg"
+          <div id="score" class="header-section"></div>
+          <div class="header-section">
+            <img src="./src/images/waylon-title-logo.svg"
             class="waylon-logo" 
             alt="Waylon game logo"
-          />
-          <button id="pause-button">Pause</button>
-          <button id="stop-button">Stop</button>
+            />
+          </div>
+          <div class="stop-pause-buttons header-section">
+            <button id="pause-button">Pause</button>
+            <button id="stop-button">Stop</button>
+          </div>
         </header>
 
         <canvas id="canvas"></canvas>

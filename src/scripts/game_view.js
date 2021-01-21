@@ -23,6 +23,7 @@ class GameView {
 
   initialize = () => {
     this.clear();
+    this.score.updateScore();
     this.startButton.addEventListener("click", this.start);
   }
 
