@@ -24,7 +24,6 @@ class Enemy {
     // future updates will provide more complex enemy movement
     let offsetX = this.velocity * velocityScale;
     this.position[0] = this.position[0] - offsetX;
-    debugger
     if ((this.position[0] + this.sizeScale * this.hSize) < 0) {
       return this.game.remove(this);
     }

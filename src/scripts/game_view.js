@@ -1,4 +1,5 @@
 import FreqAnalyzer from "./freq_analyzer";
+import Score from "./score";
 import Modal from "./modal";
 import Waves from "./waves";
 import Waylon from "./waylon";
@@ -8,6 +9,7 @@ class GameView {
     this.ctx = ctx;
     this.game = game;
     this.endOfGame = false;
+    this.score = new Score(this.game);
     this.modal = new Modal();
     this.modal.intro();
     this.modal.show();
@@ -42,6 +44,8 @@ class GameView {
       })
     );
     this.game.spawnTimer();
+    this.game.paused = false;
+    this.game.startProgressTally();
     this.pauseButton.addEventListener("click", this.pause);
     this.stopButton.addEventListener("click", this.stop);
     this.lastTime = 0;
@@ -49,9 +53,10 @@ class GameView {
   };
 
   animate = (time) => {
-    if (!this.game.paused) {
+    if (this.game.paused === false) {
       const timeDelta = time - this.lastTime;
       this.game.step(timeDelta);
+      this.score.updateScore();
       this.checkPredation();
       if (this.endOfGame) {
         return this.endGame(this.killer);
@@ -75,6 +80,7 @@ class GameView {
 
   endGame = (predator) => {
     this.clear();
+    this.game.stopProgressTally();
     this.modal.gameOver(predator);
     this.freqAnalyzer.audioCtxt
       .close()
@@ -86,7 +92,9 @@ class GameView {
   };
 
   reset = () => {
-    this.game.difficulty = 0;
+    // this.game.difficulty = 1;
+    this.game.stopProgressTally();
+    this.game.progressInFeet = 0;
     this.modal.intro();
     document
       .getElementById("start-button")
@@ -104,7 +112,9 @@ class GameView {
 
   clear = () => {
     cancelAnimationFrame(this.animReq);
+    clearInterval(this.game.spawn);
     clearInterval(this.game.tick);
+    this.game.progressInFeet = 0;
     this.game.waylon = [];
     this.game.enemies = [];
     this.game.tharSheBlows = [];
@@ -116,6 +126,7 @@ class GameView {
   pause = () => {
     cancelAnimationFrame(this.animReq);
     this.game.paused = true;
+    this.game.stopProgressTally();
     this.freqAnalyzer.audioCtxt.suspend().then(this.modal.pause());
     this.resumeButton = document.getElementById("resume-button");
     return this.resumeButton.addEventListener("click", this.resume);
@@ -125,6 +136,7 @@ class GameView {
     this.resumeButton.removeEventListener("click", this.resume);
     this.lastTime = performance.now();
     this.game.paused = false;
+    this.game.startProgressTally();
     this.freqAnalyzer.audioCtxt.resume().then(this.modal.close());
     return this.animate(this.lastTime);
   };

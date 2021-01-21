@@ -9,6 +9,7 @@ class Modal {
 
   close = () => {
     this.modal.style.display = "none";
+    
   }
 
   intro = () => {
