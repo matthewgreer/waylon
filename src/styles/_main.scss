@@ -151,12 +151,26 @@ footer {
   opacity: .7;
 }
 
-.profile-link:hover {
-  opacity: 1;
-}
-
 .profile-link-image {
   height: 5vmin;
+  width: auto;
+}
+
+.profile-link-image-hover {
+  height: 0;
+  width: 0;
+}
+
+.profile-link:hover {
+  opacity: 1;
+  .profile-link-image {
+    height: 0;
+    width: 0;
+  }
+  .profile-link-image-hover{
+    height: 5vmin;
+    width: auto;
+  }
 }
 
 .copyright-notice {
