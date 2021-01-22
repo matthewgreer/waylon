@@ -31,7 +31,6 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 70px, 10px;
 }
 
 .header-section {
@@ -43,18 +42,26 @@ header {
 }
 
 .score-display {
-  font-size: 2.7vim;
+  display: flex;
+  width: 80%;
+  font-size: 2.7vmin;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: end;
+}
+
+.score-label {
   color: $orcaEyeDkGray;
 }
 
 .score-numbers {
   color: $deepBlue;
   font-weight: 900;
+  min-width: 25%;
 }
 
 .waylon-logo {
-  height: 100%;
+  transform: translateY(10%);
+  height: 115%;
   width: auto;
 }
     
@@ -84,19 +91,22 @@ button:hover {
 
 #pause-button,
 #stop-button {
-  width: 50%;
-  min-width: 10vw;
+  min-width: 8vw;
   min-height: 5vh;
 }
 
 #pause-button {
   border-bottom-right-radius: 0%; 
   border-top-right-radius: 0%;
+  text-align: right;
+  padding-right: 2%;
 }
 
 #stop-button {
   border-bottom-left-radius: 0%; 
   border-top-left-radius: 0%;
+  text-align: left;
+  padding-left: 2%;
 }
 
 main {
@@ -150,8 +160,8 @@ footer {
 }
 
 .copyright-notice {
-color: #fdfdff;
-  font-family: sans-serif;
+  color: $waylonWhite;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   flex-direction: column;
   align-items: center;
