@@ -35,10 +35,12 @@ class Modal {
       this.show();
   };
 
-  gameOver = (predator) => {
+  gameOver = (predator, progress) => {
+    let distance = progress < 5280 ? `${progress} feet` : `${progress / 5280} miles`;
     this.modal.innerHTML = `<div class="modal-content">
         <p class="story boom emphasis">Oh No!</p>
-        <p class="story">You need to help Waylon avoid</p>
+        <p class="story">You guided Waylon over <span class="emphasis">${distance}</span>, but</p>
+        <p class="story">you need to help Waylon avoid those</p>
         <p class="story">hungry <span class="emphasis">${predator.name}s.</span></p>
         <button id="reset-button" class="modal-button">Try Again</button>
       </div>`;

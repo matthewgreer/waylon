@@ -60,7 +60,7 @@ class GameView {
       this.score.updateScore();
       this.checkPredation();
       if (this.endOfGame) {
-        return this.endGame(this.killer);
+        return this.endGame(this.killer, this.game.progressInFeet);
       } else {
         this.game.draw(this.ctx);
         this.lastTime = time;
@@ -79,10 +79,10 @@ class GameView {
     }
   };
 
-  endGame = (predator) => {
+  endGame = (predator, progress) => {
     this.clear();
     this.game.stopProgressTally();
-    this.modal.gameOver(predator);
+    this.modal.gameOver(predator, progress);
     this.freqAnalyzer.audioCtxt
       .close()
       .then(

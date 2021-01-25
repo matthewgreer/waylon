@@ -120,7 +120,6 @@ class Game {
     };
 
     let enemy;
-    debugger
     switch (enemyType) {
       case "Orca":
         enemy = new Orca(options);
