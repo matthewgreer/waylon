@@ -1,4 +1,4 @@
-<img src="./src/images/waylon-title-logo.png">
+<img src="./src/images/waylon-readme-logo.webp">
 
 ## A JavaScript long-term work-in-progress
 
@@ -10,13 +10,13 @@ This app will utilize the WebAudio API to allow users to interact via their micr
 
 > "Maybe he only speaks whale."<br>
 > "Are you sure you speak whale?"
-##### FINDING NEMO 
+##### FINDING NEMO
 ###### &copy; Walt Disney Pictures
 
 ### Technologies, Libraries, APIs
 * Vanilla JS, HTML, CSS
 * WebAudio API
-* Canvas 
+* Canvas
   * SVG, assisted by Adobe Illustrator
 
 ### Backend Requirements
@@ -34,7 +34,7 @@ This app will utilize the WebAudio API to allow users to interact via their micr
   analyser.smoothingTimeConstant = .5;
   // create buffer array of length 1/2 fftSize
   let audioArray = new Uint8Array(analyser.frequencyBinCount);
-  
+
 
   // get audio stream from user microphone
   if (navigator.mediaDevices.getUserMedia) {
@@ -44,8 +44,8 @@ This app will utilize the WebAudio API to allow users to interact via their micr
       .then((stream) => {
         let source = audioCtxt.createMediaStreamSource(stream);
         source.connect(analyser);
-        // connecting audioCtxt.destination 
-        //   ( analyser.connect(audioCtxt.destination); ) 
+        // connecting audioCtxt.destination
+        //   ( analyser.connect(audioCtxt.destination); )
         // results in speaker output of user audio input, which
         // is confusing at this point. Maybe re-add later.
       })
@@ -87,7 +87,7 @@ This app will utilize the WebAudio API to allow users to interact via their micr
     } else {
       blow.style.opacity = 0;
     };
-    if (currentPosition > 80) { 
+    if (currentPosition > 80) {
       currentPosition = 80;
       currentRotation = 0;
     };
