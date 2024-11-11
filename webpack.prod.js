@@ -28,6 +28,7 @@ module.exports = {
                 { from: 'favicon-16x16.png', to: 'favicon-16x16.png' },
                 { from: 'favicon-32x32.png', to: 'favicon-32x32.png' },
                 { from: 'src/images', to: 'images' },
+                { from: '.nojekyll', to: '.nojekyll' },
             ]
         }),
         new MiniCssExtractPlugin({
