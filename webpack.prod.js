@@ -17,7 +17,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './index.html',
-            inject: 'body',
+            inject: 'true',
         }),
         new CopyWebpackPlugin({
             patterns: [
