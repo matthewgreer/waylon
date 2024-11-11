@@ -26,7 +26,8 @@ module.exports = {
                 { from: 'android-chrome-512x512.png', to: 'android-chrome-512x512.png' },
                 { from: 'apple-touch-icon.png', to: 'apple-touch-icon.png' },
                 { from: 'favicon-16x16.png', to: 'favicon-16x16.png' },
-                { from: 'favicon-32x32.png', to: 'favicon-32x32.png' }
+                { from: 'favicon-32x32.png', to: 'favicon-32x32.png' },
+                { from: 'src/images', to: 'images' },
             ]
         }),
         new MiniCssExtractPlugin({
