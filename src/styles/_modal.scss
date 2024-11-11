@@ -1,3 +1,6 @@
+@use "./colors" as *;
+@use "./fonts" as *;
+
 aside {
   position: absolute;
   align-items: center;
@@ -55,7 +58,7 @@ aside {
   font-size: 5vmin;
   line-height: 7vmin;
   text-transform: uppercase;
-  text-align: center;  
+  text-align: center;
 }
 
 .emphasis {
@@ -87,11 +90,11 @@ aside {
   color: $deepBlue;
   background-color: $skyTop;
   margin: 10px auto 0px;
-  font-size: calc(8px * 1vh);
+  font-size: calc(8px + 1vh);
   width: 16vw;
   min-width: 168px;
   height: 4vw;
-  max-width: 36vh; 
+  max-width: 36vh;
   max-height: 9vh;
 }
 
@@ -117,11 +120,11 @@ aside {
 }
 
 @keyframes zoom {
-  from {transform:scale(0)} 
+  from {transform:scale(0)}
   to {transform:scale(1)}
 }
 
 @-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)} 
+  from {-webkit-transform:scale(0)}
   to {-webkit-transform:scale(1)}
 }

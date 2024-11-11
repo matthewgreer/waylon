@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="stylesheet" href="./dist/main.css" />
     <title>WAYLON</title>
   </head>
 
@@ -20,8 +19,8 @@
           <!-- <p id="freq-display"></p> -->
           <div id="score" class="header-section"></div>
           <div class="header-section">
-            <img src="./src/images/waylon-title-logo.svg"
-            class="waylon-logo" 
+            <img src="/images/waylon-title-logo.svg"
+            class="waylon-logo"
             alt="Waylon game logo"
             />
           </div>
@@ -32,7 +31,6 @@
         </header>
 
         <canvas id="canvas"></canvas>
-        
         <aside id="modal">
           <!-- eventually, modal will be separated into click-through panels -->
           <!--  with cute animation to support the storytelling -->
@@ -54,58 +52,55 @@
               </ul>
             </div> -->
           </aside>
-          
         </main>
 
       <footer>
         <ul class="profile-link-list">
           <a class="profile-link" href="https://matthewgreer.github.io/" target=" ">
             <li class="profile-list-item">
-              <img src="./src/images/mg-net-link-icon.png"
-                class="profile-link-image"
+              <img src="/images/mg-net-link-icon.png"
+                class="profile-link-image mg-net-link-icon"
                 alt="MatthewGreer.net Logo"
               />
-              <img src="./src/images/mg-net-link-icon-hover.png"
-                class="profile-link-image-hover"
+              <img src="/images/mg-net-link-icon-hover.png"
+                class="profile-link-image-hover mg-net-link-icon-hover"
                 alt="MatthewGreer.net Logo"
               />
             </li>
           </a>
           <a class="profile-link" href="https://github.com/matthewgreer/waylon" target=" ">
             <li class="profile-list-item">
-              <img src="./src/images/github-icon.png"
-                class="profile-link-image"
-                alt="GitHub Octocat Logo" 
+              <img src="/images/github-icon.png"
+                class="profile-link-image github-icon"
+                alt="GitHub Octocat Logo"
               />
             </li>
             <li class="profile-list-item">
-              <img src="./src/images/github-icon-hover.png"
-                class="profile-link-image-hover"
-                alt="GitHub Octocat Logo" 
+              <img src="/images/github-icon-hover.png"
+                class="profile-link-image-hover github-icon-hover"
+                alt="GitHub Octocat Logo"
               />
             </li>
           </a>
           <a class="profile-link" href="https://www.linkedin.com/in/matthewgreerdev/" target=" ">
             <li class="profile-list-item">
-              <img src="./src/images/linkedin-icon.png" 
-                class="profile-link-image"
-                alt="LinkedIn Logo" 
+              <img src="/images/linkedin-icon.png"
+                class="profile-link-image linkedin-icon"
+                alt="LinkedIn Logo"
               />
             </li>
             <li class="profile-list-item">
-              <img src="./src/images/linkedin-icon-hover.png" 
-                class="profile-link-image-hover"
-                alt="LinkedIn Logo" 
+              <img src="/images/linkedin-icon-hover.png"
+                class="profile-link-image-hover linkedin-icon-hover"
+                alt="LinkedIn Logo"
               />
             </li>
           </a>
         </ul>
-        
         <div class="copyright-notice">&copy;2021 Matthew Greer. All rights reserved.</div>
       </footer>
 
     </div><!-- maintain-aspect-ratio -->
-      
   </body>
-  <script src="./dist/main.js"></script>
+  <script src="bundle.js"></script>
 </html>

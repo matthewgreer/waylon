@@ -9,7 +9,6 @@ class Modal {
 
   close = () => {
     this.modal.style.display = "none";
-    
   }
 
   intro = () => {
@@ -48,7 +47,7 @@ class Modal {
   };
 
   pause = () => {
-    this.modal.innerHTML = 
+    this.modal.innerHTML =
       `<div class="modal-content">
         <button id="resume-button" class="modal-button">Resume</button>
       </div>`;
@@ -59,8 +58,8 @@ class Modal {
     this.modal.innerHTML = `<div class="modal-content">
         <p class="story"><span class="emphasis">Thank you for playing</span></p>
         <p class="story"><a class="modal-logo"><img
-            id="game-reset-button" 
-            src="./src/images/waylon-title.svg" 
+            id="game-reset-button"
+            src="/images/waylon-title-logo.svg"
             alt="Waylon game logo"
           /></a></p>
         <p class="story">Check out the developer's</p>
