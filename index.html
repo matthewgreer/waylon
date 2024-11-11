@@ -10,13 +10,11 @@
     <link rel="manifest" href="site.webmanifest">
     <title>WAYLON</title>
   </head>
-
   <body>
     <div class="maintain-aspect-ratio">
       <main>
-
         <header>
-          <!-- <p id="freq-display"></p> -->
+          <!-- <p id="freq-display"></p> --><!-- for debugging, displays current sound freq -->
           <div id="score" class="header-section"></div>
           <div class="header-section">
             <img src="images/waylon-title-logo.svg"
@@ -29,31 +27,9 @@
             <button id="stop-button">Stop</button>
           </div>
         </header>
-
         <canvas id="canvas"></canvas>
-        <aside id="modal">
-          <!-- eventually, modal will be separated into click-through panels -->
-          <!--  with cute animation to support the storytelling -->
-          <!-- <span id="close">x</span> -->
-          <!-- <div class="modal-content">
-            <p class="story">As they began their 5,000 mile seasonal migration from tropical calving waters to their polar feeding zone...</p>
-            <p class="story boom emphasis">Boom!</p>
-            <p class="story">...<span class="emphasis">PetroChem, Inc.'s seismic blasting</span> stunned and disoriented a pod of humpback whales.
-              By the time their ears had recovered poor baby <span class="emphasis">WAYLON</span>'s Momma was nowhere to be seen.</p><br />
-              <p class="story"><span class="emphasis">Speak Whale to guide baby WAYLON along the dangerous journey to the safety of Momma's shadow.</span></p><br />
-              <p class="instructions-heading emphasis">Instructions:</p>
-              <ul class="instructions-list">
-                <li class="instructions-text">If asked, please <span class="emphasis">allow the game to access your microphone</span> during play.</li>
-                <li class="instructions-text"><span class="emphasis">Use your voice</span> to control WAYLON's movement.</li>
-                <li class="instructions-text">If you've seen the movie about the missing clownfish, you may already have some idea how to <span class="emphasis">speak Whale</span>. If not, here are the basics:</li>
-                <li class="instructions-text"><span class="emphasis">Rising pitches</span> (low to high on a musical scale) tell WAYLON to <span class="emphasis">swim upwards.</span></li>
-                <li class="instructions-text"><span class="emphasis">Descending pitches</span> (high to low on a musical scale) tell WAYLON to <span class="emphasis">dive downwards.</span></li>
-                <li class="instructions-text"><span class="emphasis">NOTE: WAYLON</span> responds to <span class="emphasis">pitch, not volume</span>. Yelling at baby whales is unkind and counterproductive.</li>
-              </ul>
-            </div> -->
-          </aside>
-        </main>
-
+        <aside id="modal"></aside>
+      </main>
       <footer>
         <ul class="profile-link-list">
           <a class="profile-link" href="https://matthewgreer.github.io/" target=" ">
@@ -84,7 +60,7 @@
           </a>
           <a class="profile-link" href="https://www.linkedin.com/in/matthewgreerdev/" target=" ">
             <li class="profile-list-item">
-              <img src="/images/linkedin-icon.png"
+              <img src="images/linkedin-icon.png"
                 class="profile-link-image linkedin-icon"
                 alt="LinkedIn Logo"
               />
@@ -99,7 +75,6 @@
         </ul>
         <div class="copyright-notice">&copy;2021 Matthew Greer. All rights reserved.</div>
       </footer>
-
     </div><!-- maintain-aspect-ratio -->
   </body>
 </html>
