@@ -11,7 +11,7 @@ module.exports = {
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        publicPath: '/',
+        publicPath: './',
     },
     plugins: [
         new CleanWebpackPlugin(),
