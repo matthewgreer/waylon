@@ -1,3 +1,5 @@
+@use "./colors" as *;
+
 body {
   display: flex;
   flex-direction: column;
@@ -11,10 +13,10 @@ body {
   padding-bottom: 5vh;
 }
 
-.maintain-aspect-ratio { 
+.maintain-aspect-ratio {
   // position: absolute;
-  width: 100vw; 
-  max-width: 120vh; 
+  width: 100vw;
+  max-width: 120vh;
   max-height: 99vh;
   height: 82.5vw;
   margin: auto;
@@ -64,7 +66,7 @@ header {
   height: 115%;
   width: auto;
 }
-    
+
 .stop-pause-buttons-container {
   display: flex;
   min-width: 10%;
@@ -96,14 +98,14 @@ button:hover {
 }
 
 #pause-button {
-  border-bottom-right-radius: 0%; 
+  border-bottom-right-radius: 0%;
   border-top-right-radius: 0%;
   text-align: right;
   padding-right: 2%;
 }
 
 #stop-button {
-  border-bottom-left-radius: 0%; 
+  border-bottom-left-radius: 0%;
   border-top-left-radius: 0%;
   text-align: left;
   padding-left: 2%;

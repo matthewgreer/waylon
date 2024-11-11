@@ -1,9 +1,5 @@
-@import "./reset.scss";
-@import "./colors.scss";
-
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Indie+Flower&display=swap');
-@import "./fonts.scss";
-
-@import "./main.scss";
-@import "./modal.scss";
-
+@use "./reset.scss";
+@use "./colors.scss";
+@use "./fonts.scss";
+@use "./main.scss";
+@use "./modal.scss";
