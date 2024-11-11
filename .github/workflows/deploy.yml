@@ -32,6 +32,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          clean: true
 
       - name: List contents of deployment directory
         run: ls -la /home/runner/actions_github_pages_*
