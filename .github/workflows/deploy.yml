@@ -28,9 +28,6 @@ jobs:
       - name: Build the project
         run: npm run build
 
-      - name: List contents of dist directory
-        run: ls -la ./dist
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -39,11 +36,3 @@ jobs:
           publish_branch: gh-pages
           enable_jekyll: false
           cname: waylon.app
-
-      - name: Verify files in the gh-pages branch
-        run: |
-          git fetch origin gh-pages
-          git ls-tree -r origin/gh-pages --name-only
-
-      - name: List contents of deployment directory
-        run: ls -la /home/runner/actions_github_pages_*
