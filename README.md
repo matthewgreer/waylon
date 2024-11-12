@@ -165,3 +165,5 @@ This app will utilize the WebAudio API to allow users to interact via their micr
   * Translation: "Breathing is for chumps!"
   * Translation: CENSORED
 * "Embarrassment-Free Mode" - with button controls (in case people around user are staring at them as they make whale noises)
+
+ugh this thing has gotten so screwed up
