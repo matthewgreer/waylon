@@ -35,8 +35,9 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: main
           enable_jekyll: false
-          publish_branch: gh-pages
+          cname: waylon.app
 
       - name: Verify files in the gh-pages branch
         run: |
