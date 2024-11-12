@@ -36,6 +36,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           enable_jekyll: false
+          publish_branch: gh-pages
 
       - name: Verify files in the gh-pages branch
         run: |
